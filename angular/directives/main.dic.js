@@ -1,0 +1,1 @@
+/* angular/directives/ -> main.dic.js file */
