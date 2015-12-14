@@ -1,1 +1,1 @@
-/* angular/router/ -> router.js file, /* Router file */ */
+/* angular/router/ -> router.js file, /* Router file */

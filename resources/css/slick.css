@@ -1,6 +1,5 @@
 /* Slider */
-.slick-slider
-{
+.slick-slider {
     position: relative;
 
     display: block;
@@ -20,8 +19,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-.slick-list
-{
+.slick-list{
     position: relative;
 
     display: block;
@@ -30,6 +28,20 @@
     margin: 0;
     padding: 0;
 }
+
+.slick-text{
+    position: absolute;
+    top: 50%;
+    color: #EEE;
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    margin-left: 70px;
+}
+
 .slick-list:focus
 {
     outline: none;
@@ -116,4 +128,26 @@
 }
 .slick-arrow.slick-hidden {
     display: none;
+}
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
 }
