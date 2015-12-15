@@ -9,7 +9,15 @@
 */
 
 // App
-var app = angular.module('basetech', ['ngRoute', 'ngStorage', 'ngSanitize', 'slick']).run(function ($templateCache, $http) {
+var modules = [
+                'ngRoute',
+                'ngStorage',
+                'ngSanitize',
+                'slick',
+                'jsonService',
+            ];
+
+var app = angular.module('basetech', modules).run(function ($templateCache, $http) {
     $http.get('templates/menu.html', {
         cache: $templateCache
     });

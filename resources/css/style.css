@@ -94,7 +94,7 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-ul{margin: 0}  /*ul get margin from Bootstrap*/
+ul{margin: 0;padding: 0}  /*ul get margin from Bootstrap*/
 
 html,body{
     width: 100%;
@@ -323,6 +323,7 @@ button:focus{
 07. Contact Form
 08. Product List Page
 09. Product View
+10. Style For Product List
 ========================================================================*/
 
 /*===================================
@@ -388,6 +389,9 @@ header{}
 
 .toggol-menu{
     cursor: pointer;
+    padding: 10px;
+    background: rgba(0,0,0,.2);
+    color: #bcbeco;
 }
 
 /*===================================
@@ -514,7 +518,7 @@ section .area{
 
 /*CONTACT US NAVIGATION*/
 .contact-us-nav{
-    background: rgba(0,0,0,.6);
+    background:rgba(14, 17, 30, .8);
     height: 60px;
     position: relative;
     left: 0;
@@ -598,7 +602,7 @@ section .area{
     margin-right: 0;
     float: left;
     border-right: solid rgba(255,255,255,.4) 1px !important;
-    border-bottom: solid rgba(255,255,255,.4) 1px !important;
+    /*border-bottom: solid rgba(255,255,255,.4) 1px !important;*/
     padding: 0 20px 17px;
 }
 
@@ -671,7 +675,7 @@ section .area{
     position: absolute;
     bottom: 0;
     width: 100%;
-    background:rgba(35, 31, 32, 0.8);
+    background:rgba(0, 0, 0, .9);
     height: calc(100% - 28% - 145px);
     color: #BCBEC0;
 }
@@ -754,7 +758,10 @@ section .area{
 
 #map1 iframe{height: 100%; padding-bottom: 30px}
 
+/*Contact Us Page*/
 #sform{}
+
+#sform h3{color: #0195c5}
 
 #sform label,
 #sform input,
@@ -762,11 +769,26 @@ section .area{
     background: transparent;
     width: 50%;
 }
-#sform input{
-    border: solid 1px #000;
+#sform label{
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
 }
+#sform input{}
+
+#sform input,
+#sform textarea{
+    border: 1px solid rgba(255,255,255,.5);
+    padding: 6px 8px;
+    resize: none;
+}
+
 #sform input[type="submit"]{
     width: auto;
+    border: none;
+    background: #0195c5;
+    color: #fff;
+    font-size: 12px;
 }
 
 /*===================================
@@ -783,7 +805,6 @@ section .area{
     z-index: 600;
     background:rgba(51,62,58,.95);
     top: -100%;
-    display: block;
 }
 
 .menu-view{
@@ -820,7 +841,7 @@ section .area{
     width: 33.3333%;
     height: 100%;
     float: left;
-    padding-top: 4%;
+    padding-top: 9%;
 }
 
 .menu-footer{
@@ -856,7 +877,7 @@ section .area{
 }
 .first-column-active,
 .first-column a:hover,
-.first-column a:active{color:#FDB64E !important;}
+.first-column a:active{color:#FCB64E !important;}
 
 .menu-list:first-child{
     padding-left: 2%;
@@ -889,11 +910,19 @@ section .area{
     margin-bottom: 20px;
     box-sizing: border-box;
     height: 20px;
+    background: url("") no-repeat;
+    padding-left: 20px;
 }
 
-.menu-list li::before{
-    background: url("../img/munu-li-arrow.png") no-repeat -20px auto;
+.menu-list li:hover{background: url("../img/munu-li-arrow.png") no-repeat;}
+
+/*
+.menu-list li:before{
+ /!*   background: url("../img/munu-li-arrow.png") no-repeat -20px auto;*!/
+    content: "";
+    position:absolute;
 }
+*/
 
 
 .menu-list a{
@@ -901,7 +930,7 @@ section .area{
     font-weight: 700;
 }
 
-.menu-list a::before{
+.menu-list a::after{
     content: "";
     background: red;
     width: 8px;
@@ -966,9 +995,8 @@ section .area{
 .mobile-social li:first-child{padding-left:0}
 .mobile-social li:last-child{padding-right:0;}
 
-.mobile-social a{
-    color: #fff;
-}
+.mobile-social a{color: #fff;}
+.mobile-social a:hover{color: #fbb64f;}
 
 .mobile-search input{float: left;}
 
@@ -1023,7 +1051,7 @@ section .area{
     list-style: none;
     position: relative;
     padding: 0;
-    top: 4%;
+    top: -12%;
 }
 
 .breadcrumbs li{
@@ -1087,6 +1115,8 @@ section .area{
     border-bottom: solid 1px rgba(0,0,0,.09);
 }
 
+.product-view-result-ul li:hover{background-color:rgba(243, 243, 245,.6)}
+
 .list-result-text{
     color: #8A8A8C;
     width: 85%;
@@ -1104,8 +1134,10 @@ section .area{
     font-weight: 400;
 }
 
+.product-list-li-wpr h3{font-weight: 700}
+
 .product-list-li-wpr h4{
-    color: #000;
+    color: #24acd4;
     margin-top:40px;
     letter-spacing: 1px;
     font-weight: 700;
@@ -1120,6 +1152,7 @@ section .area{
 .detalis-text-wpr{
     padding-right: 10%;
     line-height:20px;
+    padding-left: 35px;
 }
 
 .list-plus-btn{
@@ -1131,7 +1164,7 @@ section .area{
     text-align: center;
     vertical-align: middle;
     position: absolute;
-    top: 0;
+    top: 15px;
     right: 0;
 }
 
@@ -1191,13 +1224,38 @@ section .area{
 .product-nav li{
     border-right: solid 1px red;
     float: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .product-nav li:last-child{border-right: solid 1px transparent}
+
+/*======================================
+       10. Style For Product List
+======================================*/
+.main-product-wrapper{height: 100%;width: 100%; float: left}
+.product-wrapper{}
+.product-home-page-wrapper{
+    height:100%;
+    width: 100%;
+    position: absolute;
+    display: table-cell;
+}
+
+.product-list-row{height: 100%}
+.product-list-row .area{height: 100%;background-size: cover}
 
 
 /*===================================================================================================
                                  Responsive Style Area
 ===================================================================================================*/
+
+/*Default Screen*/
+@media (max-width: 480px) {
+.upper-btn{font-size: 44px;}
+
+}
+
+/*Default Screen*/
 @media (max-width: 600px) {
     .logo img{width: 100%}
     .area{width: 100%}

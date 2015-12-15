@@ -83,7 +83,11 @@
             </section><!--#contact-us-->
         </div><!--#fullpage-->
         
-        <div id="main-view" ng-view></div>
+        <div id="main-view">
+            <div class="container-fluid product-home-page-wrapper">
+                <div class="row product-list-row" ng-view></div>
+            </div>
+        </div><!--#Main View-->
 
         <!--JavaScript-->
         <script src="resources/js/jquery-2.1.4.min.js"></script>
@@ -96,6 +100,7 @@
 
         <script src="angular/core/angular.min.js"></script>
         <script src="angular/core/angular-route.min.js"></script>
+        <script src="angular/core/angular-resource.min.js"></script>
         <script src="angular/core/angular-animate.min.js"></script>
         <script src="angular/core/angular-cookies.min.js"></script>
         <script src="angular/core/angular-sanitize.min.js"></script>

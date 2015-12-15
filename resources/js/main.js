@@ -8,27 +8,35 @@ $(document).ready(function(){
         slideSelector: '.slide'
     });*/
     
-    // Open Menu
+    // Menu open button
     $(document).on("click",".toggol-menu",function(){
-        $(".main-menu-wpr").toggleClass("menu-view");
-        $('.nav-icon').css('opacity', '0');
-        
-        new WOW({
-            boxClass:     'wow',     
-            animateClass: 'animated',
-            offset:       0,    
-            mobile:       true,      
-            live:         true 
-        }).init();
+        openMenu();
     });
     
-    // Close Menu
+    // Menu close button
     $(document).on("click",".menu-cross",function(){
-        $(".nav-icon").toggleClass("barg-o-one");
-        $('.nav-icon').css('opacity', '1');
+        closeMenu();
     });
-
+    
 });
+
+var openMenu = function(){
+    $(".main-menu-wpr").toggleClass("menu-view");
+        $('.nav-icon').css('opacity', '0');
+        
+    new WOW({
+        boxClass:     'wow',     
+        animateClass: 'animated',
+        offset:       0,    
+        mobile:       true,      
+        live:         true 
+    }).init();
+}
+
+var closeMenu = function(){
+    $(".nav-icon").toggleClass("barg-o-one");
+    $('.nav-icon').css('opacity', '1');
+}
 
 angular.element('#home').ready(function(){
     $('#fullpage').fullpage({
