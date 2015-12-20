@@ -13,7 +13,7 @@
     <div class="menu-item-view-area tab-content">
         <div id="Menu-{{$index+1}}" class="menu-item-view-area-wrp tab-pane fade in active" data-ng-repeat="item in pages">
             <div class="menu-column menu-list" data-ng-repeat="(key, subpage) in item.child_pages" data-ng-hide="key=='menu'">
-                <h4>{{subpage.page_data.page_title}}</h4>
+                <h4><a href="{{item.page_data.page_slug}}/{{subpage.page_data.page_slug}}">{{subpage.page_data.page_title}}</a></h4>
                 <div class="border-bottom">&nbsp;</div>
                 <ul>
                     <li data-ng-repeat="link in subpage.child_pages"><a href="{{item.page_data.page_slug}}/{{subpage.page_data.page_slug}}/{{link.page_data.page_slug}}">{{link.page_data.page_title}}</a></li>

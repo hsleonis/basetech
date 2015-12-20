@@ -99,6 +99,7 @@ ul{margin: 0;padding: 0}  /*ul get margin from Bootstrap*/
 html,body{
     width: 100%;
     height:100%;
+    overflow: hidden;
 }
 
 a{color: inherit}
@@ -414,9 +415,10 @@ section{height: 100%}
 .contact-us-home-page-wrapper{height:100%;position: relative;}
 
 section .area{
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
+    background-size:cover;
+    background-color:#B4968A;
+    background-repeat:no-repeat;
+    height:100%;
 }
 
 .upper-btn{
@@ -771,6 +773,7 @@ section .area{
 }
 #sform label{
     color: #fff;
+
     font-weight: 300;
     font-size: 14px;
 }
@@ -837,6 +840,7 @@ section .area{
     float: left;
 }
 
+
 .menu-column{
     width: 33.3333%;
     height: 100%;
@@ -896,6 +900,10 @@ section .area{
     font-weight: 700;
 }
 
+.menu-list h4 a{
+    color: #B1B635;
+}
+
 .menu-list ul{
     list-style: none;
     padding: 0;
@@ -906,24 +914,17 @@ section .area{
     margin: 0 19%;
 }
 
+.menu-list ul{margin-left: 20px}
+
 .menu-list li{
     margin-bottom: 20px;
     box-sizing: border-box;
-    height: 20px;
     background: url("") no-repeat;
-    padding-left: 20px;
+    padding-left: 17%;
 }
 
+.menu-li-active,
 .menu-list li:hover{background: url("../img/munu-li-arrow.png") no-repeat;}
-
-/*
-.menu-list li:before{
- /!*   background: url("../img/munu-li-arrow.png") no-repeat -20px auto;*!/
-    content: "";
-    position:absolute;
-}
-*/
-
 
 .menu-list a{
     color: #BCBEC0;
@@ -1084,7 +1085,11 @@ section .area{
 .product-list-li-wpr{
     width: 100%;
     overflow: hidden;
-    height: 540px;  /*Dynamic height*/
+    height: calc(100% - 170px);  /*Dynamic height*/
+    height: -moz-calc(100% - 170px);
+    height: -webkit-calc(100% - 170px);
+    height: -ms-calc(100% - 170px);
+    height: -o-calc(100% - 170px);
     float: left;
 }
 
@@ -1093,8 +1098,7 @@ section .area{
     width: 80px;
     min-height: 75px;
     background: #F3F3F5;
-    margin-right: 15px;
-    margin-bottom: 20px;
+    margin: 15px 15px 20px;
 }
 
 .product-img-box img{
@@ -1124,6 +1128,8 @@ section .area{
     line-height: 11px;
     font-weight: 400;
 }
+
+.list-result-text h3{margin-top: 15px;display: inline-block;}
 
 .product-list-li-wpr h3,.product-list-li-wpr h4{
     text-transform: uppercase;
@@ -1183,11 +1189,11 @@ section .area{
 }
 
 .breadcrumbs{
-    width: 100%;
-    margin-top: 50px;
+    width: auto;
+    margin-top: 125px;
+    margin-right: 60px;
     float: right;
     text-align: right;
-    padding-right: 6%;
     color: #D7D8DA;
 }
 
@@ -1202,10 +1208,11 @@ section .area{
     padding:0 10px 0 0;
     color: #D7D8DA;
     text-transform: uppercase;
+    font-size: 11px;
 }
 
 .breadcrumbs li::after{
-    content: " <  ";
+    content: " >  ";
 }
 
 .breadcrumbs li:last-child{padding-right: 0}
@@ -1213,25 +1220,170 @@ section .area{
 /*Product View Menu*/
 .product-nav{
     width: 100%;
+    float: left;
+    border-bottom: 2px solid rgba(0,0,0,.08);
 }
 
 .product-nav ul{
     list-style: none;
     width: 100%;
-    border-bottom: solid red 1px;
 }
 
+.product-nav li:first-child{padding-left: 0}
+
 .product-nav li{
-    border-right: solid 1px red;
+    border-right: 2px solid rgba(0,0,0,.08);
     float: left;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px 21px 5px;
 }
 .product-nav li:last-child{border-right: solid 1px transparent}
 
-/*======================================
-       10. Style For Product List
-======================================*/
+.product-nav a{
+    font-weight: 700;
+    color: #A6A9AB;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.product-nav-active,
+.product-nav a:hover{color: #000}
+
+.product-wrp-area{
+    padding-top: 24px;
+}
+
+.product-wrp-area:last-child{padding-left: 35px}
+
+.product-img-v-board{margin-bottom: 12px; overflow: hidden;height: 280px;}
+
+.img-ul-list{}
+
+.img-ul-list ul{
+    list-style: none;
+}
+
+.img-ul-list li{
+    float: left;
+    margin-right: 7px;
+    overflow: hidden;
+    width: 70px;
+}
+
+
+.img-ul-list li:hover{
+    opacity: .5;
+}
+
+.img-ul-list li:last-child{margin: 0}
+
+.product-wpr-right{
+    float: left;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 30px;
+    border-bottom: solid 1px rgba(0,0,0,.11);
+}
+
+.product-wrp-area h4{
+    text-transform: capitalize;
+    color: #1A94C3;
+    font-weight: 700;
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.product-social-area ul{list-style: none}
+
+.product-social-area li{
+    float: left;
+}
+
+
+.product-content{
+    height: 70px;
+    overflow: hidden;
+}
+
+.product-content p{
+    color: #A9AAAD;
+    font-size: 11px;
+    line-height: 12px;
+}
+
+.product-wrp-area span{
+    font-size: 11px;
+    margin: 0px auto 18px;
+    display: inline-block;
+}
+
+.product-page-btn{
+    width: 250px;
+    background-color: #1A94C3;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 9px 0;
+}
+
+.product-social-area{
+    width: 250px;
+    border: 1px solid rgba(0, 0, 0, .06);
+    color: #1A94C3;
+    display: block;
+    padding: 9px 0;
+    height: 40px;
+}
+
+.product-social-area ul{
+    list-style: none;
+    margin-left: 50px;
+}
+.product-social-area li{
+    float: left;
+    padding: 0 8px;
+    font-size: 13px;
+}
+
+.product-left-right{}
+
+.product-left-right ul{
+    list-style: none;
+}
+
+.product-left-right li{
+    float: left;
+}
+
+.product-left-right-arrow{
+    bottom: 3px;
+    position: absolute;
+    right: 0;
+}
+
+.product-left-right-arrow ul{
+    width: 75px;
+    list-style: none;
+    float: right;
+    border: 1px solid rgba(0, 0, 0, .06);
+}
+
+.product-left-right-arrow li{
+    float: left;
+    width: 50%;
+    height: 35px;
+}
+.product-left-right-arrow a{padding: 12px 15px;float: left}
+.product-left-right-arrow a:hover{
+    background: #CCCCCC;
+}
+
+.product-btn-area{position: relative}
+
+    /*======================================
+           10. Style For Product List
+    ======================================*/
 .main-product-wrapper{height: 100%;width: 100%; float: left}
 .product-wrapper{}
 .product-home-page-wrapper{
@@ -1244,6 +1396,14 @@ section .area{
 .product-list-row{height: 100%}
 .product-list-row .area{height: 100%;background-size: cover}
 
+.wpr-page-view{
+    width: calc(100% - 12%);
+    width: -webkit-calc(100% - 12%);
+    width: -moz-calc(100% - 12%);
+    width: -o-calc(100% - 12%);
+    width: -ms-calc(100% - 12%);
+    margin: 0 auto;
+}
 
 /*===================================================================================================
                                  Responsive Style Area
@@ -1253,6 +1413,8 @@ section .area{
 @media (max-width: 480px) {
 .upper-btn{font-size: 44px;}
 
+.first-column a{font-size: 16px}
+
 }
 
 /*Default Screen*/
@@ -1261,15 +1423,24 @@ section .area{
     .area{width: 100%}
 
     .product-row .area{width: 100%; height: 50%}
+
+    .product-wrp-area{width: 100% !important;}
 }
 
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 768px){
+    .first-column{width: 50%}
+    .menu-item-view-area{width: 50%}
+    .menu-item-view-area,
+    .menu-item-view-area-wrp{overflow: hidden}
+    .menu-item-view-area-wrp .menu-list{width: 100%}
 
 }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px){}
+@media (max-width: 992px){
+    .menu-column{padding-top: 64px}
+}
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px){}

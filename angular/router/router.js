@@ -2,12 +2,16 @@
 app.config(function($routeProvider,$locationProvider) {
     $routeProvider
     .when('/', {
-        templateUrl : 'templates/listview.html',
+        templateUrl : 'templates/blank.html',
         controller  : 'mainController'
     })
     .when('/:page/:subpage', {
         templateUrl : 'templates/listview.html',
         controller  : 'listController'
+    })
+    .when('/projects/:subpage/:detail', {
+        templateUrl : 'templates/project.html',
+        controller  : 'projectController'
     })
     .when('/:page/:subpage/:detail', {
         templateUrl : 'templates/detail.html',

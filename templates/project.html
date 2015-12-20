@@ -1,0 +1,74 @@
+<div class="white-bg">
+<div class="wpr-page-view">
+                    <div class="breadcrumbs">
+                        <h3>PROJECTS</h3>
+                        <ul>
+                            <li>HOME</li>
+                            <li>SOLUTIONS</li>
+                            <li>{{subTitle}}</li>
+                            <li>{{detTitle}}</li>
+                        </ul>
+                    </div><!--.breadcrumbs-->
+
+                    <div class="product-nav">
+                        <ul>
+                            <li data-ng-repeat="item in page.child_pages">
+                                <a href="{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{item.page_data.page_slug}}">{{item.page_data.page_title}}</a>
+                            </li>
+                        </ul>
+                    </div><!--.product-nav-->
+
+                    <div class="col-xs-3 product-wrp-area">
+                        <div class="row">
+                            <div class="product-img-v-board wow fadeIn">
+                                <img src="{{detPage.page_banner}}" alt="#" class="img-responsive"/>
+                            </div><!--.product-img-v-board-->
+                            <div class="img-ul-list">
+                                <ul>
+                                    <li data-ng-repeat="img in detPage.page_images"><a href="#"><img src="{{img.image}}" alt="{{detTitle}}" class="img-responsive"/></a></li>
+                                </ul>
+
+                            </div><!--.img-ul-list-->
+                        </div>
+                    </div>
+                    <div class="col-xs-9 product-wrp-area">
+                        <div class="row">
+                            <div class="product-wpr-right">
+                                <h4 class="wow fadeIn">{{detTitle}}</h4>
+                                <div class="product-content">
+                                    <p class="wow fadeIn">
+                                        {{detPage.page_data.page_desc}}
+                                    </p>
+                                </div><!--.product-content-->
+                                <span>
+                                    please fill enquiry form for details
+                                </span>
+
+                                <div class="container-fluid product-btn-area">
+                                    <div class="row">
+                                        <a href="{{homeURL}}">
+                                            <div class="product-page-btn">
+                                                ENQUIRY
+                                            </div>
+                                        </a>
+                                        <div class="product-social-area">
+                                            <ul>
+                                                <li>Share</li>
+                                                <li><a href="https://www.facebook.com/sharer/sharer.php?u={{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}" target="_blank"><i class="sprite sprite-social-fb-color"></i></a></li>
+                                                <li><a href="https://twitter.com/home?status={{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}" target="_blank"><i class="sprite sprite-social-tw-color"></i></a></li>
+                                                <li><a href="https://plus.google.com/share?url={{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}" target="_blank"><i class="sprite sprite-social-gw-color"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product-left-right-arrow">
+                                            <ul>
+                                                <li><a href="#"><i class="sprite sprite-arrow-product-left"></i> </a> </li>
+                                                <li><a href="#"><i class="sprite sprite-arrow-product-right"></i> </a> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div><!--.container-->
+                            </div><!--.product-wpr-right-->
+                        </div><!--.row-->
+                    </div><!--.product-wrp-area-->
+                </div><!--.wpr-page-view-->
+</div>

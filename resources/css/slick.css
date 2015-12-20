@@ -155,12 +155,33 @@
 
 /********** Custom ***********/
 #main-view {
-    background: #FFF;
+    /*background: #FFF;*/
     position: absolute;
     height: 100%;
     width: 100%;
     display: table;
     z-index: -1;
     opacity: 0;
-    top: 100px;
+    left: 100px;
+    top: 0;
+}
+
+#home-page *{
+    height: 100% !important;
+}
+
+.product-view-area {
+    background: #FFF;
+}
+
+.white-bg {
+    background: #FFF;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.product-banner,
+.detail-banner {
+    background-color: #333;
 }

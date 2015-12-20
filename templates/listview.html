@@ -1,29 +1,31 @@
-<div class="col-xs-6 area" style="background-image: url({{page.page_banner}});">
+<div class="col-xs-6 product-banner area wow fadeIn" style="background-image: url({{page.page_banner}});">
     <div class="page-title-text">
         <h2>{{subTitle}}</h2>
         <span>{{company}}</span>
     </div><!--.page-title-text-->
 </div>
 
-<div class="col-xs-6 area product-view-area" style="">
-    <a href="#">
+<div class="col-xs-6 area product-view-area wow fadeIn" style="">
+    <a href="{{homeURL}}">
         <div class="list-close"><i class="sprite sprite-close-green"></i></div>
     </a>
     <ul class="breadcrumbs">
-        <li>HOME</li>
+        <li data-ng-show="company">HOME</li>
         <li>{{company}}</li>
         <li>{{subTitle}}</li>
     </ul>
 
-    <div id="product-list-li-wpr" class="product-list-li-wpr">
+    <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll>
         <ul class="product-view-result-ul">
             <li data-ng-repeat="(key, subpage) in page.child_pages" data-ng-hide="key=='menu'">
                 <div class="product-img-box">
                     <img src="{{subpage.page_banner}}" alt=""/>
                 </div><!--.product-img-box-->
                 <div class="list-result-text">
-                    <a href="{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{subpage.page_data.page_slug}}"><h3>{{subpage.page_data.page_title}}</h3></a>
-                    <p>{{subpage.page_data.page_desc}}</p>
+                    <a href="{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{subpage.page_data.page_slug}}">
+                        <h3>{{subpage.page_data.page_title}}</h3>
+                    </a>
+                    <p>{{subpage.page_data.page_desc|substring:100}}</p>
                 </div>
                 <a href="{{cur.page_data.page_slug}}/{{subpage.page_data.page_slug}}">
                     <div class="list-plus-btn">
