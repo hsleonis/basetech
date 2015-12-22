@@ -24,7 +24,7 @@ app.controller('mainController', function($scope) {
 
 // List Controller
 app.controller('listController', function($scope, JsonService, $routeParams) {
-    if($.fn.fullpage)
+    if(typeof $.fn.fullpage.setAllowScrolling!=='undefined')
         $.fn.fullpage.setAllowScrolling(false);
     $('#main-view').addClass('sub-paged');
     setTimeout(function(){

@@ -806,7 +806,8 @@ section .area{
     float: left;
     position: fixed;
     z-index: 600;
-    background:rgba(51,62,58,.95);
+    background: url("../img/1.jpg");
+    /*background:rgba(51,62,58,1);*/
     top: -100%;
 }
 
@@ -821,6 +822,7 @@ section .area{
 .main-menu-content{
     width: 100%;
     float: left;
+    background-color: rgba(51, 62, 58, 0.95);
     height: calc(100% - 65px);
     height: -webkit-calc(100% -65px);
     height: -moz-calc(100% - 65px);
@@ -1091,6 +1093,7 @@ section .area{
     height: -ms-calc(100% - 170px);
     height: -o-calc(100% - 170px);
     float: left;
+    position: relative;
 }
 
 .product-img-box{
@@ -1404,6 +1407,31 @@ section .area{
     width: -ms-calc(100% - 12%);
     margin: 0 auto;
 }
+
+/*Random Hover*/
+.area{
+    background-size:100% 100% !important;
+    transition: linear .5s;
+    -webkit-transition: linear .5s;
+    -moz-transition: linear .5s;
+    -ms-transition: linear .5s;
+    -o-transition: linear .5s;
+    transition-property: background-size;
+    -webkit-transition-property: background-size;
+    -moz-transition-property: background-size;
+    -ms-transition-property: background-size;
+    -o-transition-property: background-size;
+}
+
+.area:hover{
+    /*transform: scale(1.02,1.02);*/
+    background-size:101% 101% !important;
+    -webkit-background-size:101% 101% !important;
+    -moz-background-size:101% 101% !important;
+    -o-background-size:101% 101% !important;
+    -ms-background-size:101% 101% !important;
+}
+
 
 /*===================================================================================================
                                  Responsive Style Area

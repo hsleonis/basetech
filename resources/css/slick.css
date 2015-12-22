@@ -185,3 +185,19 @@
 .detail-banner {
     background-color: #333;
 }
+
+.loader {
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    position: fixed;
+    background: #EDEDED;
+}
+
+.inner {
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    top: 30%;
+    position: relative;
+}
