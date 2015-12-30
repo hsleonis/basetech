@@ -17,7 +17,7 @@ var modules = [
                 'jsonService',
             ];
 
-var app = angular.module('basetech', modules).run(function ($templateCache, $http) {
+var app = angular.module('basetech', modules).run(function ($templateCache, $http, $route, $rootScope, $location) {
     $http.get('templates/menu.html', {
         cache: $templateCache
     });
@@ -30,4 +30,16 @@ var app = angular.module('basetech', modules).run(function ($templateCache, $htt
     $http.get('templates/solutions.html', {
         cache: $templateCache
     });
+    
+    var original = $location.path;
+    $location.path = function (path, reload) {
+        if (reload === false) {
+            var lastRoute = $route.current;
+            var un = $rootScope.$on('$locationChangeSuccess', function () {
+                $route.current = lastRoute;
+                un();
+            });
+        }
+        return original.apply($location, [path]);
+    };
 });

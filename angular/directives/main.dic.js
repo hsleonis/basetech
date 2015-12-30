@@ -33,3 +33,30 @@ app.filter('substring',function(){
         return str.substring(0, ch);
     };
 });
+
+app.directive('lightgallery', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            if (scope.$last) {
+                element.parent().lightGallery();
+            }
+        }
+    };
+});
+
+app.directive('ngImageLoadAnimation', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element.css({'opacity': 0});
+            element.imagesLoaded(function(){
+                $(element).animate({
+                    'opacity': 1
+                }, 1000,
+                    function() {
+                });
+            });
+        }
+    }
+});

@@ -1,6 +1,6 @@
 <div class="main-menu-content" ng-controller="menuController">
     <div class="menu-cross toggol-menu">
-        <a href="#"><i class="sprite sprite-close-red"></i></a>
+        <a href="#"><i class="spritesprite-close-red"></i></a>
     </div><!--.menu-cross-->
 
     <div class="menu-column first-column">
@@ -9,6 +9,14 @@
                 <a data-toggle="pill" href="#Menu-{{$index+1}}">{{item.page_data.page_title}}</a>
             </li>
         </ul>
+        
+        <div class="sub-menu-btn">
+            <ul>
+                <li><a href="#">Career</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Employee Portal</a></li>
+            </ul>
+        </div><!-- .sub-menu-btn -->
     </div>
     <div class="menu-item-view-area tab-content">
         <div id="Menu-{{$index+1}}" class="menu-item-view-area-wrp tab-pane fade in active" data-ng-repeat="item in pages">
@@ -23,12 +31,11 @@
     </div><!--.menu-item-view-area-->
 </div><!--.main-menu-content-->
 <div class="menu-bottom">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="copy-right-text col-xs-4">
-                <div class="row">
-                    All rights reserved Base Tchnologies &copy;2015<br>
-                    Design &amp; developed by <a href="http://www.dcastalia.com">dcastalia</a>
+                <div class="">
+                    © 2015.  All right reserved. BASE Tchnologies Ltd.<br/> Design &developed by <a href="http://www.dcastalia.com/" target="_blank">dcastalia</a>
                 </div>
             </div><!--.copy-right-text-->
 
@@ -42,10 +49,11 @@
                             <a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            <a href="#"><i class="sl-google"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-google"></i></a>
+                            <!-- <a href="#"><i class="fa-youtubeplay"></i></a> -->
+                            <a href="#"><i class="fa-youtubeplay fa fa-youtube-play"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -55,13 +63,54 @@
                 <div class="row">
                     <div class="mobile-search pull-right">
                         <form method="post" action="#">
-                            <input type="image" value="" class="sprite sprite-search-menu"/>
-                            <input type="text" placeholder="SEARCH" value="" src="resources/images/search-menu.png" name="s"/>
+                            <input type="image" value="" class="searchmenu"/>
+                            <input type="text" placeholder="SEARCH" value="" name="s"/>
                         </form>
-
                     </div><!--.mobile-search-->
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div>    
+
+<!--Bottom Menu For Mobile-->
+<div class="container-fluid bottom-menu-mobile">
+   
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="mobile-search">
+                        <form method="post" action="#">
+                            <input type="image" value="" class="searchmenu"/>
+                            <input type="text" placeholder="SEARCH" value="" name="s"/>
+                        </form>
+                    </div><!--.mobile-search-->
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <div class="row">
+                    <ul class="mobile-social">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="sl-google"></i></a>
+                        </li>
+                        <li>
+                            <!-- <a href="#"><i class="fa-youtubeplay"></i></a> -->
+                            <a href="#"><i class="fa-youtubeplay fa fa-youtube-play"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copy-right-text col-xs-12">
+                <div class="">
+                    © 2015.  All right reserved. BASE Tchnologies Ltd.<br/> Design &developed by <a href="http://www.dcastalia.com/" target="_blank">dcastalia</a>
+                </div>
+            </div><!--.copy-right-text-->
+
+</div><!-- .bottom-menu-mobile -->

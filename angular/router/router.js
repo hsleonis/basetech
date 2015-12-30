@@ -5,9 +5,21 @@ app.config(function($routeProvider,$locationProvider) {
         templateUrl : 'templates/blank.html',
         controller  : 'mainController'
     })
+    .when('/:page', {
+        templateUrl : 'templates/blank.html',
+        controller  : 'mainController'
+    })
+    .when('/alliences/:subpage', {
+        templateUrl : 'templates/links.html',
+        controller  : 'linkController'
+    })
     .when('/:page/:subpage', {
         templateUrl : 'templates/listview.html',
         controller  : 'listController'
+    })
+    .when('/media/events-gallery/:detail', {
+        templateUrl : 'templates/gallery.html',
+        controller  : 'galleryController'
     })
     .when('/projects/:subpage/:detail', {
         templateUrl : 'templates/project.html',

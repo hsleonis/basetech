@@ -1,0 +1,41 @@
+<div class="row product-list-row">
+    <div class="col-xs-6 area-gview-1" style="background-image: url({{detPage.page_banner}})">
+        <div class="page-title-text">
+            <h2>{{detTitle}}</h2>
+            <div class="page-title-btn">
+            </div>
+        </div>
+
+        <div class="share-area">
+            <ul>
+                <li>share</li>
+                <li><a href="https://www.facebook.com/sharer/sharer.php?u={{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/home?status={{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://plus.google.com/share?url={{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}" target="_blank"><i class="fa fa-google"></i></a></li>
+            </ul>
+        </div><!--.share-area-->
+    </div>
+
+    <div class="col-xs-6 area-gview-2 product-view-area">
+        <a ng-click="homepage()">
+            <div class="list-close"><i class="sprite sprite-close-green"></i></div>
+        </a>
+        <ul class="breadcrumbs">
+            <li data-ng-show="company"><a ng-click="homepage()">HOME</a></li>
+            <li>{{company}}</li>
+            <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{subTitle}}</a></li>
+            <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">{{detTitle}}</a></li>
+        </ul>
+
+        <div id="product-list-li-wpr" class="gview-list-li-wpr" data-ng-scroll="">
+
+            <h4>{{detPage.page_data.short_desc}}</h4>
+            <div class="image-gallery">
+                <div lightgallery class="g-thumbnail col-xs-4" data-ng-repeat="item in data=(detPage.page_images)" data-src="{{item.image}}">
+                    <img src="{{item.image}}" data-ng-image-load-animation="" class="img-responsive"/>
+                </div><!--.g-thumbnail-->
+            </div>
+
+        </div><!--.product-list-li-wpr-->
+    </div><!--.product-view-area-->
+</div>

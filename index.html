@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <base href="http://localhost/base/" />
+        <base href="http://dcastalia.com/projects/web/base/" />
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -22,7 +22,8 @@
         <link rel="stylesheet" href="resources/css/jquery.fullPage.css">
         <link rel="stylesheet" href="resources/css/slick.css">
         <link rel="stylesheet" href="resources/css/animate.min.css">
-        <link rel="stylesheet" href="resources/css/perfect-scrollbar.min.css">
+	    <link rel="stylesheet" href="resources/css/perfect-scrollbar.min.css">
+        <link rel="stylesheet" href="resources/dist/css/lightgallery.min.css">
 
         <link rel="stylesheet" href="resources/css/style.css">
         <!--Modernizr JS-->
@@ -30,13 +31,21 @@
     </head>
 
     <body data-ng-app="basetech" data-ng-controller="appController">
-        
-        <div class="loader">
-            <div class="inner"><img src="resources/img/loader.gif" /></div>
+        <div class="nav-icon nav-icon-main pull-right">
+            <i class="fafa-bars nav-icon toggol-menu fa-2x"></i>
         </div>
+	   
+        <!--LOADER-->
+	    <div class="loader">
+            <div class="inner">
+                 <div class='uil-rolling-css'><div><div></div><div></div></div></div>
+            </div>
+        </div>	
         
+        <!--MAIN MENU-->
         <div id="main-menu" class="main-menu-wpr" data-ng-include="'templates/menu.html'"></div><!--#main-menu-->
-
+        
+        <!--TOP BAR-->
         <div class="topbar" data-ng-include="'templates/topbar.html'"></div><!--.topbar-->
 
         <div id="fullpage">
@@ -79,6 +88,11 @@
                 <div class="about-us-home-page-wrapper container-fluid" data-ng-include="'templates/about.html'">
                 </div><!--.alliances-home-page-wrapper-->
             </section><!--#alliances-->
+            
+            <!--TESTIMONIAL-->
+            <section id="testimonial" data-anchor="customers" class="section">
+                <div  class="testimonial-page-wrapper container-fluid" data-ng-include="'templates/testimonial.html'"></div><!--.testimonial-wrapper-->
+            </section><!--#testimonial-->
 
 
             <!--CONTACT US-->
@@ -100,8 +114,11 @@
         <script src="resources/js/bootstrap.min.js"></script>
         <script src="resources/js/slick.min.js"></script>
         <script src="resources/js/perfect-scrollbar.jquery.js"></script>
+        <script src="resources/js/imagesloaded.pkgd.min.js"></script>
         <script src="resources/js/wow.min.js"></script>
         <script src="resources/js/typed.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+        <script src="resources/dist/js/lightgallery-all.min.js"></script>
 
         <script src="angular/core/angular.min.js"></script>
         <script src="angular/core/angular-route.min.js"></script>
