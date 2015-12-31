@@ -206,3 +206,7 @@
     top: 30%;
     position: relative;
 }
+
+#map, #map-world{
+    height: 100%;
+}
