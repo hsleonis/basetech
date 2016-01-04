@@ -1,4 +1,13 @@
-/* angular/router/ -> router.js file, /* Router file */
+/*
+ ROUTER v1.0.1
+ BASE TECHNOLOGIES. v3.1
+ (c) 2015 DCASTALIA, http://dcastalia.com
+ License: GPLv-3
+ Author: MD. Hasan Shahriar
+ Author email: hsleonis2@gmail.com
+
+*/
+
 app.config(function($routeProvider,$locationProvider) {
     $routeProvider
     .when('/', {
@@ -20,6 +29,10 @@ app.config(function($routeProvider,$locationProvider) {
     .when('/media/events-gallery/:detail', {
         templateUrl : 'templates/gallery.html',
         controller  : 'galleryController'
+    })
+    .when('/media/news-room/:detail', {
+        templateUrl : 'templates/newsroom.html',
+        controller  : 'newsroomController'
     })
     .when('/projects/:subpage/:detail', {
         templateUrl : 'templates/project.html',

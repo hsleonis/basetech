@@ -1,0 +1,63 @@
+<div class="row product-row">
+    <div class="col-xs-6 left-side-area news-hook height-full" style="background-image: url({{detPage.page_banner}})">
+        <div class="page-title-text">
+            <h2>NEWS ROOM</h2>
+            <div class="page-title-btn">
+                <a href="#"><i class="fa fa-angle-left"></i></a>
+                <a href="#"><i class="fa fa-angle-right"></i></a>
+            </div>
+        </div><!--.page-title-text-->
+
+        <div class="share-area">
+            <ul>
+                <li>share</li>
+                <li><a href="https://www.facebook.com/sharer/sharer.php?u={{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/home?status={{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://plus.google.com/share?url={{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}" target="_blank"><i class="fa fa-google"></i></a></li>
+            </ul>
+        </div>
+    </div><!--.left-side-area-->
+    <div class="news-page-wrapper news-hook white-bg">
+        <!--<div class="">-->
+        <div class="col-xs-6 wpr-news-page-view">
+            <a ng-click="homepage()">
+                <div class="list-close"><i class="sprite sprite-close-green"></i></div>
+            </a>
+
+            <ul class="breadcrumbs">
+                <li data-ng-show="company"><a ng-click="homepage()">HOME</a></li>
+                <li>{{company}}</li>
+                <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{subTitle}}</a></li>
+                <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">{{detTitle}}</a></li>
+            </ul>
+
+            <!--News Text Area-->
+            <div class="news-area" data-ng-scroll="">
+                <div class="col-xs-6">
+                    <!--<div class="row">-->
+                    <div class="news-img-box">
+                        <img src="{{detPage.page_banner}}" data-ng-image-load-animation="" alt="{{detTitle}}" class="img-responsive"/>
+                    </div><!--.news-img-box-->
+                    <div class="img-thumbnail-box">
+                        <ul>
+                            <li lightgallery data-ng-repeat="img in detPage.page_images"  data-src="{{img.image}}">
+                                <a href="#"><img src="{{img.image}}" data-ng-image-load-animation="" alt="" class="img-responsive"/></a>
+                            </li>
+                        </ul>
+                    </div><!--.img-thumbnail-box-->
+                    <!--</div>-->
+                </div>
+                <div class="col-xs-6 height-full news-border">
+
+                    <div class="new-view-board-wpr">
+                        <h3>{{detTitle}}</h3>
+                        <span>{{detPage.page_data.page_desc}}</span>
+                    </div><!--.new-view-board-wpr-->
+
+                </div>
+            </div><!--.news-area-->
+
+        </div><!--.wpr-page-view-->
+        <!--</div>--><!--End Of Row-->
+    </div><!--.alliances-home-page-wrapper-->
+</div><!--.product-row-->

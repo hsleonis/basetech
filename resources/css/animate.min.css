@@ -19,8 +19,8 @@ Copyright (c) 2015 Daniel Eden
     animation-iteration-count: infinite;
     -webkit-animation-delay: .5s;
     animation-delay: .5s;
-    -webkit-animation-duration: 4s;
-    animation-duration: 4s;
+    -webkit-animation-duration: 8s;
+    animation-duration: 8s;
 }
 
 .animated.hinge {
@@ -1105,20 +1105,26 @@ Copyright (c) 2015 Daniel Eden
 }
 
 @-webkit-keyframes fadeIn {
-    from {
+    0% {
         opacity: 0
-    }
-    100% {
+    },
+    50% {
         opacity: 1
+    },
+    100% {
+        opacity: 0
     }
 }
 
 @keyframes fadeIn {
-    from {
+    0% {
         opacity: 0
-    }
-    100% {
+    },
+    50% {
         opacity: 1
+    },
+    100% {
+        opacity: 0
     }
 }
 

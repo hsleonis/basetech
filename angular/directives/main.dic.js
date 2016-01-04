@@ -1,4 +1,12 @@
-/* angular/directives/ -> main.dic.js file */
+/*
+ DIRECTIVES v1.0.1
+ BASE TECHNOLOGIES. v3.1
+ (c) 2015 DCASTALIA, http://dcastalia.com
+ License: GPLv-3
+ Author: MD. Hasan Shahriar
+ Author email: hsleonis2@gmail.com
+
+*/
 
 app.directive('bindUnsafeHtml', ['$compile', function ($compile) {
     return function (scope, element, attrs) {

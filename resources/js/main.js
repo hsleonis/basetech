@@ -19,7 +19,7 @@ $(document).ready(function(){
     });
     
     // Menu Item
-    $(document).on("click",".menu-list a",function(){
+    $(document).on("click",".menu-list a,.close-menu a",function(){
         closeMenu();
     });
     
