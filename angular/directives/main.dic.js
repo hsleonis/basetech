@@ -47,7 +47,11 @@ app.directive('lightgallery', function () {
         restrict: 'A',
         link: function (scope, element, attrs) {
             if (scope.$last) {
-                element.parent().lightGallery();
+                element.parent().lightGallery({
+                        thumbnail:true,
+                        animateThumb: false,
+                        showThumbByDefault: false
+                });
             }
         }
     };

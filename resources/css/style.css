@@ -332,173 +332,18 @@ OO. Loder
 08. Product List Page
 09. Product View
 10. Style For Product List
+11. Bottom Menu For Mobile
+12. G View
+13. BootStrap Carousel
+14. News Room
+Z. For Change
 ========================================================================*/
+
 /*----------------------------------------------------------------------*/
+
 /*===================================
              OO. Loder
 ===================================*/
-<style type='text/css'> width: 100%;
-@-webkit-keyframes uil-rolling-anim {
-  0% {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  50% {
-    -ms-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  100% {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes uil-rolling-anim {
-  0% {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  50% {
-    -ms-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  100% {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-moz-keyframes uil-rolling-anim {
-  0% {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  50% {
-    -ms-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  100% {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-ms-keyframes uil-rolling-anim {
-  0% {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  50% {
-    -ms-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  100% {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-moz-keyframes uil-rolling-anim {
-  0% {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  50% {
-    -ms-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  100% {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes uil-rolling-anim {
-  0% {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  50% {
-    -ms-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  100% {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-o-keyframes uil-rolling-anim {
-  0% {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  50% {
-    -ms-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  100% {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
 @keyframes uil-rolling-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -521,6 +366,38 @@ OO. Loder
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+.uil-rolling-css {
+    width: 200px;
+    height: 200px;
+    transform:scale(0.37);
+}
+.uil-rolling-css > div {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  -ms-animation: uil-rolling-anim 1s linear infinite;
+  -moz-animation: uil-rolling-anim 1s linear infinite;
+  -webkit-animation: uil-rolling-anim 1s linear infinite;
+  -o-animation: uil-rolling-anim 1s linear infinite;
+  animation: uil-rolling-anim 1s linear infinite;
+}
+.uil-rolling-css > div div {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  border-radius: 1000px 1000px 0 0;
+  border-color: #d25353;
+  border-style: solid;
+  border-width: 6px;
+  border-bottom-width: 0;
+}
+.uil-rolling-css > div div:nth-of-type(2) {
+  -ms-transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
+  -moz-transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
+  -webkit-transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
+  -o-transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
+  transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
 }
 .uil-rolling-css {
   width: 200px;
@@ -554,19 +431,21 @@ OO. Loder
   transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
 }
 
-/*===================================
-             00. Typography
-===================================*/
-
 
 
 /*===================================
              00. Typography
 ===================================*/
+a{cursor: pointer;}
 .upper-btn,
 .page-title-text{font-family: 'Roboto', sans-serif;}
 
 .bt-text-lowercase{text-transform: lowercase !important;}
+
+.height-full{height:100%}
+
+.position-a{position: absolute;}
+.position-r{position: relative;}
 
 /*===================================
                01. HOME
@@ -589,7 +468,6 @@ OO. Loder
 header{}
 
 .header-wrapper{
-
     height: auto;
     min-height: 100px;
     top: 25px;
@@ -605,6 +483,8 @@ header{}
     top: 25px;
     left: 90px;
 }
+
+.logo img{cursor: pointer;;}
 
 .nav-icon-main{
     width: auto;
@@ -659,7 +539,8 @@ section{height: 100%}
 .alliances-home-page-wrapper,
 .sector-home-page-wrapper,
 .about-us-home-page-wrapper,
-.contact-us-home-page-wrapper{height:100%;position: relative;}
+.contact-us-home-page-wrapper,
+.testimonial-page-wrapper{height:100%;position: relative;}
 
 section .area{
     background-size:cover;
@@ -752,11 +633,11 @@ section .area{
     right: 0;
 }
 
-.page-title-text-contact h2{
-    text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.3);
-    -moz-text-decoration-color: rgba(255, 255, 255, 0.3);
-    -webkit-text-decoration-color: rgba(255, 255, 255, 0.3);
+.page-title-border-btm{
+	background: rgba(255, 255, 255, 0.3);
+	height: 1px;
+	margin: 0 auto 10px;
+	width: 560px;
 }
 
 .page-title-text-contact span{letter-spacing: 9px;}
@@ -877,7 +758,6 @@ section .area{
 .about-us-view{
     top: calc(28% + 145px);
     position: absolute;
-    background: green;
     width: 100%;
     height: calc(100% - 145px);
 }
@@ -977,17 +857,19 @@ section .area{
     list-style: none;
 }
 
-.copy-right-box ul a,
-.copy-right-box ul a .fa-youtubeplay{color:#01B0F3}
-.copy-right-box ul a:hover{color:#fff}
+.copy-right-box a .fa{color: #3FC2EE}
+.copy-right-box a .fa-facebook:hover{color: #3C5998}
+.copy-right-box a .fa-twitter:hover{color:#28A9E0}
+.copy-right-box a .fa-google-plus:hover{color:#D23F31}
+.copy-right-box a .fa-youtube-play:hover{color:#CC181E}
 
-.copy-right-box ul a .slgoogle{
+/*.copy-right-box ul a .slgoogle{
   background:url("../img/social-gw.png"); 
   width: 15px;
   height: 15px;
   float: left;
   display: inline-block;
-}
+}*/
 
 .copy-right-box ul a .slgoogle:hover{background:url("../img/social-gw-wh.png");}
 
@@ -1013,7 +895,7 @@ section .area{
 
 .cmpy-right{
     float: left;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 20px;
     margin-left: 25px;
 }
@@ -1105,6 +987,7 @@ section .area{
 .menu-item-view-area{
     width: 80%;
     float: left;
+    margin-top: 50px;
     height: 100%;
     display: block;
     overflow: hidden;
@@ -1196,7 +1079,10 @@ section .area{
 .sub-menu-btn-active,
 .sub-menu-btn a:hover{color: #fcb64e}
 
-.menu-list{width: 30%}
+.menu-list{
+  width: 30%;
+  padding-top: 0 !important;
+}
 
 .menu-list:last-child{
     padding-right: 2%;
@@ -1281,13 +1167,13 @@ section .area{
 }
 
 .copy-right-text{
-    width: 29%;
-    float: left;
     font-size: 12px;
     line-height: 15px;
     color:#BCBEC0;
-    margin-top: 10px;margin-left: 15px;
+    padding-top: 10px;
 }
+
+.copy-right-text div{padding-left: 10%}
 
 .copy-right-text a{
     color: inherit;
@@ -1315,13 +1201,6 @@ section .area{
     background:url("../img/social-wh-google.png") no-repeat;
     width: 10px;
     height: 15px;
-    display: block;
-}
-
-.fa-youtubeplay{
-    background:url("../img/social-wh-yt.png") no-repeat;
-    width: 15px;
-    height: 11px;
     display: block;
 }
 
@@ -1358,7 +1237,8 @@ section .area{
 
 .mobile-search input[type="text"]:focus{width: 180px;}
 
-.
+.menu-item-view-area .ps-scrollbar-y-rail{top:40px !important;height: 100% !important}
+.menu-item-view-area .ps-scrollbar-y-rail .ps-scrollbar-y{}
 
 /*===================================
            06. Banner Slider
@@ -1375,11 +1255,14 @@ section .area{
 #home-page .slick-dots{
     position: absolute;
     z-index: 395;
-    left: 30px;
+    left: 0;
+    right: 0;
     bottom: 30px;
     height: 40px !important;
     list-style: none;
     background-color: rgba(0,0,0,.4);
+    margin: 0 auto;
+    width: 180px;
 }
 
 #home-page .slick-dots li{
@@ -1397,11 +1280,22 @@ section .area{
     border: none;
     color: #fff;
 }
+
 #home-page .slick-dots li button::after{
-    content:".";
-    top: -11px;
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
     font-size: 31px;
+    height: 4px;
+    margin: 0 13px;
     position: absolute;
+    top: 18px;
+    width: 4px;
+}
+#home-page .slick-dots li:last-child button::after{
+  width: 0;
+  height: 0;
+  background-color: transparent;
 }
 
 /*===================================
@@ -1421,8 +1315,8 @@ section .area{
     list-style: none;
     position: relative;
     padding: 0;
-    top: -12%;
-    padding-right: 8%; 
+    top: 32px;
+    padding-right: 17%; 
 }
 
 .breadcrumbs li{
@@ -1448,6 +1342,7 @@ section .area{
     top: 0;
     left: -40px;
     padding: 10px 10px 0;
+    cursor: pointer;
 }
 
 
@@ -1462,7 +1357,9 @@ section .area{
     height: -ms-calc(100% - 170px);
     height: -o-calc(100% - 170px);
     float: left;
+    padding-right: 30px;
     position: relative;
+    margin-top: 75px;
 }
 
 .product-img-box{
@@ -1480,7 +1377,6 @@ section .area{
 .product-view-result-ul{
     list-style: none;
     padding-left: 20px;
-    padding-right: 10%;
 }
 
 .product-view-result-ul li{
@@ -1512,7 +1408,11 @@ section .area{
     font-weight: 400;
 }
 
-.product-list-li-wpr h3{font-weight: 700}
+.product-list-li-wpr h3{
+	font-weight: 700;
+	display: block;
+	padding-top: 15px;
+}
 
 .product-list-li-wpr h4,
 .product-list-li-wpr strong{
@@ -1526,13 +1426,14 @@ section .area{
 .product-list-li-wpr ul{list-style: none;}
 
 .product-list-li-wpr span,
-.product-list-li-wpr li{
+.product-list-li-wpr li,
+.product-list-li-wpr p{
     color:#A8ACAF;
     font-size: 12px;
 }
 
 .detalis-text-wpr{
-    padding-right: 10%;
+    padding-right:0;
     line-height:20px;
     padding-left: 35px;
 }
@@ -1566,8 +1467,8 @@ section .area{
 
 .breadcrumbs{
     width: auto;
-    margin-top: 80px;
-    margin-right: 60px;
+    margin-top: -30px;
+    margin-right: 0;
     margin-left: 35px;
     float: left;
     text-align: left;
@@ -1772,7 +1673,7 @@ section .area{
 }
 
 .product-list-row{height: 100%}
-.product-list-row .area{height: 100%;background-size: cover}
+.product-list-row .area{height: 100%;background-size: cover;background-position: center;}
 
 .wpr-page-view{
     width: calc(100% - 12%);
@@ -1782,29 +1683,6 @@ section .area{
     width: -ms-calc(100% - 12%);
     margin: 0 auto;
 }
-
-/*Random Hover*/
-/*.area{
-    background-size:100% 100% !important;
-    transition: linear .5s;
-    -webkit-transition: linear .5s;
-    -moz-transition: linear .5s;
-    -ms-transition: linear .5s;
-    -o-transition: linear .5s;
-    transition-property: background-size;
-    -webkit-transition-property: background-size;
-    -moz-transition-property: background-size;
-    -ms-transition-property: background-size;
-    -o-transition-property: background-size;
-}
-
-.area:hover{
-    background-size:101% 101% !important;
-    -webkit-background-size:101% 101% !important;
-    -moz-background-size:101% 101% !important;
-    -o-background-size:101% 101% !important;
-    -ms-background-size:101% 101% !important;
-}*/
 
 /*CSS Translucent Background Color*/
 
@@ -1831,6 +1709,405 @@ section .area{
     opacity: 0.9;
 }
 
+
+/*======================================
+       11. Bottom Menu For Mobile
+=======================================*/
+.bottom-menu-mobile{
+    display: none;
+    width: 100%;
+    height:auto;
+    float: left;
+    background: #333E3A;
+    position: absolute;
+    padding: 10px 0;
+    bottom: 0;
+}
+
+.bottom-menu-mobile .mobile-search{
+  margin: 0 auto;
+  width: 220px;
+}
+
+/*======================================
+            12. G View
+======================================*/
+.area-gview-1{
+    width: 33.333%;
+    height: 100%;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.area-gview-2{
+    width:66.666%;
+    height: 100%;
+}
+
+.g-thumbnail{
+    float: left;
+    padding: 0;
+    height: 180px;
+    overflow: hidden;
+}
+
+.g-thumbnail img{
+  cursor: pointer;
+  width: auto;
+  min-width: 100%;
+  height: 100%;
+}
+
+.gview-list-li-wpr{
+    float: left;
+    height: calc(100% - 170px);
+    margin-top: 55px;
+    margin-left: 35px;
+    overflow: hidden;
+    padding-right: 30px;
+    width: 90%;
+}
+
+.image-gallery{}
+
+.gview-list-li-wpr h3{font-weight: 700}
+
+.gview-list-li-wpr h4{
+    color: #24acd4;
+    margin-top:40px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.area-gview-1 .page-title-text{top: 37%;}
+
+.area-gview-1 .page-title-text h2{font-size: 22px;font-weight: 400;}
+
+.area-gview-1 .page-title-btn{
+    width: 72px;
+    border: 1px #fff solid;
+    height: 38px;
+    margin: 0 auto;
+    display: none;
+}
+
+.area-gview-1 .page-title-btn a{
+    float: left;
+    display: inline-block;
+    width: 48%;
+    height: 100%;
+}
+
+
+/*** share area of gallery ***/
+.share-area{
+    width: 255px;
+    height: 35px;
+    border: solid 1px #fff;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 85px;
+    left: 0;
+    right: 0;
+}
+
+.share-area ul{
+    padding-top: 5px;
+    list-style: none;
+    width: 155px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.share-area li{
+    float: left;
+    margin-right: 20px;
+    color: #fff;
+}
+.share-area li:last-child{margin-right: 0}
+.share-area a{color: #fff}
+
+.share-area .fa-facebook:hover{color:#43609C}
+.share-area .fa-twitter:hover{color:#28A9E0}
+.share-area .fa-google:hover{color:#D23F31}
+
+.gview-list-li-wpr .ps-scrollbar-y-rail{right: 9% !important}
+
+
+/*======================================
+          13. BootStrap Carousel
+======================================*/
+#myCarousel{
+  position: absolute;
+  top: 52%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 550px;
+  height: 305px;
+}
+
+.carousel-circle{
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: solid 5px #fff;
+  overflow: hidden;
+}
+
+.carousel-caption{
+  position: relative;
+  padding: 0 0 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  float: left;
+  margin-top: 32px;
+}
+
+.carousel-caption i{
+  display: inline-block;
+  position: absolute;
+  color: #453774;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.carousel-caption p{
+  padding: 0 7%;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+}
+
+.carousel-caption .fa-quote-left{top: 0;left: 0;}
+.carousel-caption .fa-quote-right{right: 0;bottom: 0}
+
+.item{}
+
+.carousel-indicators{
+  position: static;
+  margin: 0 auto 0;
+}
+
+.carousel-indicators li{
+  border-radius: 0;
+  width:20px;
+  height: 4px;
+  overflow: hidden;
+  background-color: #C19E9F;
+  border: none;
+  margin: 0 7px;
+}
+
+.carousel-indicators .active{
+  width:20px;
+  height: 4px;
+  background-color: #fff;
+  margin: 0 7px;
+}
+
+/*For Google Map*/
+.info_content {color: #333 !important;}
+
+/*======================================
+          14. News Room
+======================================*/
+#news-room-wrapper{}
+.news-room-wrapper{height: 100%;width: 100%; float: left}
+.news-room-wrapper .list-close{
+    background-color: #fff;
+    cursor: pointer;
+    height: 40px;
+    left: -40px;
+    margin-top: 40px;
+    padding: 10px 10px 0;
+    position: absolute;
+    top: 0;
+    width: 40px;
+}
+.product-row{height: 100%}
+.news-room-wrapper .page-title-text{top:37%}
+
+.news-room-wrapper .page-title-btn{
+    border: solid 1px #fff;
+    width: 75px;
+    height: 40px;
+    margin: 30px auto 0;
+}
+
+.news-room-wrapper .page-title-btn a{
+    display: inline-block;
+    float: left;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    line-height: 40px;
+}
+
+.product-wrapper{}
+.news-page-wrapper{
+    height:100%;
+    width: 66%;
+    position: relative;
+    /*position: absolute;
+    display: table-cell;*/
+}
+
+.news-page-wrapper .list-close{
+    position: absolute;
+    left: -40px;
+}
+
+.left-side-area{
+    width: 33%;
+    height: 100%;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.product-list-row{height: 100%}
+.product-list-row .area{height: 100%;background-size: cover;background-position: center;}
+
+.news-hook{float: left}
+
+.wpr-news-page-view{
+    width: 100%;
+    padding-right: 0;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+}
+
+.wpr-news-page-view .breadcrumbs{
+    margin-top: 50px;
+    margin-left: 35px;
+    position: static;
+    left: -79px;
+}
+
+.wpr-news-page-view .list-close{}
+
+.news-area{     /*News Area For Scroll*/
+    float: left;
+    height:-moz-calc(100% - 255px);
+    height:calc(100% - 255px);
+    margin-left: 35px;
+    margin-top: 55px;
+    overflow: hidden;
+    padding-right: 4%;
+    width: 90%;
+    display: table;
+}
+
+.new-view-board-wpr{
+    float: left;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: table;
+}
+.new-view-board{
+    width: 100%;
+    height: 100%;
+    float: left;
+    background-color: green;
+    display: table;
+}
+
+.new-view-board-wpr h3{
+    color: #1A9DC6;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0;
+}
+
+.new-view-board-wpr span{
+    font-size: 12px;
+    margin: 5px 0 7px;
+    display: block;
+}
+.new-view-board-wpr p{
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.news-border{border-bottom: solid 1px rgba(0,0,0,.3);display: table;}
+
+.news-img-box{
+    width: 100%;
+    height: auto;
+    min-height: 175px;
+    max-height: 275px;
+    float: left;
+    overflow: hidden;
+}
+
+.news-img-box img{
+    width: 100%;
+}
+
+.img-thumbnail-box{
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+}
+
+.img-thumbnail-box ul{list-style: none}
+.img-thumbnail-box li{
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: #B9A84F;
+    float: left;
+    overflow: hidden;
+}
+
+.img-thumbnail-box li img{
+	width: 100%;
+	height: 100%;
+}
+
+.left-side-area .page-title-btn {
+    border: 1px solid #fff;
+    height: 40px;
+    margin: 30px auto 0;
+    width: 75px;
+}
+.left-side-area .page-title-text{top: 37%}
+
+.left-side-area .page-title-btn a {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    line-height: 40px;
+    text-align: center;
+    width: 50%;
+}
+
+
+/*======================================
+           Z. For Change
+======================================*/
+.about-us-btn{
+  width: 150px;
+  padding: 7px 0 7px;
+  text-align: center;
+  background-color:#48C8F4;
+  margin:30px auto 0; 
+  color: #fff;
+}
+
+
+
 /*===================================================================================================
                                  Responsive Style Area
 ===================================================================================================*/
@@ -1844,13 +2121,66 @@ section .area{
 @media (max-width: 480px) {
     .upper-btn{font-size: 44px;}
 
+    .first-column{width: 42%}
+
     .first-column a{font-size: 16px}
 
-    /*Scrolling Fixing*/
-    .product-banner,
-    .detail-banner{display: none;}
+    .menu-item-view-area{width: 58%;}
+
+    .spritesprite-close-red,
+    .fafa-bars{width: 35px}
+
+    .logo img{width: 115px !important}
+
+    .upper-btn{
+      width:315px;
+      font-weight:400;
+      font-size: 26px;
+      height: 60px;
+      line-height: 60px;
+    }
 
 
+    /****Main menu responsive fixing****/
+    .first-column a{font-size: 12px;}
+
+    .first-column{width: 38%;padding-right: 0}
+
+    .menu-item-view-area{padding-right: 3%}
+
+    .first-column{/*margin-top: -30px*/}
+
+    .menu-list h4{height: auto;}
+    .menu-list h4 a{font-size: 12px}
+
+    .menu-list h4,
+    .menu-list ul{margin: 0 8%}
+
+    .menu-list-active,
+    .menu-list a:hover{font-size: 12px}
+
+    .menu-list li{
+      margin-bottom: 10px;
+      padding-left:5%;
+    }
+
+    .menu-li-active, .menu-list li:hover{background-size: 6px}
+
+    .menu-list a:hover,
+    .menu-list a{font-size: 12px}
+
+    .first-column li{padding: 5px 0}
+
+    .border-bottom{margin: 0}
+
+    .sub-menu-btn{margin-top: 10px}
+    .sub-menu-btn li{
+      padding: 0;
+      margin: 0;
+    }
+
+    .bottom-menu-mobile .mobile-search{width: 185px}
+    /*End Of Mobile fixing*/
 
 }
 
@@ -1861,10 +2191,12 @@ section .area{
     .logo img{width: 100%;}
 
     .nav-icon-main,
-    .menu-cross{
-        right: 3%;
-        top: 2%;
-    }
+    .menu-cross{right: 3%;top: 2%;}
+
+    .breadcrumbs{margin-top: 0}
+
+    .list-close{display: none;}
+    .product-list-li-wpr{margin-top: 50px}
 
     .area{width: 100%}
 
@@ -1874,21 +2206,40 @@ section .area{
 
     .service-focuse-home-page-wrapper .upper-btn{width: 330px}
     .upper-btn{font-size: 33px}
+
+    .page-title-border-btm{width: 100%}
+
+     /*Scrolling Fixing*/
+    .product-banner,
+    .detail-banner{display: none;}
+     /*End*/
+
+    .menu-bottom{display:none}
+
+    .bottom-menu-mobile{display:block;text-align: center;}
+
+    .copy-right-text div{padding-left: 0;}
+
+    .page-title-text h2{font-size: 19px}
+
+    /** Carousel **/
+    #myCarousel{width: 90%;top:47%;}
+    .carousel-caption i{font-size: 16px}
 }
 
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 768px){
     .first-column{width: 50%}
     .menu-item-view-area{width: 50%}
-    .menu-item-view-area,
-    .menu-item-view-area-wrp{overflow: hidden}
     .menu-item-view-area-wrp .menu-list{width: 100%}
+    .first-column ul{padding-left: 9%}
+    .loader{display: none;}
 
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (max-width: 992px){
-    .menu-column{padding-top: 64px}
+    /*.menu-column{padding-top: 64px}*/
 }
 
 /* Large devices (large desktops, 1200px and up) */

@@ -5,13 +5,13 @@
     </div><!--.page-title-text-->
 </div>
 
-<div class="col-xs-6 area product-view-area" style="">
+<div class="col-xs-6 area product-view-area" data-ng-if="detPage.child_pages.length==0">
     <a ng-click="homepage()">
         <div class="list-close"><i class="sprite sprite-close-green"></i></div>
     </a>
     <ul class="breadcrumbs">
         <li data-ng-show="company"><a ng-click="homepage()">HOME</a></li>
-        <li>{{company}}</li>
+        <li data-ng-if="cur.child_pages.menu.length>1">{{company}}</li>
         <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{subTitle}}</a></li>
         <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">{{detTitle}}</a></li>
     </ul>
@@ -19,6 +19,38 @@
     <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll="">
         <div class="detalis-text-wpr" bind-unsafe-html="detPage.page_data.page_desc">
         </div><!--.detalis-text-wpr-->
+    </div>
+</div>
 
+<div class="col-xs-6 area product-view-area" data-ng-if="detPage.child_pages.length!=0">
+    <a ng-click="homepage()">
+        <div class="list-close"><i class="sprite sprite-close-green"></i></div>
+    </a>
+    <ul class="breadcrumbs">
+        <li data-ng-show="company"><a ng-click="homepage()">HOME</a></li>
+        <li data-ng-if="cur.child_pages.menu.length>1">{{company}}</li>
+        <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{subTitle}}</a></li>
+        <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">{{detTitle}}</a></li>
+    </ul>
+
+    <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll>
+        <ul class="product-view-result-ul">
+            <li data-ng-repeat="(key, subpage) in detPage.child_pages" data-ng-hide="key=='menu'">
+                <div class="product-img-box">
+                    <img src="{{subpage.page_banner}}" alt=""/>
+                </div><!--.product-img-box-->
+                <div class="list-result-text">
+                    <a href="{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}/{{subpage.page_data.page_slug}}">
+                        <h3>{{subpage.page_data.page_title}}</h3>
+                    </a>
+                    <p>{{subpage.page_data.short_desc|substring:100}}</p>
+                </div>
+                <a href="{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}/{{subpage.page_data.page_slug}}">
+                    <div class="list-plus-btn">
+                        <span>+</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
     </div>
 </div>

@@ -18,7 +18,11 @@ app.config(function($routeProvider,$locationProvider) {
         templateUrl : 'templates/blank.html',
         controller  : 'mainController'
     })
-    .when('/alliences/:subpage', {
+    .when('/search/:term', {
+        templateUrl : 'templates/search.html',
+        controller  : 'searchController'
+    })
+    .when('/alliances/:subpage', {
         templateUrl : 'templates/links.html',
         controller  : 'linkController'
     })
@@ -34,12 +38,20 @@ app.config(function($routeProvider,$locationProvider) {
         templateUrl : 'templates/newsroom.html',
         controller  : 'newsroomController'
     })
+    .when('/achievement/projects/:detail', {
+        templateUrl : 'templates/newsroom.html',
+        controller  : 'projectController'
+    })
     .when('/projects/:subpage/:detail', {
         templateUrl : 'templates/project.html',
         controller  : 'projectController'
     })
     .when('/:page/:subpage/:detail', {
         templateUrl : 'templates/detail.html',
+        controller  : 'listController'
+    })
+    .when('/:page/:subpage/:detail/:fvpage', {
+        templateUrl : 'templates/fifth.html',
         controller  : 'listController'
     });
     $locationProvider.html5Mode(true);

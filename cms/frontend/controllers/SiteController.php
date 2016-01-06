@@ -101,11 +101,54 @@ class SiteController extends Controller
     }
 
 
-    public function actionIndex()
-    {   
-        return $this->render('index');
-    }
+        
+    
+    public function actionSearch_data(){
+        $data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
+        $term = $data->term;
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        
+        $response = [];
+        /*$pages = (new \yii\db\Query())
+                ->select(['id', 'page_title', 'page_desc'])
+                ->from('page')
+                ->where(['like','page_desc',$term])
+                ->all(); */
+        $pages = Page::find()->select(['id', 'page_title', 'page_desc','page_slug'])
+                            ->where(['like','page_desc',$term])
+                            ->all();
 
+        $i=0;
+        foreach ($pages as $key => $value) {
+
+            $value->page_desc = str_replace(array("\r\n", "\r", "\n"), "", $value->page_desc);
+            $value->page_desc = trim(strip_tags($value->page_desc));
+
+
+            $response[$i]['page_title'] = $value->page_title;
+            $response[$i]['page_url'] = Page::get_parent_pages_backward($value->id,$value->page_slug);
+            $response[$i]['page_result'] = substr_count($value->page_desc, $term);
+            
+            $response[$i]['page_thumb'] = '';
+            if(!empty($value->thumbimages)){
+                $response[$i]['page_thumb'] = Yii::$app->urlManagerBackEnd->createAbsoluteUrl('/').'uploads/'.$value->thumbimages[0]->image;
+            }
+            
+            $x = explode('.', $value->page_desc);
+            
+            $response[$i]['page_desc'] = '';
+            foreach ($x as $sentence) {
+                if(substr_count($sentence, $term) > 0){
+                    $response[$i]['page_desc'] = str_replace($term, '<span class="highlight">'.$term.'</span>', $sentence).'.';
+                    break;
+                }
+            }
+
+            $i++;
+        }
+
+        return $response;
+    }
 
 
 }

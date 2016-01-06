@@ -1,7 +1,7 @@
 <div class="row product-row">
     <div class="col-xs-6 left-side-area news-hook height-full" style="background-image: url({{detPage.page_banner}})">
         <div class="page-title-text">
-            <h2>NEWS ROOM</h2>
+            <h2>{{subTitle}}</h2>
             <div class="page-title-btn">
                 <a href="#"><i class="fa fa-angle-left"></i></a>
                 <a href="#"><i class="fa fa-angle-right"></i></a>
@@ -26,7 +26,7 @@
 
             <ul class="breadcrumbs">
                 <li data-ng-show="company"><a ng-click="homepage()">HOME</a></li>
-                <li>{{company}}</li>
+                <li data-ng-if="cur.child_pages.menu.length>1">{{company}}</li>
                 <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{subTitle}}</a></li>
                 <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">{{detTitle}}</a></li>
             </ul>
@@ -40,7 +40,7 @@
                     </div><!--.news-img-box-->
                     <div class="img-thumbnail-box">
                         <ul>
-                            <li lightgallery data-ng-repeat="img in detPage.page_images"  data-src="{{img.image}}">
+                            <li lightgallery data-ng-repeat="img in detPage.page_images" data-ng-hide="img.is_banner" data-src="{{img.image}}">
                                 <a href="#"><img src="{{img.image}}" data-ng-image-load-animation="" alt="" class="img-responsive"/></a>
                             </li>
                         </ul>
@@ -51,7 +51,7 @@
 
                     <div class="new-view-board-wpr">
                         <h3>{{detTitle}}</h3>
-                        <span>{{detPage.page_data.page_desc}}</span>
+                        <span data-ng-bind-html="detPage.page_data.page_desc"></span>
                     </div><!--.new-view-board-wpr-->
 
                 </div>

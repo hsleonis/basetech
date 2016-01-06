@@ -22,7 +22,7 @@
         </a>
         <ul class="breadcrumbs">
             <li data-ng-show="company"><a ng-click="homepage()">HOME</a></li>
-            <li>{{company}}</li>
+            <li data-ng-if="cur.child_pages.menu.length>1">{{company}}</li>
             <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{subTitle}}</a></li>
             <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">{{detTitle}}</a></li>
         </ul>
@@ -31,7 +31,7 @@
 
             <h4>{{detPage.page_data.short_desc}}</h4>
             <div class="image-gallery">
-                <div lightgallery class="g-thumbnail col-xs-4" data-ng-repeat="item in data=(detPage.page_images)" data-src="{{item.image}}">
+                <div lightgallery class="g-thumbnail col-xs-4" data-ng-repeat="item in data=(detPage.page_images)" data-src="{{item.image}}" data-sub-html="<h4>{{item.short_title}}</h4><p>{{item.short_desc}}</p>">
                     <img src="{{item.image}}" data-ng-image-load-animation="" class="img-responsive"/>
                 </div><!--.g-thumbnail-->
             </div>

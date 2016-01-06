@@ -2,89 +2,96 @@
     <div class="upper-btn">
         TESTIMONIAL
     </div>
-    <a href="#">
-        <div class="col-xs-12 area" style="background-image: url(resources/img/TESTIMONIAL.jpg)">
+    <div class="col-xs-12 area" style="background-image: url(resources/img/TESTIMONIAL.jpg)">
 
-            <!--------------------------------
-            --------BootStrap Carousel--------
-            --------------------------------->
+        <!--------------------------------
+        --------BootStrap Carousel--------
+        --------------------------------->
 
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
 
-                  <div class="item active">
+                <div class="item active">
 
                     <div class="carousel-circle">
-                       <img src="http://dcastalia.com/projects/web/base/cms/administrator/uploads/1451294471Cloud-Solutions-&-Services.jpg" alt="#" class="img-responsive"> 
+                        <img src="http://dcastalia.com/projects/web/base/cms/administrator/uploads/1451294471Cloud-Solutions-&-Services.jpg" alt="#" class="img-responsive"> 
                     </div><!-- .carousel-circle -->
 
                     <div class="carousel-caption">
-                      <i class="fa fa-quote-left"></i>
-                      <p>
+                        <i class="fa fa-quote-left"></i>
+                        <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                      </p>
-                      <i class="fa fa-quote-right"></i>
+                        </p>
+                        <i class="fa fa-quote-right"></i>
                     </div>
-                  </div>
+                </div>
 
-                  <div class="item">
+                <div class="item">
                     <div class="carousel-circle">
-                       <img src="http://dcastalia.com/projects/web/base/cms/administrator/uploads/1451294471Cloud-Solutions-&-Services.jpg" alt="#" class="img-responsive"> 
+                        <img src="http://dcastalia.com/projects/web/base/cms/administrator/uploads/1451294471Cloud-Solutions-&-Services.jpg" alt="#" class="img-responsive"> 
                     </div><!-- .carousel-circle -->
                     <div class="carousel-caption">
-                       
-                      <i class="fa fa-quote-left"></i>
-                      <p>
+
+                        <i class="fa fa-quote-left"></i>
+                        <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                      </p>
-                      <i class="fa fa-quote-right"></i>
+                        </p>
+                        <i class="fa fa-quote-right"></i>
 
                     </div>
-                  </div>
-                
-                  <div class="item">
+                </div>
+
+                <div class="item">
                     <div class="carousel-circle">
-                       <img src="http://dcastalia.com/projects/web/base/cms/administrator/uploads/1451294471Cloud-Solutions-&-Services.jpg" alt="#" class="img-responsive"> 
+                        <img src="http://dcastalia.com/projects/web/base/cms/administrator/uploads/1451294471Cloud-Solutions-&-Services.jpg" alt="#" class="img-responsive"> 
                     </div><!-- .carousel-circle -->
                     <div class="carousel-caption">
-                       
-                      <i class="fa fa-quote-left"></i>
-                      <p>
+
+                        <i class="fa fa-quote-left"></i>
+                        <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                      </p>
-                      <i class="fa fa-quote-right"></i>
+                        </p>
+                        <i class="fa fa-quote-right"></i>
 
                     </div>
-                  </div>
+                </div>
 
-                  <div class="item">
+                <div class="item">
                     <div class="carousel-circle">
-                       <img src="http://dcastalia.com/projects/web/base/cms/administrator/uploads/1451294471Cloud-Solutions-&-Services.jpg" alt="#" class="img-responsive"> 
+                        <img src="http://dcastalia.com/projects/web/base/cms/administrator/uploads/1451294471Cloud-Solutions-&-Services.jpg" alt="#" class="img-responsive"> 
                     </div><!-- .carousel-circle -->
                     <div class="carousel-caption">
-                       
-                      <i class="fa fa-quote-left"></i>
-                      <p>
+
+                        <i class="fa fa-quote-left"></i>
+                        <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                      </p>
-                      <i class="fa fa-quote-right"></i>
+                        </p>
+                        <i class="fa fa-quote-right"></i>
 
                     </div>
-                  </div>
-              
-                </div><!-- .carousel-inner -->
+                </div>
 
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                  <li data-target="#myCarousel" data-slide-to="1"></li>
-                  <li data-target="#myCarousel" data-slide-to="2"></li>
-                  <li data-target="#myCarousel" data-slide-to="3"></li>
-                </ol>
+            </div><!-- .carousel-inner -->
 
-                
-  </div><!-- #myCarousel -->
-        </div>
-    </a>
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+
+
+        </div><!-- #myCarousel -->
+    </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('.carousel').carousel({
+            interval: 2000,
+            cycle: true
+        });
+    });
+</script>

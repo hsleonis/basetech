@@ -81,26 +81,6 @@ class PageController extends Controller
     }
 
 
-    public function actionView($slug1='',$slug2='')
-    {   
-        $title = 'Welcome to IPCO';
-        $menus = MenuPageRels::getAllmenu();
-        
-        
-        return $this->render('/site/index',['menus'=>$menus,'title'=>$title]);
-    }
-
-
-
-    public function actionViewfull($slug1='')
-    {   
-        $title = 'Welcome to IPCO';
-        $menus = MenuPageRels::getAllmenu();
-        
-        
-        return $this->render('/site/index',['menus'=>$menus,'title'=>$title]);
-    }
-
 
 
 }

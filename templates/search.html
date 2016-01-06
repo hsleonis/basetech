@@ -1,0 +1,39 @@
+<div class="col-xs-6 product-banner area" style="background-image: url(resources/img/1.jpg);">
+    <div class="page-title-text">
+        <h2>{{subTitle}}</h2>
+        <h6>Total results found: {{results.length}}</h6>
+        <span>SEARCH</span>
+    </div><!--.page-title-text-->
+</div>
+
+<div class="col-xs-6 area product-view-area" style="">
+    <a ng-click="homepage()">
+        <div class="list-close"><i class="sprite sprite-close-green"></i></div>
+    </a>
+    <ul class="breadcrumbs">
+        <li><a ng-click="homepage()">HOME</a></li>
+        <li>SEARCH</li>
+    </ul>
+
+    <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll>
+        <ul class="product-view-result-ul">
+            <li data-ng-repeat="item in results">
+                <div class="product-img-box">
+                    <img src="{{item.page_thumb}}" alt=""/>
+                </div><!--.product-img-box-->
+                <div class="list-result-text">
+                    <a href="{{item.page_url}}">
+                        <h3>{{item.page_title}}</h3>
+                    </a>
+                    <p data-ng-bind-html="item.page_desc"></p>
+                    <p>Results found: {{item.page_result}}</p>
+                </div>
+                <a href="{{item.page_url}}">
+                    <div class="list-plus-btn">
+                        <span>+</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

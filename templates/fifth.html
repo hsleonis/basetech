@@ -1,0 +1,24 @@
+<div class="col-xs-6 area detail-banner" style="background-image: url({{detPage.page_banner}});">
+    <div class="page-title-text">
+        <h2>{{fvTitle}}</h2>
+        <span>{{detTitle}}</span>
+    </div><!--.page-title-text-->
+</div>
+
+<div class="col-xs-6 area product-view-area">
+    <a ng-click="homepage()">
+        <div class="list-close"><i class="sprite sprite-close-green"></i></div>
+    </a>
+    <ul class="breadcrumbs">
+        <li data-ng-show="company"><a ng-click="homepage()">HOME</a></li>
+        <li data-ng-if="cur.child_pages.menu.length>1">{{company}}</li>
+        <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{subTitle}}</a></li>
+        <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">{{detTitle}}</a></li>
+        <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}/{{fvPage.page_data.page_slug}}">{{fvTitle}}</a></li>
+    </ul>
+
+    <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll="">
+        <div class="detalis-text-wpr" bind-unsafe-html="fvPage.page_data.page_desc">
+        </div><!--.detalis-text-wpr-->
+    </div>
+</div>

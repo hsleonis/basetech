@@ -11,10 +11,10 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
-    'homeUrl' => '/base',
+    'homeUrl' => '/base/cms',
     'components' => [
         'request' => [
-            'baseUrl' => '/base',
+            'baseUrl' => '/base/cms',
             'enableCsrfValidation' => false,
         ],
         'user' => [
@@ -61,7 +61,7 @@ return [
         ],
         'urlManagerBackEnd' => [
             'class' => 'yii\web\urlManager',
-            'baseUrl' => '/base/backend/web',
+            'baseUrl' => '/base/cms/backend/web',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],

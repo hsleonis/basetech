@@ -75,6 +75,7 @@ app.controller('listController', function($scope, JsonService, $routeParams) {
         var currentPage = $routeParams.page;
         var sub = $routeParams.subpage;
         var detail = $routeParams.detail;
+        var fv = $routeParams.fvpage;
         
         if(typeof pages[currentPage]!=='undefined'){
             $scope.cur = pages[currentPage];
@@ -88,6 +89,14 @@ app.controller('listController', function($scope, JsonService, $routeParams) {
                     $scope.detTitle = $scope.page.child_pages[detail].page_data.page_title;
                     $scope.detPage = $scope.page.child_pages[detail];
                     changeTitle($scope.detTitle);
+                    if(typeof fv!=='undefined' && typeof $scope.detPage.child_pages[fv]!=='undefined') {
+                        $scope.fvTitle = $scope.detPage.child_pages[fv].page_data.page_title;
+                        $scope.fvPage = $scope.detPage.child_pages[fv];
+                        changeTitle($scope.fvTitle);
+                    }
+                    else {
+                        $scope.fvTitle = '404 PAGE NOT FOUND';
+                    }
                 }
                 else {
                     $scope.detTitle = '404 PAGE NOT FOUND';
@@ -104,13 +113,43 @@ app.controller('listController', function($scope, JsonService, $routeParams) {
     });
 });
 
+// Search Controller
+app.controller('searchController', function($scope, $http, JsonService, $routeParams, $window) {
+    openView();
+    changeTitle('SEARCH');
+    $scope.company = 'SEARCH';
+    $scope.subTitle = $routeParams.term;
+    
+    $http.post("http://dcastalia.com/projects/web/base/cms/site/search_data", {'term':$routeParams.term})
+    .success(function (response) {
+        $scope.results = response;
+    });
+    
+/*    $scope.results = [
+        {
+            'page_title': 'First page',
+            'page_url': 'http://dcastalia.com/projects/web/base/parent/sub/first-page',
+            'page_thumb': 'http://dcastalia.com/projects/web/base/resources/img/1.jpg',
+            'page_desc': 'This is the demo description',
+            'page_result': '23'
+        },
+        {
+            'page_title': 'Second page',
+            'page_url': 'http://dcastalia.com/projects/web/base/parent/sub/first-page',
+            'page_thumb': 'http://dcastalia.com/projects/web/base/resources/img/2.jpg',
+            'page_desc': 'This is the demo description',
+            'page_result': '5'
+        }
+    ];*/
+});
+
 // Links Controller
 app.controller('linkController', function($scope, JsonService, $routeParams) {
     openView();
     
     JsonService.get(function(pages){
         $scope.pages = pages;
-        var currentPage = 'alliences';
+        var currentPage = 'alliances';
         var sub = $routeParams.subpage;
         var detail = $routeParams.detail;
         
@@ -148,8 +187,8 @@ app.controller('projectController', function($scope, JsonService, $routeParams) 
     
     JsonService.get(function(pages){
         $scope.pages = pages;
-        var currentPage = 'projects';
-        var sub = $routeParams.subpage;
+        var currentPage = 'achievement';
+        var sub = 'projects';
         var detail = $routeParams.detail;
         
         if(typeof pages[currentPage]!=='undefined'){
@@ -193,6 +232,20 @@ app.controller('menuController', function($scope, JsonService, $routeParams, $lo
         if(typeof $.fn.fullpage.setAllowScrolling!=='undefined')
         $.fn.fullpage.setAllowScrolling(false);
     });
+    
+    $('.searchbox').keyup(function(e) {
+         if (e.keyCode == 13) {
+            $scope.$apply(function (){
+                $location.url('/search/'+$scope.searchText);
+                if(!$('#main-view').hasClass('sub-paged'))
+                    $.fn.fullpage.setAllowScrolling(true);
+                    $(".main-menu-wpr").removeClass("menu-view");
+                    $(".nav-icon").toggleClass("barg-o-one");
+                    $('.nav-icon').css('opacity', '1');
+                });
+        }
+    });
+    
 });
 
 // Gallery Controller

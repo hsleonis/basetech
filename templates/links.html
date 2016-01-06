@@ -11,7 +11,7 @@
     </a>
     <ul class="breadcrumbs">
         <li data-ng-show="company"><a ng-click="homepage()">HOME</a></li>
-        <li>{{company}}</li>
+        <li data-ng-if="cur.child_pages.menu.length>1">{{company}}</li>
         <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{subTitle}}</a></li>
     </ul>
 

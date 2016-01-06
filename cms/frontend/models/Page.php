@@ -88,6 +88,11 @@ class Page extends \yii\db\ActiveRecord
     {
         return $this->hasMany(PageImageRel::className(), ['page_id' => 'id'])->orderBy('page_image_rel.sort_order asc');
     }
+    
+    public function getThumbimages()
+    {
+        return $this->hasMany(PageImageRel::className(), ['page_id' => 'id'])->andWhere(['is_banner'=>1])->orderBy('page_image_rel.sort_order asc');
+    }
 
     public function getTags()
     {
@@ -177,12 +182,13 @@ class Page extends \yii\db\ActiveRecord
                 $options[$value->page_title]['page_data']['page_slug'] = $value->page_slug;
                 $options[$value->page_title]['page_data']['short_desc'] = $value->short_desc;
                 $options[$value->page_title]['page_data']['page_desc'] = $value->page_desc;
-                $options[$value->page_title]['page_data']['sort_order'] = $value->sort_order;
+                /*$options[$value->page_title]['page_data']['sort_order'] = $value->sort_order;*/
 				
 				
                 $options[$value->page_title]['page_types'] = $value->types;
                 $options[$value->page_title]['page_tags'] = $value->tags;
                 $options[$value->page_title]['page_images'] = $value->images;
+                $options[$value->page_title]['sort_order'] = $value->sort_order;
 
                 foreach ($value->post as $p) {
                     $options[$value->page_title]['page_post'][$p->post_title]['data'] = $p;
@@ -221,12 +227,13 @@ class Page extends \yii\db\ActiveRecord
                 $options[$value->page_slug]['page_data']['page_slug'] = $value->page_slug;
                 $options[$value->page_slug]['page_data']['short_desc'] = $value->short_desc;
                 $options[$value->page_slug]['page_data']['page_desc'] = $value->page_desc;
-                $options[$value->page_slug]['page_data']['sort_order'] = $value->sort_order;
+                //$options[$value->page_slug]['page_data']['sort_order'] = $value->sort_order;
 				
                 //$options[$value->page_slug]['page_types'] = $value->types;
                 //$options[$value->page_slug]['page_tags'] = $value->tags;
                 $options[$value->page_slug]['page_images'] = $value->images;
                 $options[$value->page_slug]['page_banner'] = '';
+                $options[$value->page_slug]['sort_order'] = $value->sort_order;
                 
                 if(!empty($value->images))
                 foreach ($value->images as $image) {
@@ -300,6 +307,39 @@ class Page extends \yii\db\ActiveRecord
         }
         
 
+        return $options;
+    }
+    
+    
+    public static function get_parent_pages_backward_child($id,$page_slug,$options){
+        $parent_page = PageSelfRels::find()->where(['page_id'=>$id])->one();
+        
+        if($parent_page->parent_page_id != 0){
+            $data = self::find()->where(['id'=>$parent_page->parent_page_id])->one();
+            $options = $data->page_slug.'/'.$options;
+            
+            $options = self::get_parent_pages_backward_child($data->id, $data->page_slug, $options);
+        }else{
+            $options = $options;
+        }
+        
+        return $options;
+    }
+    
+    public static function get_parent_pages_backward($id,$page_slug){
+        $options = '';
+
+        $parent_page = PageSelfRels::find()->where(['page_id'=>$id])->one();
+        if($parent_page->parent_page_id != 0){
+            $data = self::find()->where(['id'=>$parent_page->parent_page_id])->one();
+            $options = $data->page_slug.'/'.$page_slug;
+            
+            $options = self::get_parent_pages_backward_child($data->id, $data->page_slug, $options);
+        }else{
+            $options = $page_slug;
+        }
+        
+        
         return $options;
     }
 }
