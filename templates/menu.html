@@ -28,7 +28,7 @@
                     <li data-ng-repeat="link in subpage.child_pages">
                         <a data-ng-show="$index<=11 && item.page_data.page_slug=='alliances'" href="{{link.page_data.ext_url}}" target="_blank">{{link.page_data.page_title}}</a>
                         <a data-ng-show="$index<=11 && item.page_data.page_slug!='alliances'" href="{{item.page_data.page_slug}}/{{subpage.page_data.page_slug}}/{{link.page_data.page_slug}}">{{link.page_data.page_title}}</a>
-                        <a data-ng-show="$index==12" href="{{item.page_data.page_slug}}/{{subpage.page_data.page_slug}}">>> View All</a>
+                        <a class="view-all" data-ng-show="$index==12" href="{{item.page_data.page_slug}}/{{subpage.page_data.page_slug}}">View All</a>
                     </li>
                 </ul>
             </div>

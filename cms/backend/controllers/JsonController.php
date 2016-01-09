@@ -152,7 +152,7 @@ class JsonController extends Controller
         if(is_file($file))
             unlink($file);
 
-        $pages_data_list = Page::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>0])->all();
+        $pages_data_list = Page::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>0])->orderBy('sort_order asc')->all();
 
         $i=0;
         foreach($pages_data_list as $pages_data){
