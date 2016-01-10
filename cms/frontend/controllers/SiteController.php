@@ -15,6 +15,7 @@ use yii\filters\AccessControl;
 use frontend\models\Menu;
 use frontend\models\MenuPageRels;
 use frontend\models\Page;
+use frontend\models\Enquiry;
 
 //somrat added
 use frontend\models\ProductSpecification;
@@ -44,10 +45,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['logout', 'signup','enquiry','apply_online'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['signup','enquiry','apply_online'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -149,6 +150,91 @@ class SiteController extends Controller
 
         return $response;
     }
+
+public function actionEnquiry(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+	$response = [];
+
+	$data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
+	
+	$model = new Enquiry();
+	$model->name = $data->name;
+	$model->email = $data->email;
+	$model->message = $data->message;
+	$valid = $model->validate();
+	if($valid){
+		$message = Yii::$app->mailer->compose();
+
+		$message->setFrom('shimul@dcastalia.com');
+		$message->setTo('shahriar@dcastalia.com');
+		$message->setSubject('Base technology Inquiry');
+		$message->setHtmlBody($model->message);
+		if($message->send()){
+			$response['result'] = 1;
+			$response['msg'] = 'Message sent successfully.';
+		}else{
+			$response['result'] = 'Error';
+			$response['msg'] = 'Sorry couldn\'t send your message. Please try again later.';
+		}
+	}else{
+		$response['result'] = 0;
+		$response['msg'] = $model->getErrors()	;
+	}
+	
+
+	return $response;
+}
+
+public function actionApply_online(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+	$response = [];
+
+	$data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
+	
+	$model = new ApplyOnline();
+	$model->name = $data->name;
+	$model->address = $data->address;
+	$model->email = $data->email;
+	$model->department = $data->department;
+	$model->qualification = $data->qualification;
+	$model->job = $data->job;
+	$model->message = $data->message;
+	$model->cv = $data->cv;
+
+	$valid = $model->validate();
+	if($valid){
+		$message = Yii::$app->mailer->compose();
+		
+		$body = 'Name: '.$data->name.'<br/>';
+		$body .= 'Address: '.$data->address.'<br/>';
+		$body .= 'email: '.$data->email.'<br/>';
+		$body .= 'department: '.$data->department.'<br/>';
+		$body .= 'qualification: '.$data->qualification.'<br/>';
+		$body .= 'job: '.$data->job.'<br/>';
+		$body .= 'message: '.$data->message.'<br/>';
+
+		$message->setFrom('shimul@dcastalia.com');
+		$message->setTo('shahriar@dcastalia.com');
+		$message->setSubject('Base technology Apply Online');
+		$message->setHtmlBody($body);
+		if($model->cv != ''){
+        		$message->attach($model->cv);		
+		}
+		if($message->send()){
+			$response['result'] = 1;
+			$response['msg'] = 'Appplication submitted successfully.';
+		}else{
+			$response['result'] = 'Error';
+			$response['msg'] = 'Sorry couldn\'t send your Application. Please try again later.';
+		}
+	}else{
+		$response['result'] = 0;
+		$response['msg'] = $model->getErrors()	;
+	}
+	
+
+	return $response;
+}
 
 
 }

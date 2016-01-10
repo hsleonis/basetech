@@ -126,8 +126,22 @@ class UserController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $old_img = $model->image;
+            
+            $model_image = UploadedFile::getInstance($model, 'image');
+            if($model_image){
+                $time=time();
+                $model->image = $time.$model_image->baseName . '.' . $model_image->extension;
+            }
+            
+            if($model->save()){
+                if($model_image){
+                    $model_image->saveAs('user_img/' . $time.$model_image->baseName . '.' . $model_image->extension);
+                }
             return $this->redirect(['view', 'id' => $model->id]);
+            }
+            
         } else {
             return $this->render('update', [
                 'model' => $model,

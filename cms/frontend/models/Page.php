@@ -140,6 +140,7 @@ class Page extends \yii\db\ActiveRecord
         $child_pages = self::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>$parent])->all();
 
         if(!empty($child_pages)){
+
             foreach ($child_pages as $key => $value) {
 
                 $options[$value->page_slug]['page_data'] = $value;
@@ -147,6 +148,7 @@ class Page extends \yii\db\ActiveRecord
                 $options[$value->page_slug]['page_tags'] = $value->tags;
                 $options[$value->page_slug]['page_images'] = $value->images;
                 $options[$value->page_slug]['page_banner'] = '';
+                $options[$value->page_slug]['sort_order'] = $value->sort_order;
                 
                 if(!empty($value->images))
                 foreach ($value->images as $image) {
@@ -161,6 +163,7 @@ class Page extends \yii\db\ActiveRecord
                 }
 
                 $options[$value->page_slug]['child_pages'] = self::get_child_pages($value->id, $datas);
+		$options[$value->page_slug]['menu'] = self::get_child_pages_menu($value->id);
                 $datas = [];
             }
         }
@@ -176,6 +179,7 @@ class Page extends \yii\db\ActiveRecord
         $parent_pages = self::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>0])->all();
         
         if(!empty($parent_pages)){
+		
             foreach ($parent_pages as $key => $value) {
                 $options[$value->page_title]['page_data']['id'] = $value->id;
                 $options[$value->page_title]['page_data']['page_title'] = $value->page_title;
@@ -204,7 +208,23 @@ class Page extends \yii\db\ActiveRecord
         return $options;
     }
 
+    public static function get_child_pages_menu($parent){
+        $datas = [];
+	$options = [];
+        $child_pages = self::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>$parent])->all();
 
+        if(!empty($child_pages)){
+		$x=0;
+	    foreach ($child_pages as $key => $value) {
+
+                $options[$x]['page_title'] = $value->page_title;
+                $options[$x]['page_slug'] = $value->page_slug;
+				$x++;
+            }
+        }
+
+        return $options;
+    }
 
 
     public static function get_child_pages_One_page($parent, $options){
@@ -248,6 +268,7 @@ class Page extends \yii\db\ActiveRecord
                 }
 
                 $options[$value->page_slug]['child_pages'] = self::get_child_pages($value->id, $datas);
+		$options[$value->page_slug]['menu'] = self::get_child_pages_menu($value->id);
                 $datas = [];
                 $i++;
             }
@@ -271,6 +292,7 @@ class Page extends \yii\db\ActiveRecord
                 $options['page_data']['short_desc'] = $value->short_desc;
                 $options['page_data']['page_desc'] = $value->page_desc;
                 $options['page_data']['sort_order'] = $value->sort_order;
+                $options['sort_order'] = $value->sort_order;
 													   
                 //$options['page_types'] = $value->types;
                 //$options['page_tags'] = $value->tags;

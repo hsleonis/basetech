@@ -8,16 +8,30 @@
 
 */
 
-app.controller('appController', function($scope, $location, $window) {
+app.controller('appController', function($http, $scope, $location, $window) {
     $scope.homeURL = 'http://dcastalia.com/projects/web/base/';
     
     $scope.homepage = function(){
         closeView();
+        if(typeof $.fn.fullpage.setAllowScrolling !== 'undefined'){
+            $.fn.fullpage.setAllowScrolling(false);
+        }
         setTimeout(function(){
             $scope.$apply(function (){
                 $location.url('/');
+                if(typeof $.fn.fullpage.setAllowScrolling !== 'undefined'){
+                    $.fn.fullpage.setAllowScrolling(true);
+                }
             });
         },900);
+    };
+    
+    $scope.sendmail = function(a,b,c){
+        $http.post("    http://dcastalia.com/projects/web/base/cms/site/enquiry", {name:a,email:b,message:c})
+        .success(function (response) {
+            console.log($scope);
+            $scope.mailresponse = response;
+        });
     };
 });
 
@@ -89,10 +103,30 @@ app.controller('listController', function($scope, JsonService, $routeParams) {
                     $scope.detTitle = $scope.page.child_pages[detail].page_data.page_title;
                     $scope.detPage = $scope.page.child_pages[detail];
                     changeTitle($scope.detTitle);
+                    
+                    var menuList = $scope.page.menu;
+                    var index = menuList.map(function(x) {
+                        return x.page_slug; 
+                    }).indexOf($scope.detPage.page_data.page_slug);
+                    
+                    var prv = (index>0)?(index-1):(menuList.length-1);
+                    var nxt = (index<menuList.length-1)?(index+1):0;
+                    $scope.prvProject = menuList[prv].page_slug;
+                    $scope.nxtProject = menuList[nxt].page_slug;
                     if(typeof fv!=='undefined' && typeof $scope.detPage.child_pages[fv]!=='undefined') {
                         $scope.fvTitle = $scope.detPage.child_pages[fv].page_data.page_title;
                         $scope.fvPage = $scope.detPage.child_pages[fv];
                         changeTitle($scope.fvTitle);
+                        
+                        var menuList = $scope.detPage.menu;
+                        var index = menuList.map(function(x) {
+                            return x.page_slug; 
+                        }).indexOf($scope.fvPage.page_data.page_slug);
+
+                        var prv = (index>0)?(index-1):(menuList.length-1);
+                        var nxt = (index<menuList.length-1)?(index+1):0;
+                        $scope.prvProject = menuList[prv].page_slug;
+                        $scope.nxtProject = menuList[nxt].page_slug;
                     }
                     else {
                         $scope.fvTitle = '404 PAGE NOT FOUND';
@@ -124,23 +158,6 @@ app.controller('searchController', function($scope, $http, JsonService, $routePa
     .success(function (response) {
         $scope.results = response;
     });
-    
-/*    $scope.results = [
-        {
-            'page_title': 'First page',
-            'page_url': 'http://dcastalia.com/projects/web/base/parent/sub/first-page',
-            'page_thumb': 'http://dcastalia.com/projects/web/base/resources/img/1.jpg',
-            'page_desc': 'This is the demo description',
-            'page_result': '23'
-        },
-        {
-            'page_title': 'Second page',
-            'page_url': 'http://dcastalia.com/projects/web/base/parent/sub/first-page',
-            'page_thumb': 'http://dcastalia.com/projects/web/base/resources/img/2.jpg',
-            'page_desc': 'This is the demo description',
-            'page_result': '5'
-        }
-    ];*/
 });
 
 // Links Controller
@@ -202,6 +219,16 @@ app.controller('projectController', function($scope, JsonService, $routeParams) 
                     $scope.detTitle = $scope.page.child_pages[detail].page_data.page_title;
                     $scope.detPage = $scope.page.child_pages[detail];
                     changeTitle($scope.detTitle);
+                    
+                    var menuList = $scope.page.menu;
+                    var index = menuList.map(function(x) {
+                        return x.page_slug; 
+                    }).indexOf($scope.detPage.page_data.page_slug);
+                    
+                    var prv = (index>0)?(index-1):(menuList.length-1);
+                    var nxt = (index<menuList.length-1)?(index+1):0;
+                    $scope.prvProject = menuList[prv].page_slug;
+                    $scope.nxtProject = menuList[nxt].page_slug;
                 }
                 else {
                     $scope.detTitle = '404 PAGE NOT FOUND';
@@ -269,6 +296,16 @@ app.controller('galleryController', function($scope, JsonService, $routeParams) 
                     $scope.detTitle = $scope.page.child_pages[detail].page_data.page_title;
                     $scope.detPage = $scope.page.child_pages[detail];
                     changeTitle($scope.detTitle);
+                    
+                    var menuList = $scope.page.menu;
+                    var index = menuList.map(function(x) {
+                        return x.page_slug; 
+                    }).indexOf($scope.detPage.page_data.page_slug);
+                    
+                    var prv = (index>0)?(index-1):(menuList.length-1);
+                    var nxt = (index<menuList.length-1)?(index+1):0;
+                    $scope.prvProject = menuList[prv].page_slug;
+                    $scope.nxtProject = menuList[nxt].page_slug;
                 }
                 else {
                     $scope.detTitle = '404 PAGE NOT FOUND';
@@ -286,7 +323,7 @@ app.controller('galleryController', function($scope, JsonService, $routeParams) 
 });
 
 // News Room Controller
-app.controller('newsroomController', function($scope, JsonService, $routeParams) {
+app.controller('newsroomController', function($scope, JsonService, $routeParams, $filter) {
     openView();
     
     JsonService.get(function(pages){
@@ -306,6 +343,16 @@ app.controller('newsroomController', function($scope, JsonService, $routeParams)
                     $scope.detTitle = $scope.page.child_pages[detail].page_data.page_title;
                     $scope.detPage = $scope.page.child_pages[detail];
                     changeTitle($scope.detTitle);
+                    
+                    var menuList = $scope.page.menu;
+                    var index = menuList.map(function(x) {
+                        return x.page_slug; 
+                    }).indexOf($scope.detPage.page_data.page_slug);
+                    
+                    var prv = (index>0)?(index-1):(menuList.length-1);
+                    var nxt = (index<menuList.length-1)?(index+1):0;
+                    $scope.prvProject = menuList[prv].page_slug;
+                    $scope.nxtProject = menuList[nxt].page_slug;
                 }
                 else {
                     $scope.detTitle = '404 PAGE NOT FOUND';

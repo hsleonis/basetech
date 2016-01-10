@@ -34,22 +34,22 @@
                                     <div id="enquiry" class="tab-pane fade">
                                         <div class="info-box container">
                                         <div class="row">
-                                            <h3>Contact us</h3>
-                                            <form id="sform" method="post" action="#">
+                                            <h3></h3>
+                                            <form id="sform">
                                                 <p>
                                                     <label for="name">Name</label>
-                                                    <input id="name" type="text" name="name"/>
+                                                    <input id="name" type="text" ng-model="mailname"/>
                                                 </p>
 
                                                 <p>
                                                     <label for="email">Email</label>
-                                                    <input id="email" type="text" name="email"/>
+                                                    <input id="email" type="text" ng-model="mailemail"/>
                                                 </p>
                                                 <p>
                                                     <label for="message">Message</label>
-                                                    <textarea id="message" name="message"></textarea>
+                                                    <textarea id="message" ng-model="mailmessage"></textarea>
                                                 </p>
-                                                <input type="submit" value="SUBMIT"/>
+                                                <input type="submit" data-ng-click="sendmail(mailname,mailemail,mailmessage)" value="SUBMIT" />
                                             </form>
                                         </div>
                                         </div><!--.info-box-single-->

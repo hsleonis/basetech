@@ -3,6 +3,8 @@
         <div class="page-title-text">
             <h2>{{detTitle}}</h2>
             <div class="page-title-btn">
+                <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{prvProject}}"><i class="fa fa-angle-left"></i></a>
+                <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{nxtProject}}"><i class="fa fa-angle-right"></i></a>
             </div>
         </div>
 
@@ -17,7 +19,7 @@
     </div>
 
     <div class="col-xs-6 area-gview-2 product-view-area">
-        <a ng-click="homepage()">
+        <a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">
             <div class="list-close"><i class="sprite sprite-close-green"></i></div>
         </a>
         <ul class="breadcrumbs">
@@ -32,7 +34,7 @@
             <h4>{{detPage.page_data.short_desc}}</h4>
             <div class="image-gallery">
                 <div lightgallery class="g-thumbnail col-xs-4" data-ng-repeat="item in data=(detPage.page_images)" data-src="{{item.image}}" data-sub-html="<h4>{{item.short_title}}</h4><p>{{item.short_desc}}</p>">
-                    <img src="{{item.image}}" data-ng-image-load-animation="" class="img-responsive"/>
+                    <div class="gallery-image" style="background-image:url({{item.image}})"></div>
                 </div><!--.g-thumbnail-->
             </div>
 

@@ -119,18 +119,18 @@ AppAsset::register($this);
 
           
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="<?= Url::toRoute(['/mail/index']); ?>">
+                    <!--<li><a href="<?= Url::toRoute(['/mail/index']); ?>">
                         <i class="fa fa-paper-plane-o"></i>
                         <span>Mail</span>
-                    </a></li>
-                    <li><a href="<?= Url::toRoute(['/site/timeline']); ?>">
+                    </a></li>-->
+                    <!--<li><a href="<?= Url::toRoute(['/site/timeline']); ?>">
                         <i class="fa fa-paper-plane-o"></i>
                         <span>Timeline</span>
-                    </a></li>
-                    <li><a href="<?= Url::toRoute(['/settings/index']); ?>">
+                    </a></li>-->
+                    <!--<li><a href="<?= Url::toRoute(['/settings/index']); ?>">
                         <i class="fa fa-wrench"></i>
                         <span>Settings</span>
-                    </a></li>
+                    </a></li>-->
                     <li><a href="#" class="lock_screen_btn">
                         <i class="fa fa-lock"></i>
                         <span>Lock</span>
@@ -183,25 +183,6 @@ AppAsset::register($this);
                             <i class="fa fa-navicon"></i>
                         </a>
                       </li>
-                      <li role="presentation">
-                        <a href="#emails" aria-controls="emails" role="tab" data-toggle="tab">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="badge">6</span>
-                        </a>
-                      </li>
-                      <li role="presentation">
-                        <a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="badge">
-
-                            <?php
-                              $comment_count = Comments::find()->where(['is_approved'=>0])->count();
-                              echo $comment_count;
-                            ?>
-
-                            </span>
-                        </a>
-                      </li>
                   </ul><!-- nav -->
             
             <!-- Tab panes -->
@@ -213,7 +194,7 @@ AppAsset::register($this);
                             <ul id="sidebar-nav" class="sidebar-nav">
                               <li class="<?php echo (Yii::$app->controller->id=='site')?'active':''; ?>">
                                   <a href="<?= Url::toRoute(['/site/index']); ?>">
-                                    <i class="fa fa-tachometer fa-fw fa-lg"></i> Dashboard &nbsp;<span class="label label-success">New</span>
+                                    <i class="fa fa-tachometer fa-fw fa-lg"></i> Dashboard
                                   </a>
                               </li>
                               
@@ -241,80 +222,20 @@ AppAsset::register($this);
                                   </ul>
                               </li>
                               
-                              <li class="<?php echo (Yii::$app->controller->id=='menu')?'active':''; ?>">
-                                  <a href="#">
-                                    <i class="fa fa-bars fa-fw fa-lg"></i> Menu Module
-                                  </a>
-                                  <ul>
-                                    <li><a href="<?= Url::toRoute(['/menu/index']); ?>">Menu List</a></li>
-                                    <li><a href="<?= Url::toRoute(['/menu/create']); ?>">Create Menu</a></li>
-                                    <li><a href="<?= Url::toRoute(['/menu/menu_items']); ?>">Edit Menu</a></li>
-                                  </ul>
-                              </li>
+                                
+                              <!--
                               
-                              <li class="<?php echo (Yii::$app->controller->id=='productcategory')?'active':''; ?>">
-                                  <a href="#">
-                                    <i class="fa fa-table fa-fw fa-lg"></i> Product Category Module
-                                  </a>
-                                  <ul class="collapse">
-                                    <li><a href="<?= Url::toRoute(['/productcategory/index']); ?>">Manage Product Category</a></li>
-                                    <li><a href="<?= Url::toRoute(['/productcategory/create']); ?>">Create Product Category</a></li>
-                                    <li><a href="<?= Url::toRoute(['/productcategory/category_list']); ?>">Product Category list</a></li>
-                                  </ul>
-                              </li>
-                              
-                              <li class="<?php echo (Yii::$app->controller->id=='product' || Yii::$app->controller->id=='productspecitem')?'active':''; ?>">
-                                  <a href="#">
-                                    <i class="fa fa-shopping-cart fa-fw fa-lg"></i> Product Module
-                                  </a>
-                                  <ul class="collapse">
-                                    <li><a href="<?= Url::toRoute(['/product/index']); ?>">Manage Product</a></li>
-                                    <li><a href="<?= Url::toRoute(['/product/create']); ?>">Create Product</a></li>
-                                    <li><a href="<?= Url::toRoute(['/productspecitem/index']); ?>">Manage Product Specification Item</a></li>
-                                    <li><a href="<?= Url::toRoute(['/productspecitem/create']); ?>">Create Product Specification Item</a></li>
-                                  </ul>
-                              </li>
-                              
-                              <li class="<?php echo (Yii::$app->controller->id=='tags')?'active':''; ?>">
-                                  <a href="#">
-                                    <i class="fa fa-tags fa-fw fa-lg"></i> Tag Module
-                                  </a>
-                                  <ul class="collapse">
-                                    <li><a href="<?= Url::toRoute(['/tags/index']); ?>">Manage Tags</a></li>
-                                    <li><a href="<?= Url::toRoute(['/tags/create']); ?>">Create Tag</a></li>
-                                  </ul>
-                              </li>
-                              
-                              <li class="<?php echo (Yii::$app->controller->id=='slider')?'active':''; ?>">
+                              <li class="<?php //echo (Yii::$app->controller->id=='slider')?'active':''; ?>">
                                   <a href="#">
                                     <i class="fa fa-picture-o fa-fw fa-lg"></i> Slider Module
                                   </a>
                                   <ul class="collapse">
-                                    <li><a href="<?= Url::toRoute(['/slider/index']); ?>">Manage Slider</a></li>
-                                    <li><a href="<?= Url::toRoute(['/slider/create']); ?>">Create Slider</a></li>
+                                    <li><a href="<?php //echo Url::toRoute(['/slider/index']); ?>">Manage Slider</a></li>
+                                    <li><a href="<?php //echo Url::toRoute(['/slider/create']); ?>">Create Slider</a></li>
                                   </ul>
-                              </li>
+                              </li>-->
                               
-                              <li class="<?php echo (Yii::$app->controller->id=='comments')?'active':''; ?>">
-                                  <a href="#">
-                                    <i class="fa fa-picture-o fa-fw fa-lg"></i> Comments Module
-                                  </a>
-                                  <ul class="collapse">
-                                    <li><a href="<?= Url::toRoute(['/comments/index']); ?>">Unapproved Comments</a></li>
-                                    <li><a href="<?= Url::toRoute(['/comments/approved_comments']); ?>">Approved Comments</a></li>
-                                  </ul>
-                              </li>
 
-                              <li class="<?php echo (Yii::$app->controller->id=='news')?'active':''; ?>">
-                                  <a href="#">
-                                    <i class="fa fa-newspaper-o"></i> News Module
-                                  </a>
-                                  <ul class="collapse">
-                                    <li><a href="<?= Url::toRoute(['/news/index']); ?>">Manage News</a></li>
-                                    <li><a href="<?= Url::toRoute(['/news/create']); ?>">Create News</a></li>
-                                  </ul>
-                              </li>
-                          
                           
                           
                             </ul><!-- sidebar-nav -->
@@ -323,135 +244,6 @@ AppAsset::register($this);
                     
                       </div><!-- tab-pane -->
                       
-                      <div role="tabpanel" class="tab-pane fade" id="emails">
-                          <h4>Emails</h4>
-                          <div class="sidebar-emails-container" role="tabpanel">
-                          
-                              <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#inbox" aria-controls="inbox" role="tab" data-toggle="tab">Inbox</a></li>
-                                <li role="presentation"><a href="#sent" aria-controls="sent" role="tab" data-toggle="tab">Sent</a></li>
-                              </ul><!-- nav-tabs -->
-                          
-                              <div class="tab-content">
-                                  <div role="tabpanel" class="tab-pane fade in active" id="inbox">
-                                      <ul class="emails-list">
-                                          <li><a href="#" class="clearfix">
-                                              <div class="email-thumb">
-                                            J
-                                              </div>
-                                              <div class="email-short">
-                                            <h6>Jennifer Meza</h6>
-                                            <small>Lorem ipsum dolor sit amet...</small>
-                                              </div>
-                                              <span class="when">21/01/15</span>
-                                          </a></li>
-                                          
-                                          <li><a href="#" class="clearfix">
-                                              <div class="email-thumb">
-                                            A
-                                              </div>
-                                              <div class="email-short">
-                                            <h6>Arthur Hernandez</h6>
-                                            <small>Lorem ipsum dolor sit amet...</small>
-                                              </div>
-                                              <span class="when">20/01/15</span>
-                                          </a></li>
-                                          
-                                          <li><a href="#" class="clearfix">
-                                              <div class="email-thumb image">
-                                            
-                                              </div>
-                                              <div class="email-short">
-                                            <h6>Alicia Garcia</h6>
-                                            <small>Lorem ipsum dolor sit amet...</small>
-                                              </div>
-                                              <span class="when">18/01/15</span>
-                                          </a></li>
-                                          
-                                          <li><a href="#" class="clearfix">
-                                              <div class="email-thumb">
-                                            S
-                                              </div>
-                                              <div class="email-short">
-                                            <h6>someone@gmail.com</h6>
-                                            <small>Lorem ipsum dolor sit amet...</small>
-                                              </div>
-                                              <span class="when">17/01/15</span>
-                                          </a></li>
-                                          
-                                          <li><a href="#" class="clearfix">
-                                              <div class="email-thumb image">
-                                            <img src="<?php echo $this->theme->baseUrl; ?>/assets/img/uploads/profile2.jpg" class="img-circle" alt="Profile Pic">
-                                              </div>
-                                              <div class="email-short">
-                                            <h6>Michelle Bowman</h6>
-                                            <small>Lorem ipsum dolor sit amet...</small>
-                                              </div>
-                                              <span class="when">14/01/15</span>
-                                          </a></li>
-                                          
-                                          <li><a href="#" class="clearfix">
-                                              <div class="email-thumb image">
-                                            <img src="<?php echo $this->theme->baseUrl; ?>/assets/img/uploads/profile3.jpg" class="img-circle" alt="Profile Pic">
-                                              </div>
-                                              <div class="email-short">
-                                            <h6>Jimmy Simmons</h6>
-                                            <small>Lorem ipsum dolor sit amet...</small>
-                                              </div>
-                                              <span class="when">13/01/15</span>
-                                          </a></li>
-                                      </ul><!-- emails-list -->
-                                  </div><!-- tab-pane -->
-                            
-                                  <div role="tabpanel" class="tab-pane fade" id="sent">
-                                      <ul class="emails-list">
-                                        <li><a href="#" class="clearfix">
-                                            <div class="email-thumb">
-                                          J
-                                            </div>
-                                            <div class="email-short">
-                                          <h6>Jennifer Meza</h6>
-                                          <small>Lorem ipsum dolor sit amet...</small>
-                                            </div>
-                                            <span class="when">21/01/15</span>
-                                        </a></li>
-                                      </ul><!-- emails-list -->
-                                  </div><!-- tab-pane -->
-                              </div><!-- tab-content -->
-                          
-                          </div><!-- sidebar-emails-container -->
-                      </div><!-- tab-pane -->
-                      
-                      <div role="tabpanel" class="tab-pane fade" id="notifications">
-                          
-                          <h4>Unapproved Comments</h4>
-                          <ul class="emails-list">
-
-                          <?php
-                            $data = Comments::find()->where(['is_approved'=>0])->all();
-                            $count = count($data);
-
-                            foreach ($data as $key) {
-                              
-                          ?>
-                              <li>
-                                <a href="<?= Url::toRoute(['/comments/view','id'=>$key->id]); ?>" class="clearfix">
-                                  <div class="email-thumb">
-                                    <?php echo $key->name[0]; ?>
-                                  </div>
-                                  <div class="email-short">
-                                    <h6><?= $key->name; ?></h6>
-                                    <small><?= Mail::limit_str(35,strip_tags($key->comment)); ?></small>
-                                  </div>
-                                  <span class="when"><?= date_format(date_create($key->updated_at), "F j, Y, g:i a"); ?></span>
-                                </a>
-                              </li>
-                          <?php
-                            }
-                          ?>
-                              
-                          </ul><!-- notifications -->
-                      </div><!-- tab-pane -->
                       
                   </div><!-- tab-content -->
               </div><!-- tabpanel -->

@@ -18,6 +18,9 @@ use yii\filters\AccessControl;
 use yii\web\UploadedFile; 
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
+use yii\imagine\Image;
+use yii\data\ActiveDataProvider;
+use yii\helpers\Html;
 
 use backend\controllers\MyGlobalClass;
 
@@ -332,6 +335,9 @@ class PageController extends Controller
 
             if($rel_model->save()){
                 $response = [];
+                
+                Image::thumbnail('@webroot/uploads/'.$rel_model->image, 100, 100)
+                    ->save(Yii::getAlias('@webroot').'/uploads/thumb/'.$rel_model->image, ['quality' => 80]);
 
                 $this->layout = 'blank';
                 $view = $this->renderAjax('_image_upload', [

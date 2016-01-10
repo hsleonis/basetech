@@ -3,8 +3,8 @@
         <div class="page-title-text">
             <h2>NEWS ROOM</h2>
             <div class="page-title-btn">
-                <a href="#"><i class="fa fa-angle-left"></i></a>
-                <a href="#"><i class="fa fa-angle-right"></i></a>
+                <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{prvProject}}"><i class="fa fa-angle-left"></i></a>
+                <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{nxtProject}}"><i class="fa fa-angle-right"></i></a>
             </div>
         </div><!--.page-title-text-->
 
@@ -35,12 +35,12 @@
             <div class="news-area" data-ng-scroll="">
                 <div class="col-xs-6">
                     <!--<div class="row">-->
-                    <div class="news-img-box">
+                    <!--<div class="news-img-box">
                         <img src="{{detPage.page_banner}}" data-ng-image-load-animation="" alt="{{detTitle}}" class="img-responsive"/>
-                    </div><!--.news-img-box-->
+                    </div>--><!--.news-img-box-->
                     <div class="img-thumbnail-box">
                         <ul>
-                            <li lightgallery data-ng-repeat="img in detPage.page_images" data-ng-hide="img.is_banner" data-src="{{img.image}}">
+                            <li lightgallery data-ng-repeat="img in detPage.page_images" data-src="{{img.image}}">
                                 <a href="#"><img src="{{img.image}}" data-ng-image-load-animation="" alt="" class="img-responsive"/></a>
                             </li>
                         </ul>

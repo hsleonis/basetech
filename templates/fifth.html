@@ -1,4 +1,4 @@
-<div class="col-xs-6 area detail-banner" style="background-image: url({{detPage.page_banner}});">
+<div class="col-xs-6 area detail-banner" style="background-image: url({{fvPage.page_banner}});">
     <div class="page-title-text">
         <h2>{{fvTitle}}</h2>
         <span>{{detTitle}}</span>
@@ -6,7 +6,7 @@
 </div>
 
 <div class="col-xs-6 area product-view-area">
-    <a ng-click="homepage()">
+    <a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">
         <div class="list-close"><i class="sprite sprite-close-green"></i></div>
     </a>
     <ul class="breadcrumbs">

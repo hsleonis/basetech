@@ -17,17 +17,15 @@
 
     <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll>
         <ul class="product-view-result-ul">
-            <li data-ng-repeat="(key, subpage) in page.child_pages" data-ng-hide="key=='menu'">
-                <div class="product-img-box">
-                    <img src="{{subpage.page_banner}}" alt=""/>
-                </div><!--.product-img-box-->
-                <div class="list-result-text">
-                    <a href="{{subpage.page_data.ext_url}}" target="_blank">
+            <li data-ng-repeat="(key, subpage) in page.child_pages|orderObjectBy:'sort_order':false" data-ng-hide="key=='menu'">
+                <a href="{{subpage.page_data.ext_url}}" target="_blank">
+                    <div class="product-img-box">
+                        <img src="{{subpage.page_banner}}" alt=""/>
+                    </div><!--.product-img-box-->
+                    <div class="list-result-text">
                         <h3>{{subpage.page_data.page_title}}</h3>
-                    </a>
-                    <p>{{subpage.page_data.short_desc|substring:100}}</p>
-                </div>
-                 <a href="{{subpage.page_data.ext_url}}" target="_blank">
+                        <p>{{subpage.page_data.short_desc|substring:100}}</p>
+                    </div>
                     <div class="list-plus-btn">
                         <span>+</span>
                     </div>
