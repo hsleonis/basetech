@@ -27,10 +27,20 @@ app.controller('appController', function($http, $scope, $location, $window) {
     };
     
     $scope.sendmail = function(a,b,c){
-        $http.post("    http://dcastalia.com/projects/web/base/cms/site/enquiry", {name:a,email:b,message:c})
+        $http.post("http://dcastalia.com/projects/web/base/cms/site/enquiry", {name:a,email:b,message:c})
         .success(function (response) {
-            console.log($scope);
-            $scope.mailresponse = response;
+            if(typeof response.result!=='undefined'){
+                $scope.mailresponse = (response.result)?response.msg:'Please check inputs';
+            }
+        });
+    };
+    
+    $scope.sendapply = function(a){
+        $http.post("http://dcastalia.com/projects/web/base/cms/site/apply_online", a)
+        .success(function (response) {
+            if(typeof response.result!=='undefined'){
+                $scope.applyresponse = (response.result)?response.msg:'Please check inputs';
+            }
         });
     };
 });

@@ -147,14 +147,17 @@ class Page extends \yii\db\ActiveRecord
                 $options[$value->page_slug]['page_types'] = $value->types;
                 $options[$value->page_slug]['page_tags'] = $value->tags;
                 $options[$value->page_slug]['page_images'] = $value->images;
-                $options[$value->page_slug]['page_banner'] = '';
                 $options[$value->page_slug]['sort_order'] = $value->sort_order;
+                $options[$value->page_slug]['page_banner']='';
+                $options[$value->page_slug]['page_thumb']='';
                 
                 if(!empty($value->images))
                 foreach ($value->images as $image) {
-                    if($image->is_banner)
+                    if($image->is_banner){
                         $options[$value->page_slug]['page_banner'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$image->image;
-                        $image->image = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$image->image;
+                        $options[$value->page_slug]['page_thumb'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/thumb/'.$image->image;
+                    }
+                    $image->image = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$image->image;
                 }
 
                 foreach ($value->post as $p) {
@@ -252,13 +255,16 @@ class Page extends \yii\db\ActiveRecord
                 //$options[$value->page_slug]['page_types'] = $value->types;
                 //$options[$value->page_slug]['page_tags'] = $value->tags;
                 $options[$value->page_slug]['page_images'] = $value->images;
-                $options[$value->page_slug]['page_banner'] = '';
                 $options[$value->page_slug]['sort_order'] = $value->sort_order;
+                $options[$value->page_slug]['page_banner']='';
+                $options[$value->page_slug]['page_thumb']='';
                 
                 if(!empty($value->images))
                 foreach ($value->images as $image) {
-                    if($image->is_banner)
+                    if($image->is_banner){
                         $options[$value->page_slug]['page_banner'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$image->image;
+                        $options[$value->page_slug]['page_thumb'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/thumb/'.$image->image;
+                    }
                         $image->image = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$image->image;
                 }
                 
@@ -299,6 +305,7 @@ class Page extends \yii\db\ActiveRecord
 				$x=0;
                 $options['page_images'] = array();
                 $options['page_banner'] = '';
+                $options['page_thumb'] = '';
                 
                 $tmp =array();
 				if(!empty($value->images)){
@@ -311,8 +318,10 @@ class Page extends \yii\db\ActiveRecord
 						$tmp['short_title'] = $key->short_title;
                         array_push($options['page_images'],$tmp);
                         
-                        if($key->is_banner)
+                        if($key->is_banner){
                             $options['page_banner'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$key->image;
+                            $options['page_thumb'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/thumb/'.$key->image;
+                        }
                         
                         $x++;
 					}
