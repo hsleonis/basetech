@@ -91,10 +91,14 @@ html,body{
 
 a{color: inherit}
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover{
+.nav-pills > li.active > a, 
+.nav-pills > li.active > a:focus, 
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active{
     background: transparent;
-    color: #FBB64F;
+    color: #FBB64F !important;
 }
+/*{color: #FBB64F;}*/
 
 .position-a{position: absolute;}
 
@@ -486,7 +490,7 @@ section .area{
 .upper-btn:before,
 .upper-btn:after{
     position: absolute;
-    top: 49%;
+    top: 50%;
     width: 200%;
     background-color: rgba(255,255,255,.3);
     height: 1px;
@@ -734,7 +738,7 @@ section .area{
 
 .contact-us-nav li{border-bottom: none}
 
-.contact-us-nav li a{margin-top: -9px;}
+.contact-us-nav li a{margin-top: 0px;}
 
 .nav-tabs{border-bottom: 1px solid rgba(255,255,255,.2)}
 
@@ -763,7 +767,7 @@ section .area{
     height: 100%;
 }
 
-.info-box{}
+.info-box{width: 100%}
 
 ..info-box-single{
     width: 100%;
@@ -867,7 +871,10 @@ section .area{
 /*Contact Us Page*/
 .info-box h3{color: #0195c5;text-transform:capitalize;}
 
-#sform{}
+#sform{
+	position: relative;
+	left: 90px;
+}
 
 #sform label,
 #sform input,
@@ -899,6 +906,8 @@ section .area{
 }
 
 #sform input[type="submit"]:hover{background-color: #0079BF}
+
+#enquiry{margin-bottom: 80px}
 
 /*===================================
            05. Main Menu
@@ -1159,7 +1168,7 @@ section .area{
 
 .mobile-social li{
     float: left;
-    padding: 0 19px;
+    padding: 0 18px;
 }
 
 
@@ -1311,6 +1320,9 @@ section .area{
 
 .slick-active{color:#fcb64e;}
 
+.slide{font-weight: 400;text-transform: uppercase;}
+.slide .first-letter{font-weight: 700}
+
 
 /*===================================
        08. Product List Page
@@ -1372,7 +1384,7 @@ section .area{
     height: -webkit-calc(100% - 170px);
     height: -moz-calc(100% - 170px);
     float: left;
-    padding-right: 30px;
+    padding-right: 10px;
     position: relative;
     margin-top: 75px;
 }
@@ -1387,7 +1399,7 @@ section .area{
     width: 80px;
     height: 75px;
     background: #F3F3F5;
-    margin: 20px 15px;
+    margin:17px 15px 20px 0;
     overflow: hidden;
 }
 
@@ -1811,7 +1823,7 @@ section .area{
     width: 90%;
 }
 
-.image-gallery{}
+.image-gallery{margin-top: -35px}
 
 .gview-list-li-wpr h3{font-weight: 700}
 
@@ -2109,13 +2121,15 @@ section .area{
     margin-right: 10px;
     margin-bottom: 10px;
     background-color: #B9A84F;
+    background-size: cover;
+    background-position:center;
     float: left;
     overflow: hidden;
 }
 
 .img-thumbnail-box li:first-child{
   width: 100%;
-  height: auto;
+  height: 250px;
 }
 
 .img-thumbnail-box li img{
@@ -2222,7 +2236,7 @@ section .area{
   position: absolute;
   left: 0;
   right: 0;
-  top: 81%;
+  bottom: 12%;
   z-index: 700;
   text-align: center;
   color: #fff;
@@ -2335,6 +2349,17 @@ section .area{
 }
 
 
+@media (max-height: 1220px){
+	#myCarousel{top:45%}
+
+	.carousel-circle{
+		width: 120px;
+		height: 120px;
+		border: 3px solid #fff;
+	}
+	.carousel-caption p{font-size: 13px}
+
+}
 
 @media (min-width: 1200px) {}
 
@@ -2374,11 +2399,14 @@ section .area{
     .copy-right-box{padding-left: 40px}
     .cmpy-right{margin-right: 20px}
 
+    .product-list-li-wpr{width: 99%;padding-right:9px;margin-top: 45px;}
+
+    #sform{left: 20px;}
+
 }
 
 @media (max-width: 768px) {
-    
-    
+    .menu-list h4 {margin: 0 0 0 calc(9% - 0px)}
 
     .first-column {padding-right: 0;padding-top: 20px;width: 130px;}
 
@@ -2456,11 +2484,25 @@ section .area{
     .menu-list ul{margin-left: 0}
     .menu-list li{padding-left: 20px}
 
-    .mobile-search input[type="text"]:focus{width:135px; }
+    .mobile-search input[type="text"]:focus{width:135px;}
+
+    .cmpy-right{float: left;}
+    .copy-right-box{height:37px}
+
+    #sform input, 
+    #sform textarea{
+    	width: calc(100% - 105px);
+    	width: -moz-(100% - 105px);
+    	width: -webkit-(100% - 105px);
+    	width: -o-(100% - 105px);
+    	width: -ms-(100% - 105px);
+    }
 
 }
 
 @media (max-width: 600px) {
+
+	.page-title-text h2{border-bottom: none;}
 
     .copy-right-box{padding-left: 40px;}
 
@@ -2530,8 +2572,7 @@ section .area{
 
     .copy-right-box {height: auto;position: relative}
 
-    .cmpy-right {margin-left: 0;float: right}
-
+    .cmpy-right {margin-left: 0;float: left;}
     .share-area{
       border: none;
       width: 90px !important;
@@ -2574,7 +2615,13 @@ section .area{
     #category-home-page .upper-btn,
     #service-focuse .upper-btn,
     #alliances .upper-btn,
-    #sector .upper-btn{top: 44%}
+    #sector .upper-btn{
+    	top: calc(50% - 35px);
+    	top: -webkit-calc(50% - 35px);
+    	top: -moz-calc(50% - 35px);
+    	top: -o-calc(50% - 35px);
+    	top: -ms-calc(50% - 35px);
+    }
 
     #about-us .upper-btn,
     #testimonial .upper-btn,
@@ -2582,13 +2629,14 @@ section .area{
 
     .product-view-result-ul,
     .detalis-text-wpr{padding-left: 0}
+
+    #enquiry{margin-bottom: 0}
 }
 
 
 
 
 @media (max-width: 480px) {
-
     .upper-btn {font-size: 44px;}
 
     .menu-item-view-area {width: 58%;}
@@ -2604,7 +2652,30 @@ section .area{
         font-size: 26px !important;
         height: 55px !important;
         line-height: 55px !important;
-    }/****Main menu responsive fixing****/
+        top: calc(50% - 27.5px);
+        top: -webkit-calc(50% - 27.5px);
+        top: -moz-calc(50% - 27.5px);
+        top: -o-calc(50% - 27.5px);
+        top: -ms-calc(50% - 27.5px);
+    }
+
+    #category-home-page .upper-btn,
+    #service-focuse .upper-btn,
+    #alliances .upper-btn,
+    #sector .upper-btn{
+    	top: calc(50% - 27.5px);
+        top: -webkit-calc(50% - 27.5px);
+        top: -moz-calc(50% - 27.5px);
+        top: -o-calc(50% - 27.5px);
+        top: -ms-calc(50% - 27.5px);
+    }
+
+    #about-us .upper-btn,
+    #testimonial .upper-btn,
+    #contact-us .upper-btn{
+    	top:30%;
+    }
+    /****Main menu responsive fixing****/
 
     .menu-list h4 {height: auto}
 
@@ -2634,7 +2705,7 @@ section .area{
 
     .border-bottom {margin: 0;}
 
-    .sub-menu-btn {margin-top: 10px;}
+    .sub-menu-btn {margin-top:0}
 
     .sub-menu-btn li{padding: 0;margin: 0;}
 
@@ -2654,26 +2725,23 @@ section .area{
 
     .news-page-wrapper{width: 100%}
 
-    .upper-btn{top: 45%}
-
     .spritesprite-close-red,
     .fafa-bars{
       width: 30px !important;
       height: 30px !important;
     }
 
-    #category-home-page .upper-btn,
-    #service-focuse .upper-btn,
-    #alliances .upper-btn,
-    #sector .upper-btn{top: 45%}
+    .cmpy-right{font-size: 9px;line-height: 9px}
 
-    #about-us .upper-btn,
-    #testimonial .upper-btn,
-    #contact-us .upper-btn{top: 33%}
+    .menu-list h4 {margin: 0 0 10px 5%}
 
 }
 
-@media (max-width: 360px){
+@media (max-width: 380px){
     .slick-text{font-size: 18px}
 
+    .contact-us-nav li{padding: 0px 10px 17px}
+
+    .about-us-home-page-wrapper .page-title-text-contact h2{font-size: 23px}
 }
+
