@@ -216,6 +216,10 @@
     position: relative;
 }
 
-#map, #map-world{
+#map, #map-world {
     height: 100%;
+}
+
+.lg-video-play {
+    opacity: 0 !important;
 }

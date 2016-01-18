@@ -43,3 +43,7 @@ var app = angular.module('basetech', modules).run(function ($templateCache, $htt
         return original.apply($location, [path]);
     };
 });
+
+app.config(function($sceProvider) {
+  $sceProvider.enabled(false);
+});

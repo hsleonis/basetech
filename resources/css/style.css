@@ -85,6 +85,8 @@ html,body{
     width: 100%;
     height:100%;
     overflow: hidden;
+    position: fixed;
+    font-family: 'Roboto',Helvetica,Arial;
 }
 
 a{color: inherit}
@@ -100,7 +102,9 @@ a{color: inherit}
 
 .h-100{height: 100%}
 
-
+select:focus,
+select:hover,
+select:active{outline: none;}
 
 
 
@@ -235,7 +239,9 @@ OO. Loder
 12. G View
 13. BootStrap Carousel
 14. News Room
-Z. For Change
+15. Apply Form
+16. Contact Form
+ Z. For Change
 ========================================================================*/
 
 /*----------------------------------------------------------------------*/
@@ -243,6 +249,8 @@ Z. For Change
 /*===================================
              OO. Loder
 ===================================*/
+.loader{background:rgba(51, 62, 58, 1)}
+
 @-webkit-keyframes uil-rolling-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -446,7 +454,6 @@ section{height: 100%}
 
 section .area{
     background-size:cover;
-    background-color:#B4968A;
     background-repeat:no-repeat;
     height:100%;
     background-position: center;
@@ -509,7 +516,25 @@ section .area{
     padding-bottom: 10px;
 }
 
+.detail-banner .page-title-text{top: 45%}
+
 .page-title-text span{font-size:18px}
+
+.detail-banner .page-title-btn{
+    width: 72px;
+    border: 1px #fff solid;
+    height: 38px;
+    margin: 40px auto 0;
+}
+
+.detail-banner .page-title-btn a{
+    float: left;
+    display: inline-block;
+    width: 48%;
+    height: 100%;
+    line-height: 35px;
+}
+
 
 /* SERVICE FOCUS page*/
 .service-focuse-home-page-wrapper .upper-btn{width: 459px}
@@ -560,6 +585,8 @@ section .area{
     top: calc(28% + 85px);
     top: -ms-calc(28% + 85px);
     top: -o-calc(28% + 85px);
+    top: -webkit-calc(28% + 85px);
+    top: -moz-calc(28% + 85px);
 }
 
 .contact-us-nav .container{height: 100%}
@@ -660,9 +687,17 @@ section .area{
 
 .about-us-view{
     top: calc(28% + 145px);
+    top: -ms-calc(28% + 145px);
+    top: -o-calc(28% + 145px);
+    top: -webkit-calc(28% + 145px);
+    top: -moz-calc(28% + 145px);
     position: absolute;
     width: 100%;
     height: calc(100% - 145px);
+    height: -ms-calc(100% - 145px);
+    height: -o-calc(100% - 145px);
+    height: -webkit-calc(100% - 145px);
+    height: -moz-calc(100% - 145px);
 }
 
 .nav-tabs a{padding: 0 20px 0 20px}
@@ -710,6 +745,10 @@ section .area{
     width: 100%;
     background:rgba(0, 0, 0, .9);
     height: calc(100% - 28% - 145px);
+    height: -ms-calc(100% - 28% - 145px);
+    height: -o-calc(100% - 28% - 145px);
+    height: -webkit-calc(100% - 28% - 145px);
+    height: -moz-calc(100% - 28% - 145px);
     color: #BCBEC0;
 }
 
@@ -754,13 +793,14 @@ section .area{
     bottom: 0;
     width: 100%;
     padding-left: 105px;
+    background-color: #040301;
 }
 
 .copy-right-box ul{
     margin: 0;
     padding: 0;
     list-style: none;
-    width: 150px;
+    width: 185px;
     display: inline-block;
     float: left;
 }
@@ -770,6 +810,7 @@ section .area{
 .copy-right-box a .fa-twitter:hover{color:#28A9E0}
 .copy-right-box a .fa-google-plus:hover{color:#D23F31}
 .copy-right-box a .fa-youtube-play:hover{color:#CC181E}
+.copy-right-box a .fa-linkedin-square:hover{color:#1683BC}
 
 /*.copy-right-box ul a .slgoogle{
   background:url("../img/social-gw.png"); 
@@ -799,14 +840,16 @@ section .area{
 .copy-right-box li:first-child{padding-left: 0}
 .copy-right-box li:last-child{padding-right: 0}
 
-.copy-right-box a{text-underline: none;color: inherit}
+.copy-right-box a{text-decoration:underline;color: inherit}
 
 .cmpy-right{
     float: right;
     font-size: 11px;
     line-height: 20px;
-    margin-right: 6%;
+    margin-right:6%;
 }
+
+.cmpy-right a{text-decoration: none;}
 
 .multiple-items div{
     width: 100%;
@@ -822,29 +865,28 @@ section .area{
 #map1 iframe{height: 100%; padding-bottom: 30px}
 
 /*Contact Us Page*/
-#sform{}
+.info-box h3{color: #0195c5;text-transform:capitalize;}
 
-#sform h3{color: #0195c5}
+#sform{}
 
 #sform label,
 #sform input,
-#sform textarea{
-    background: transparent;
-    width: 50%;
-}
+#sform textarea{background: transparent;}
+
 #sform label{
     color: #fff;
-
+    width: 64px;
     font-weight: 300;
     font-size: 14px;
+    float: left;
 }
-#sform input{}
 
 #sform input,
 #sform textarea{
     border: 1px solid rgba(255,255,255,.5);
     padding: 6px 8px;
     resize: none;
+    width:40%;
 }
 
 #sform input[type="submit"]{
@@ -853,7 +895,10 @@ section .area{
     background: #0195c5;
     color: #fff;
     font-size: 12px;
+    margin-left:64px;
 }
+
+#sform input[type="submit"]:hover{background-color: #0079BF}
 
 /*===================================
            05. Main Menu
@@ -884,9 +929,11 @@ section .area{
     width: 100%;
     float: left;
     background-color: transparent;
-    height: calc(100% - 65px);
-    height: -o-calc(100% - 65px);
-    height: -ms-calc(100% - 65px);
+    height: calc(100% - 75px);
+    height: -o-calc(100% - 75px);
+    height: -ms-calc(100% - 75px);
+    height: -webkit-calc(100% - 75px);
+    height: -moz-calc(100% - 75px);
     overflow: hidden;
 }
 
@@ -894,7 +941,11 @@ section .area{
     width: 80%;
     float: left;
     margin-top: 50px;
-    height: 100%;
+    height: -moz-calc(100% - 50px) !important;
+    height: -webkit-calc(100% - 50px) !important;
+    height: -ms-calc(100% - 50px) !important;
+    height: -o-calc(100% - 50px) !important;
+    height: calc(100% - 50px) !important;
     display: block;
     overflow: hidden;
     background-color: transparent;
@@ -914,9 +965,7 @@ section .area{
     padding-top: 40px;
 }
 
-.menu-list h4{
-    height: 45px;
-}
+.menu-list h4{min-height: 45px;}
 
 .menu-list h4 a{
     font-weight: 700;
@@ -949,7 +998,7 @@ section .area{
 
 .first-column{
     background-color: #333E3A;
-    padding: 40px 20px 0 0;
+    padding:40px 20px 0 0;
 }
 
 .first-column ul{
@@ -1017,27 +1066,30 @@ section .area{
     font-weight: 700;
 }
 
+.menu-list h4{
+    margin: 0 0 0 19%;
+}
 .menu-list h4 a{
     color: #B1B635;
 }
-
 .menu-list ul{
     list-style: none;
     padding: 0;
+    margin-left: calc(19% - 17px);
+    margin-left: -webkit-calc(19% - 17px);
+    margin-left: -moz-calc(19% - 17px);
+    margin-left: -o-calc(19% - 17px);
+    margin-left: -ms-calc(19% - 17px);
+    margin-right: 0;
 }
-
-.menu-list h4,
-.menu-list ul{
-    margin: 0 19%;
-}
-
-.menu-list ul{margin-left: 20px}
 
 .menu-list li{
     margin-bottom: 20px;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     background: url("") no-repeat;
-    padding-left: 17%;
+    padding-left: 17px;
 }
 
 .menu-li-active,
@@ -1101,7 +1153,7 @@ section .area{
 
 .mobile-social{
     list-style: none;
-    width: 169px;
+    width: 220px;
     margin: 15px auto 0;
 }
 
@@ -1120,6 +1172,7 @@ section .area{
 .mobile-social .fa-twitter:hover{color: #28A9E0;}
 .mobile-social .fa-google-plus:hover{color: #dd4b39;}
 .mobile-social .fa-youtube-play:hover{color: #E22C29;}
+.mobile-social .fa-linkedin-square:hover{color: #1683BC;}
 
 .sl-google{
     background:url("../img/social-wh-google.png") no-repeat;
@@ -1128,9 +1181,11 @@ section .area{
     display: block;
 }
 
-.mobile-search input{float: left;}
+.mobile-search input,
+.mobile-search-sm input{float: left;}
 
-.mobile-search i{
+.mobile-search i,
+.mobile-search-sm i{
     font-size: 26px;
     width: 31px;
     height: 31px;
@@ -1140,7 +1195,8 @@ section .area{
     font-weight: 100;
 }
 
-.mobile-search input[type="text"]{
+.mobile-search input[type="text"],
+.mobile-search-sm input[type="text"]{
     background: transparent;
     border: none;
     color: #808080;
@@ -1157,11 +1213,13 @@ section .area{
 }
 
 .mobile-search input[type="text"]:focus .mobile-search .fa-search{display: none;}
-
 .mobile-search input[type="text"]:focus{width: 180px;}
 
 .menu-item-view-area .ps-scrollbar-y-rail{top:40px !important;height: 100% !important}
 .menu-item-view-area .ps-scrollbar-y-rail .ps-scrollbar-y{}
+
+.mobile-search{margin-right: 17%}
+.mobile-search-sm{display: none;}
 
 /*===================================
            06. Banner Slider
@@ -1185,7 +1243,7 @@ section .area{
     list-style: none;
     background-color: rgba(0,0,0,.4);
     margin: 0 auto;
-    width: 180px;
+    width: 226px;
 }
 
 #home-page .slick-dots li{
@@ -1223,6 +1281,37 @@ section .area{
   background-color: transparent;
 }
 
+.silder-img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.slider-hover{
+  float: left;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: red;
+}
+
+.slick-dots::after{
+  width: 100%;
+  height: 100%;
+  float: left;
+  position: relative;
+  background-color:red;
+}
+
+.slick-text{
+  font-family:"Roboto",sans-serif;
+}
+
+.slick-active{color:#fcb64e;}
+
+
 /*===================================
        08. Product List Page
 ===================================*/
@@ -1259,15 +1348,16 @@ section .area{
 .breadcrumbs li:last-child:after{content:""}
 
 .list-close{
-    background-color: #fff;
-    width: 40px;
-    height: 40px;
+    background-color:#E9EDF0;
+    width: 44px;
+    height: 46px;
     position: absolute;
     margin-top: 40px;
     top: 0;
-    left: -40px;
-    padding: 10px 10px 0;
+    left:0;
+    padding:13px 0 0 12px;
     cursor: pointer;
+    overflow: hidden;
 }
 
 
@@ -1279,18 +1369,26 @@ section .area{
     height: calc(100% - 170px);  /*Dynamic height*/
     height: -ms-calc(100% - 170px);
     height: -o-calc(100% - 170px);
+    height: -webkit-calc(100% - 170px);
+    height: -moz-calc(100% - 170px);
     float: left;
     padding-right: 30px;
     position: relative;
     margin-top: 75px;
 }
 
+.gview-list-li-wpr .ps-scrollbar-y-rail{
+  margin-right: 13px !important;
+  margin-top: 110px;
+}
+
 .product-img-box{
     float: left;
     width: 80px;
-    min-height: 75px;
+    height: 75px;
     background: #F3F3F5;
-    margin: 15px 15px 20px;
+    margin: 20px 15px;
+    overflow: hidden;
 }
 
 .product-img-box img{
@@ -1305,12 +1403,18 @@ section .area{
 .product-view-result-ul li{
     float: none;
     position: relative;
-    min-height: 120px;
-    padding-bottom: 15px;
+    height: 110px;
+    overflow: hidden;
     border-bottom: solid 1px rgba(0,0,0,.09);
 }
 
 .product-view-result-ul li:hover{background-color:rgba(243, 243, 245,.6)}
+
+.product-view-result-ul a{
+  float: left;
+  width: 100%;
+  height: 100%;
+}
 
 .list-result-text{
     color: #8A8A8C;
@@ -1334,7 +1438,7 @@ section .area{
 .product-list-li-wpr h3{
 	font-weight: 700;
 	display: block;
-	padding-top: 15px;
+	padding-top:5px;
 }
 
 .product-list-li-wpr h4,
@@ -1362,16 +1466,17 @@ section .area{
 }
 
 .list-plus-btn{
-    width: 30px;
-    height: 100px;
+    width: 25px;
+    height: 75px;
     background: #F3F3F5;
     float: right;
-    line-height: 100px;
+    line-height: 75px;
     text-align: center;
     vertical-align: middle;
     position: absolute;
     top: 15px;
     right: 0;
+    margin-top: 2px;
 }
 
 .list-plus-btn span{color: #A7ABAE}
@@ -1619,7 +1724,7 @@ section .area{
     background: rgba(255,0,0,0.75);
     filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="3" /></filter></svg>#filter');
     -webkit-filter: blur(3px);
-            filter: blur(3px);
+       -moz-filter: blur(3px);
     filter: progid:DXImageTransform.Microsoft.Blur(pixelradius=3);
     z-index: 400;
 }
@@ -1667,7 +1772,7 @@ section .area{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: #333;
+    background-color:#DEDDDD !important;
 }
 
 .area-gview-2{
@@ -1681,6 +1786,8 @@ section .area{
     height: 180px;
     overflow: hidden;
     background-color:#F3F3F5;
+    background-size: cover;
+    background-position: center;
 }
 
 .g-thumbnail img{
@@ -1693,6 +1800,10 @@ section .area{
 .gview-list-li-wpr{
     float: left;
     height: calc(100% - 170px);
+    height: -ms-calc(100% - 170px);
+    height: -o-calc(100% - 170px);
+    height: -webkit-calc(100% - 170px);
+    height: -moz-calc(100% - 170px);
     margin-top: 55px;
     margin-left: 35px;
     overflow: hidden;
@@ -1722,7 +1833,6 @@ section .area{
     border: 1px #fff solid;
     height: 38px;
     margin: 0 auto;
-    display: none;
 }
 
 .area-gview-1 .page-title-btn a{
@@ -1730,15 +1840,16 @@ section .area{
     display: inline-block;
     width: 48%;
     height: 100%;
+    line-height: 35px;
 }
 
 
 /*** share area of gallery ***/
 .share-area{
-    width: 255px;
+    width: 225px;
     height: 35px;
     border: solid 1px #fff;
-    margin: 0 auto;
+    margin: 0 auto 0;
     position: absolute;
     bottom: 85px;
     left: 0;
@@ -1748,7 +1859,7 @@ section .area{
 .share-area ul{
     padding-top: 5px;
     list-style: none;
-    width: 155px;
+    width: 130px;
     margin: 0 auto;
     color: #fff;
 }
@@ -1860,6 +1971,7 @@ section .area{
     position: absolute;
     top: 0;
     width: 40px;
+    overflow: hidden;
 }
 .product-row{height: 100%}
 .news-room-wrapper .page-title-text{top:37%}
@@ -1885,13 +1997,11 @@ section .area{
     height:100%;
     width: 66%;
     position: relative;
-    /*position: absolute;
-    display: table-cell;*/
 }
 
 .news-page-wrapper .list-close{
     position: absolute;
-    left: -40px;
+    left:0;
 }
 
 .left-side-area{
@@ -1901,10 +2011,15 @@ section .area{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-color:#DEDDDD;
 }
 
 .product-list-row{height: 100%}
-.product-list-row .area{height: 100%;background-size: cover;background-position: center;}
+.product-list-row .area{
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
 
 .news-hook{float: left}
 
@@ -1927,13 +2042,12 @@ section .area{
 
 .news-area{     /*News Area For Scroll*/
     float: left;
-    height:calc(100% - 255px);
+    height: 410px;
     margin-left: 35px;
     margin-top: 55px;
     overflow: hidden;
     padding-right: 4%;
     width: 90%;
-    display: table;
 }
 
 .new-view-board-wpr{
@@ -1941,7 +2055,6 @@ section .area{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    display: table;
 }
 .new-view-board{
     width: 100%;
@@ -1968,13 +2081,12 @@ section .area{
     font-weight: 400;
 }
 
-.news-border{border-bottom: solid 1px rgba(0,0,0,.3);display: table;}
+.news-border{/*border-bottom: solid 1px rgba(0,0,0,.3);display: table;*/}
 
 .news-img-box{
     width: 100%;
     height: auto;
-    min-height: 175px;
-    max-height: 275px;
+    background-color:#DEDDDD;
     float: left;
     overflow: hidden;
 }
@@ -1990,6 +2102,7 @@ section .area{
 }
 
 .img-thumbnail-box ul{list-style: none}
+
 .img-thumbnail-box li{
     width: 60px;
     height: 60px;
@@ -1998,6 +2111,11 @@ section .area{
     background-color: #B9A84F;
     float: left;
     overflow: hidden;
+}
+
+.img-thumbnail-box li:first-child{
+  width: 100%;
+  height: auto;
 }
 
 .img-thumbnail-box li img{
@@ -2022,23 +2140,107 @@ section .area{
     width: 50%;
 }
 
+/*======================================
+          15. Apply Form
+======================================*/
+#apply-form{}
+
+#apply-form label{
+  width: 100%;
+}
+
+#apply-form input{
+  border: solid 1px #ACACAC !important;
+  width: 100%;
+  height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#apply-form select{
+  border: solid 1px #ACACAC !important;
+  width: 100%;
+  height: 30px;
+}
+
+#apply-form textarea{
+  border: solid 1px #ACACAC !important;
+  width: 100%;
+  height: 80px;
+  padding:7px;
+  resize:none;
+}
+
+/*======================================
+          16. Contact Form
+======================================*/
+#enquiry-form{}
+
+#enquiry-form label{width:60px;float: left;}
+
+#enquiry-form input,
+#enquiry-form textarea{
+  width: 100%;
+  border-radius: 0;
+  border:solid 1px #DEDDDD;
+  padding: 5px;
+  resize:none;
+}
+
+.mail-response{
+  color:#6E9739 !important;
+  padding-left:15px;
+  font-weight: 700;
+}
+
+#enquiry-form input{height: 35px}
+#enquiry-form textarea{height:81px}
+
+#enquiry-form input[type="submit"]{
+  width: 90px;
+  height: 35px;
+  background-color: #0079BF;
+  color:#fff;
+}
+
 
 /*======================================
            Z. For Change
 ======================================*/
-.about-us-btn{
-  width: 150px;
-  padding: 7px 0 7px;
-  text-align: center;
-  background-color:#48C8F4;
-  margin:30px auto 0; 
-  color: #fff;
-}
+
 .highlight{
   font-weight: 700;
   color:rgba(20,138,255,.4) !important;
 }
-.view-all{color:#fbb64f}
+.view-all{color:#fbb64f !important}
+
+.about-us-btn{
+  width: 151px;
+  height: 35px;
+  line-height: 45px;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 81%;
+  z-index: 700;
+  text-align: center;
+  color: #fff;
+}
+
+.gallery-image{
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-color:#DEDDDD;
+  cursor: pointer;
+}
+
+.news-area div{padding-left: 0}
+
+.breadcrumbs li:first-child{display:none;}
+
 /*===================================================================================================
                                  Responsive Style Area
 ===================================================================================================*/
@@ -2132,34 +2334,269 @@ section .area{
     }
 }
 
-@media (max-width: 360px) {}
+
+
+@media (min-width: 1200px) {}
+
+@media (max-width: 992px) {
+    .mobile-search input[type="text"]:focus{width: 135px}
+
+    .logo {top: 20px;left: 20px;}
+
+    .logo img {width: 110px}
+
+    .nav-icon-main,
+    .menu-cross{top: 20px;right: 20px}
+
+    .fafa-bars,
+    .spritesprite-close-red{width: 30px;height: 30px}
+
+    .list-close{
+      margin-top: 20px;
+      width: 30px;
+      height: 30px;
+    }
+
+    .sprite-close-green{
+      width: 30px;
+      height: 30px;
+      margin-top: -3px;
+      margin-left: -3px;
+    }
+    .breadcrumbs{margin-top: -65px}
+    .sprite-close-green{margin-top: -6px;margin-left: -6px}
+    .breadcrumbs{margin-top: -55px}
+
+    .mobile-search {margin-right:20px}
+
+    .contact-us-nav ul{left: 20px}
+
+    .copy-right-box{padding-left: 40px}
+    .cmpy-right{margin-right: 20px}
+
+}
+
+@media (max-width: 768px) {
+    
+    
+
+    .first-column {padding-right: 0;padding-top: 20px;width: 130px;}
+
+    .first-column li {padding: 5px 0;}
+
+    .first-column a {font-size: 12px;}
+
+    .menu-item-view-area {
+        padding-right: 3%;
+        width: calc(100% - 130px);
+        width: -moz-calc(100% - 130px);
+        width: -webkit-calc(100% - 130px);
+        width: -o-calc(100% - 130px);
+        width: -ms-calc(100% - 130px);
+        margin-top:20px;
+    }
+    
+    .menu-item-view-area-wrp .menu-list {width: 30%;}
+
+    .first-column ul {padding-left: 9%}
+
+    /*Slider*/
+    .slick-text{font-size: 35px}
+
+    .menu-list h4{
+      margin: 0 0 0 9%;
+      margin-left:calc(9% - 3px);
+      margin-left:-webkit-calc(9% - 3px);
+      margin-left:-moz-calc(9% - 3px);
+      margin-left:-o-calc(9% - 3px);
+      margin-left:-ms-calc(9% - 3px);
+    }
+
+    /*Project List View*/
+    .share-area{width: 150px}
+    .page-title-text{width: auto;}
+    .page-title-text h2{font-size:22px;margin-right:-15px}
+    /*END of Project List*/
+    .menu-list h4{width: 100%}
+    .menu-list h4 a{font-size: 12px}
+    .menu-list-active, .menu-list a:hover{font-size: 12px}
+    .menu-list ul{margin-left: 0}
+    .menu-list ul a{font-size: 12px}
+
+    .sub-menu-btn{margin-top: 0}
+    .sub-menu-btn a{
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      text-transform: capitalize !important;
+    }
+
+    .menu-item-view-area-wrp .menu-column .menu-list:first-child > h4{color: red}
+
+    .copy-right-text{padding-left: 0;padding-right: 0;margin-right: -5px}
+    .copy-right-text div{padding-left: 5%}
+
+    .mobile-search{margin-right:20px}
+
+    .nav-icon-main, .menu-cross{top: 20px;right: 20px}
+
+    .mobile-search input[type="text"]:focus{width: 135px}
+
+    .sub-menu-btn li{padding: 0}
+
+    
+
+}
+
+
+@media (max-width: 660px){
+  /*List View*/
+    .news-area > .col-xs-6{width: 100%}
+    /*END list view*/
+    .menu-list h4{margin-left: 20px; margin-bottom: 10px}
+    .menu-list ul{margin-left: 0}
+    .menu-list li{padding-left: 20px}
+
+    .mobile-search input[type="text"]:focus{width:135px; }
+
+}
+
+@media (max-width: 600px) {
+
+    .copy-right-box{padding-left: 40px;}
+
+    .contact-us-nav ul{left: 25px;}
+
+    .nav-icon-main,
+    .menu-cross {right: 3%;top: 2%;}
+
+    .breadcrumbs {margin-top: 0;}
+
+    .product-list-li-wpr {margin-top: 50px;padding-right: 15px;}
+
+    .area{width: 100%;}
+
+    .upper-btn{
+        width: 300px !important;
+        height: 70px;
+        line-height: 70px;
+    }
+
+    .product-row .area{width: 100%;height: 50%;}
+
+    .product-wrp-area{width: 100% !important;}
+
+    .service-focuse-home-page-wrapper .upper-btn{width: 330px;}
+
+    .upper-btn{font-size: 33px;}
+
+    /*Scrolling Fixing*/
+
+    /*Gallery*/
+    .g-thumbnail{height: 115px}
+
+    .gview-list-li-wpr{width: 99%;margin-left:20px;}
+
+    .gview-list-li-wpr h4{display: none;}
+
+    .gview-list-li-wpr .ps-scrollbar-y-rail{
+        margin-right: 0 !important;
+        margin-top: 110px;
+        right: 5% !important;
+    }
+    .list-close{margin-top: 75px;left: 15px;}
+
+    .breadcrumbs{padding-left: 5px;margin-top: -10px}
+    /*End gallery*/
+
+
+    .page-title-border-btm,
+    .product-list-li-wpr{width: 100%}
+
+    .product-banner,
+    .detail-banner,
+    .area-gview-1,
+    .menu-bottom{display: none;}
+
+    .bottom-menu-mobile {display: block;text-align: center;}
+
+    .copy-right-text div {padding-left: 0;}
+
+    .page-title-text h2 {font-size: 19px;}
+    /** Carousel **/
+
+    #myCarousel {width: 90%;top: 47%;}
+
+    .carousel-caption i {font-size: 16px;}
+
+    .copy-right-box {height: auto;position: relative}
+
+    .cmpy-right {margin-left: 0;float: right}
+
+    .share-area{
+      border: none;
+      width: 90px !important;
+      margin:0 auto;
+    }
+
+    .menu-list ul{margin-bottom: 25px}
+    
+    .share-area li:first-child{display: none;}
+    .menu-list h4{min-height:auto;height:auto;width: 100%}
+    .menu-list h4 a{font-size: 12px;}
+    .menu-list li{margin-bottom: 10px;}
+    .menu-item-view-area-wrp .menu-list{width: 100%}
+
+    .border-bottom{margin-bottom: 15px;}
+
+    .mobile-social{width: 110px}
+    .mobile-social li{padding-right:5px;padding-left: 5px;}
+
+    .mobile-search-sm input[type="text"]{width: 110px;padding-right: 5px}
+    .bottom-menu-mobile{padding: 0 0 10px}
+
+    .bottom-menu-mobile{text-align: left;}
+    .bottom-menu-mobile .mobile-search{margin:0}
+    .mobile-social{display: inline-block;margin-left: 0px}
+    .mobile-search{display: none;}
+    .mobile-search-sm{display:block; margin:15px 0 0 2%}
+    .copy-right-text{margin-left: 2%;font-size: 10px}
+
+    section .area{height: 50%}
+
+    #about-us .area,
+    #testimonial .area,
+    #contact-us .area{height: 100%}
+
+    .page-title-text span{display: none;}
+
+    #alliances span{display: block;}
+
+    #category-home-page .upper-btn,
+    #service-focuse .upper-btn,
+    #alliances .upper-btn,
+    #sector .upper-btn{top: 44%}
+
+    #about-us .upper-btn,
+    #testimonial .upper-btn,
+    #contact-us .upper-btn{top: 31%}
+
+    .product-view-result-ul,
+    .detalis-text-wpr{padding-left: 0}
+}
+
+
+
 
 @media (max-width: 480px) {
 
-    .upper-btn {
-        font-size: 44px;
-    }
+    .upper-btn {font-size: 44px;}
 
-    .first-column {
-        width: 42%;
-    }
-
-    .first-column a {
-        font-size: 16px;
-    }
-
-    .menu-item-view-area {
-        width: 58%;
-    }
+    .menu-item-view-area {width: 58%;}
 
     .spritesprite-close-red,
-    .fafa-bars {
-        width: 35px;
-    }
+    .fafa-bars {width: 35px}
 
-    .logo img {
-        width: 115px !important;
-    }
+    .logo img {width: 115px !important}
 
     .upper-btn {
         width: 315px;
@@ -2169,212 +2606,74 @@ section .area{
         line-height: 55px !important;
     }/****Main menu responsive fixing****/
 
-    .first-column a {
-        font-size: 12px;
-    }
+    .menu-list h4 {height: auto}
 
-    .first-column {
-        width: 38%;
-        padding-right: 0;
-    }
+    .menu-list h4 a {font-size: 12px}
 
-    .menu-item-view-area {
-        padding-right: 3%;
-    }
+    .menu-list h4{margin: 0 0 10px 8%;}
 
-    .first-column {/*margin-top: -30px*/
-    }
-
-    .menu-list h4 {
-        height: auto;
-    }
-
-    .menu-list h4 a {
-        font-size: 12px;
-    }
-
-    .menu-list h4,
-    .menu-list ul {
-        margin: 0 8%;
-    }
+    .menu-list ul{margin-left: 0;}
 
     .menu-list-active,
-    .menu-list a:hover {
-        font-size: 12px;
-    }
+    .menu-list a:hover {font-size: 12px}
 
     .menu-list li {
-        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 0;
         padding-left: 5%;
+        background-position: center;
     }
 
     .menu-li-active, .menu-list li:hover {
         background-size: 6px;
+        background-position:0 5px;
     }
 
     .menu-list a:hover,
-    .menu-list a {
-        font-size: 12px;
-    }
+    .menu-list a {font-size: 12px;}
 
-    .first-column li {
-        padding: 5px 0;
-    }
+    .border-bottom {margin: 0;}
 
-    .border-bottom {
-        margin: 0;
-    }
+    .sub-menu-btn {margin-top: 10px;}
 
-    .sub-menu-btn {
-        margin-top: 10px;
-    }
-
-    .sub-menu-btn li {
-        padding: 0;
-        margin: 0;
-    }
+    .sub-menu-btn li{padding: 0;margin: 0;}
 
     .bottom-menu-mobile .mobile-search {
         width: 185px;
     }/*End Of Mobile fixing*/
+
+    /*Slider Text*/
+    .slick-text{
+      font-size: 22px;
+      margin-left: 30px;
+      max-width: 350px;
+      text-align: center;
+    }
+
+    .left-side-area{display:none;}
+
+    .news-page-wrapper{width: 100%}
+
+    .upper-btn{top: 45%}
+
+    .spritesprite-close-red,
+    .fafa-bars{
+      width: 30px !important;
+      height: 30px !important;
+    }
+
+    #category-home-page .upper-btn,
+    #service-focuse .upper-btn,
+    #alliances .upper-btn,
+    #sector .upper-btn{top: 45%}
+
+    #about-us .upper-btn,
+    #testimonial .upper-btn,
+    #contact-us .upper-btn{top: 33%}
+
 }
 
-@media (max-width: 600px) {
+@media (max-width: 360px){
+    .slick-text{font-size: 18px}
 
-    .logo {
-        top: 5px;
-        left: 25px;
-    }
-
-    .logo img {
-        width: 100%;
-    }
-
-    .copy-right-box {
-        padding-left: 40px;
-    }
-
-    .contact-us-nav ul {
-        left: 25px;
-    }
-
-    .nav-icon-main,
-    .menu-cross {
-        right: 3%;
-        top: 2%;
-    }
-
-    .breadcrumbs {
-        margin-top: 0;
-    }
-
-    .list-close {
-        display: none;
-    }
-
-    .product-list-li-wpr {
-        margin-top: 50px;
-    }
-
-    .area {
-        width: 100%;
-    }
-
-    .upper-btn {
-        width: 300px !important;
-        height: 70px;
-        line-height: 70px;
-    }
-
-    .product-row .area {
-        width: 100%;
-        height: 50%;
-    }
-
-    .product-wrp-area {
-        width: 100% !important;
-    }
-
-    .service-focuse-home-page-wrapper .upper-btn {
-        width: 330px;
-    }
-
-    .upper-btn {
-        font-size: 33px;
-    }
-
-    .page-title-border-btm {
-        width: 100%;
-    }/*Scrolling Fixing*/
-
-    .product-banner,
-    .detail-banner {
-        display: none;
-    }/*End*/
-
-    .menu-bottom {
-        display: none;
-    }
-
-    .bottom-menu-mobile {
-        display: block;
-        text-align: center;
-    }
-
-    .copy-right-text div {
-        padding-left: 0;
-    }
-
-    .page-title-text h2 {
-        font-size: 19px;
-    }/** Carousel **/
-
-    #myCarousel {
-        width: 90%;
-        top: 47%;
-    }
-
-    .carousel-caption i {
-        font-size: 16px;
-    }
-
-    .copy-right-box {
-        height: auto;
-        position: relative;
-    }
-
-    .cmpy-right {
-        margin-left: 0;
-        float: right;
-    }
-
-    .copy-right-box ul {}
 }
-
-@media (max-width: 768px) {
-
-    .first-column {
-        width: 50%;
-    }
-
-    .menu-item-view-area {
-        width: 50%;
-    }
-
-    .menu-item-view-area-wrp .menu-list {
-        width: 100%;
-    }
-
-    .first-column ul {
-        padding-left: 9%;
-    }
-
-    .loader {
-        display: none;
-    }
-}
-
-@media (max-width: 992px) {/*.menu-column{padding-top: 64px}*/
-}
-
-@media (min-width: 1200px) {}
