@@ -25,6 +25,9 @@
 	    <link rel="stylesheet" href="resources/css/perfect-scrollbar.min.css">
         <link rel="stylesheet" href="resources/dist/css/lightgallery.min.css">
 
+        <!-- Layer Slider -->
+        <link rel="stylesheet" href="resources/css/layerslider.css">
+
         <link rel="stylesheet" href="resources/css/style.css">
         <!--Modernizr JS-->
         <script src="resources/js/modernizr-2.8.3.min.js"></script>
@@ -36,17 +39,22 @@
         </div>
 	   
         <!--LOADER-->
-	    <div class="loader">
+	    <!-- <div class="loader">
             <div class="inner">
                  <div class='uil-rolling-css'><div><div></div><div></div></div></div>
             </div>
-        </div>	
+        </div>	 -->
         
         <!--MAIN MENU-->
         <div id="main-menu" class="main-menu-wpr" data-ng-include="'templates/menu.html'"></div><!--#main-menu-->
         
         <!--TOP BAR-->
         <div class="topbar" data-ng-include="'templates/topbar.html'"></div><!--.topbar-->
+
+        <div id="scroll-btn">
+            <a href="#" class="section-up"><i class="fa fa-angle-up"></i></a>
+            <a href="#" class="section-down"><i class="fa fa-angle-down"></i></a>
+        </div><!-- #scroll-btn -->
 
         <div id="fullpage">
             <!--SLIDER-->
@@ -120,6 +128,11 @@
         <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
         <script src="resources/dist/js/lightgallery-all.min.js"></script>
 
+        <!-- Layer Slider -->
+        <script src="resources/js/greensock.js"></script>
+        <script src="resources/js/layerslider.transitions.js"></script>
+        <script src="resources/js/layerslider.kreaturamedia.jquery.js"></script>
+
         <script src="angular/core/angular.min.js"></script>
         <script src="angular/core/angular-route.min.js"></script>
         <script src="angular/core/angular-resource.min.js"></script>
@@ -135,5 +148,6 @@
         <script src="angular/controllers/main.ctrl.js"></script>
 
         <script src="resources/js/main.js"></script>
+
 </body>
 </html>

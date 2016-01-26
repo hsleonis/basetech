@@ -1,53 +1,43 @@
-<div class="row product-row">
-    <div class="col-xs-6 left-side-area news-hook height-full" style="background-image: url({{detPage.page_banner}})">
-        <div class="page-title-text">
-            <h2>{{subTitle}}</h2>
-            <div class="page-title-btn">
-                <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{prvProject}}"><i class="fa fa-angle-left"></i></a>
-                <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{nxtProject}}"><i class="fa fa-angle-right"></i></a>
-            </div>
-        </div><!--.page-title-text-->
-
-        <div class="share-area">
-            <ul>
-                <li>share</li>
-                <li><a href="https://www.facebook.com/sharer/sharer.php?u={{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="https://twitter.com/home?status={{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="https://plus.google.com/share?url={{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}" target="_blank"><i class="fa fa-google"></i></a></li>
-            </ul>
+<div class="col-33 col-xs-6 area detail-banner" style="background-image: url({{detPage.page_banner}});">
+    <div class="page-title-text">
+        <h2>{{detTitle}}</h2>
+        <span>{{subTitle}}</span>
+        <div class="page-title-btn" data-ng-if="page.child_pages.length!=0">
+            <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{prvProject}}"><i class="fa fa-angle-left"></i></a>
+            <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{nxtProject}}"><i class="fa fa-angle-right"></i></a>
         </div>
-    </div><!--.left-side-area-->
-    <div class="news-page-wrapper news-hook white-bg">
-        <!--<div class="">-->
-        <div class="col-xs-6 wpr-news-page-view">
-            <a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">
-                <div class="list-close"><i class="sprite sprite-close-green"></i></div>
-            </a>
+    </div><!--.page-title-text-->
+</div>
 
-            <ul class="breadcrumbs">
-                <li data-ng-show="company"><a ng-click="homepage()">HOME</a></li>
-                <li data-ng-if="cur.child_pages.menu.length>1">{{company}}</li>
-                <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{subTitle}}</a></li>
-                <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">{{detTitle}}</a></li>
-            </ul>
+<div class="col-66 col-xs-6 area product-view-area">
+    <a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">
+        <div class="list-close"><i class="sprite sprite-close-green"></i></div>
+    </a>
+    <ul class="breadcrumbs">
+        <li data-ng-show="company"><a ng-click="homepage()">HOME</a></li>
+        <li data-ng-if="cur.child_pages.menu.length>1">{{company}}</li>
+        <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{subTitle}}</a></li>
+        <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">{{detTitle}}</a></li>
+    </ul>
 
-            <!--News Text Area-->
-            <div class="news-area" data-ng-scroll="">
-                <div class="col-xs-6">
+    <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll="">
+        <!-- <div class="detalis-text-wpr" bind-unsafe-html="detPage.page_data.page_desc">
+        </div> --><!--.detalis-text-wpr-->
+        <div class="col-xs-6">
                     <!--<div class="row">-->
                     <!--<div class="news-img-box">
                         <img src="{{detPage.page_banner}}" data-ng-image-load-animation="" alt="{{detTitle}}" class="img-responsive"/>
                     </div>--><!--.news-img-box-->
                     <div class="img-thumbnail-box">
                         <ul>
-                            <li lightgallery data-ng-repeat="img in detPage.page_images" data-src="{{img.short_title}}">
-                                <a href="#"><img src="{{img.image}}" data-ng-image-load-animation="" alt="" class="img-responsive"/></a>
+                            <li style="background-image:url('{{img.image}}')" lightgallery data-ng-repeat="img in detPage.page_images" data-src="{{img.short_title}}">
+                                <a href="#"><!-- <img src="{{img.image}}" data-ng-image-load-animation="" alt="" class="img-responsive"/> --></a>
                             </li>
                         </ul>
                     </div><!--.img-thumbnail-box-->
                     <!--</div>-->
                 </div>
-                <div class="col-xs-6 height-full news-border">
+                <div class="col-xs-6 news-border">
 
                     <div class="new-view-board-wpr">
                         <h3>{{detTitle}}</h3>
@@ -55,9 +45,5 @@
                     </div><!--.new-view-board-wpr-->
 
                 </div>
-            </div><!--.news-area-->
-
-        </div><!--.wpr-page-view-->
-        <!--</div>--><!--End Of Row-->
-    </div><!--.alliances-home-page-wrapper-->
-</div><!--.product-row-->
+    </div>
+</div>

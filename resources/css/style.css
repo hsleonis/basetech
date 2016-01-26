@@ -1250,16 +1250,17 @@ section .area{
     bottom: 30px;
     height: 40px !important;
     list-style: none;
-    background-color: rgba(0,0,0,.4);
+    background-color: transparent;
     margin: 0 auto;
-    width: 226px;
+    width: 170px;
 }
 
 #home-page .slick-dots li{
     float: left;
-    width: 45px;
-    height: 40px;
-    background-color: transparent;
+    width: 20px;
+    height: 4px !important;
+    margin: 0 7px;
+    background-color: #fff;
 }
 
 #home-page .slick-dots li button{
@@ -1268,27 +1269,14 @@ section .area{
     height: 100%;
     background-color: transparent;
     border: none;
-    color: #fff;
+    color: rgba(255,255,255,.0);
 }
 
-#home-page .slick-dots li button:hover{color:rgba(255,255,255,.7);}
-
-#home-page .slick-dots li button:after{
-    background-color: #fff;
-    border-radius: 50%;
-    content: "";
-    font-size: 31px;
-    height: 4px;
-    margin: 0 13px;
-    position: absolute;
-    top: 18px;
-    width: 4px;
-}
-#home-page .slick-dots li:last-child button:after{
+/*#home-page .slick-dots li:last-child button:after{
   width: 0;
   height: 0;
   background-color: transparent;
-}
+}*/
 
 .silder-img{
   display: block;
@@ -1318,11 +1306,18 @@ section .area{
   font-family:"Roboto",sans-serif;
 }
 
-.slick-active{color:#fcb64e;}
+.slick-active{background-color:rgba(0,0,0,.4) !important;}
 
-.slide{font-weight: 400;text-transform: uppercase;}
+.slide{font-weight:300;text-transform: uppercase;}
 .slide .first-letter{font-weight: 700}
 
+
+/*Layer Slider*/
+#slider-wrapper{
+  float: left;
+  width: 100%;
+  height: 100%;
+}
 
 /*===================================
        08. Product List Page
@@ -1378,11 +1373,11 @@ section .area{
 .product-list-li-wpr{
     width: 91%;
     overflow: hidden;
-    height: calc(100% - 170px);  /*Dynamic height*/
-    height: -ms-calc(100% - 170px);
-    height: -o-calc(100% - 170px);
-    height: -webkit-calc(100% - 170px);
-    height: -moz-calc(100% - 170px);
+    height: calc(100% - 90px);  /*Dynamic height*/
+    height: -ms-calc(100% - 90px);
+    height: -o-calc(100% - 90px);
+    height: -webkit-calc(100% - 90px);
+    height: -moz-calc(100% - 90px);
     float: left;
     padding-right: 10px;
     position: relative;
@@ -1823,6 +1818,17 @@ section .area{
     width: 90%;
 }
 
+.gview-list-li-wpr .ps-scrollbar-y-rail{
+	height: calc(100% - 170px);
+    height: -ms-calc(100% - 170px);
+    height: -o-calc(100% - 170px);
+    height: -webkit-calc(100% - 170px);
+    height: -moz-calc(100% - 170px);
+    overflow: hidden;
+    background-color: green;
+    top: 0;
+}
+
 .image-gallery{margin-top: -35px}
 
 .gview-list-li-wpr h3{font-weight: 700}
@@ -1853,6 +1859,7 @@ section .area{
     width: 48%;
     height: 100%;
     line-height: 35px;
+    background-color: rgba(0,0,0,.2);
 }
 
 
@@ -1863,6 +1870,7 @@ section .area{
     border: solid 1px #fff;
     margin: 0 auto 0;
     position: absolute;
+    background-color: rgba(0,0,0,.2);
     bottom: 85px;
     left: 0;
     right: 0;
@@ -2131,10 +2139,11 @@ section .area{
   width: 100%;
   height: 250px;
 }
-
+.img-thumbnail-box li a,
 .img-thumbnail-box li img{
 	width: 100%;
 	height: 100%;
+  float: left;
 }
 
 .left-side-area .page-title-btn {
@@ -2253,7 +2262,37 @@ section .area{
 
 .news-area div{padding-left: 0}
 
-.breadcrumbs li:first-child{display:none;}
+.gview-list-li-wpr .ps-scrollbar-y-rail{
+  top: 0 !important;
+}
+
+.col-33{width: 33% !important}
+.col-66{width: 66% !important}
+
+#scroll-btn{
+  width: 40px;
+  height: 70px;
+  border: solid 1px rgba(255, 255, 255, 0.3);
+  position: fixed;
+  bottom: 80px;
+  right: 6%;
+  z-index: 700;
+}
+
+#scroll-btn a{
+  display: inline-block;
+  float: left;
+  width: 100%;
+  height: 35px;
+  text-align: center; 
+}
+#scroll-btn a:hover{background-color: rgba(0,0,0,.2);}
+
+#scroll-btn a i{
+  color: #fff;
+  line-height: 35px;
+  font-weight: 700;
+}
 
 /*===================================================================================================
                                  Responsive Style Area
@@ -2348,8 +2387,14 @@ section .area{
     }
 }
 
+@media (max-height: 1350px){
+  .slick-text{margin-left:3% !important;width: auto;}
+}
+
 
 @media (max-height: 1220px){
+  .slick-text{margin-left:4% !important;}
+
 	#myCarousel{top:45%}
 
 	.carousel-circle{
@@ -2367,8 +2412,6 @@ section .area{
     .mobile-search input[type="text"]:focus{width: 135px}
 
     .logo {top: 20px;left: 20px;}
-
-    .logo img {width: 110px}
 
     .nav-icon-main,
     .menu-cross{top: 20px;right: 20px}
@@ -2557,7 +2600,7 @@ section .area{
     .product-banner,
     .detail-banner,
     .area-gview-1,
-    .menu-bottom{display: none;}
+    .menu-bottom{width: 40%;}
 
     .bottom-menu-mobile {display: block;text-align: center;}
 
@@ -2606,9 +2649,9 @@ section .area{
 
     #about-us .area,
     #testimonial .area,
-    #contact-us .area{height: 100%}
+    #contact-us .area{height: 60%}
 
-    .page-title-text span{display: none;}
+    .page-title-text h2{display: none;}
 
     #alliances span{display: block;}
 
@@ -2631,6 +2674,8 @@ section .area{
     .detalis-text-wpr{padding-left: 0}
 
     #enquiry{margin-bottom: 0}
+
+    .logo img {width: 150px}
 }
 
 
