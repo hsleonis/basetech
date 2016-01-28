@@ -1,58 +1,58 @@
 <div class="row">
-    
-    <slick class="home-slick" dots="true" infinite="true" speed="500" autoplay="true" autoplaySpeed="500" arrows="false" pauseOnHover="true" delay="300">
-         
-        <div class="home-slider">
-            <!-- <img src="resources/img/banner/00.jpg" class="img-responsive"/> -->
-            <span class="silder-img" style="background-image:url(resources/img/banner/00.jpg)"></span>
-        </div>    
-        <div class="home-slider">
-            <!-- <img src="resources/img/banner/01.jpg"/> -->
-            <span class="silder-img" style="background:url(resources/img/banner/01.jpg)"></span>
-            <div class="slick-text container">
+
+    <div id="layerslider" style="width:100%;height:100%;overflow:hidden;">
+        <div class="ls-slide">
+            <img src="resources/img/banner/00.jpg" class="ls-bg"/>
+
+            <!-- <div class="slick-text ls-l container">
                 <span class="slide"><span class="first-letter">W</span>inning <span class="first-letter">w</span>ith <span class="first-letter">C</span>lients</span>
-            </div>
+            </div> -->
         </div>
-        <div class="home-slider">
-            <!-- <img src="resources/img/banner/02.jpg"/> -->
-            <span class="silder-img" style="background:url(resources/img/banner/02.jpg)"></span>
-            <div class="slick-text container">
-                <span class="slide"><span class="first-letter">O</span>ne <span class="first-letter">T</span>eam, <span class="first-letter">D</span>ue <span class="first-letter">R</span>espect</span>
-            </div>
+        
+        <div class="ls-slide">
+            <img src="resources/img/banner/01.jpg" class="ls-bg"/>
+
+            <!-- <div class="slick-text ls-l container">
+                <span class="slide"><span class="first-letter">W</span>inning <span class="first-letter">w</span>ith <span class="first-letter">C</span>lients</span>
+            </div> -->
         </div>
-        <div class="home-slider">
-            <!-- <img src="resources/img/banner/03.jpg"/> -->
-            <span class="silder-img" style="background:url(resources/img/banner/03.jpg)"></span>
-            <div class="slick-text container">
-                <span class="slide"><span class="first-letter">C</span>ommitted <span class="first-letter">t</span>o <span class="first-letter">D</span>eliver</span>
-            </div>
+        <div class="ls-slide">
+            <img src="resources/img/banner/02.jpg" class="ls-bg"/>
+
+            <!-- <div class="slick-text ls-l container">
+                <span class="slide"><span class="first-letter">W</span>inning <span class="first-letter">w</span>ith <span class="first-letter">C</span>lients</span>
+            </div> -->
         </div>
-        <div class="home-slider">
-            <!-- <img src="resources/img/banner/04.jpg"/> -->
-            <span class="silder-img" style="background:url(resources/img/banner/04.jpg)"></span>
-            <div class="slick-text container">
-                <span class="slide"><span class="first-letter">U</span>nparalleled <span class="first-letter">I</span>ntegrity</span>
-            </div>
-        </div>
-    </slick>
+    </div>
 
 </div>
 <script type="text/javascript">
-/*$(document).ready(function(){
+$(document).ready(function(){
     setTimeout(function(){
-         $('#fullpage').fullpage({
+            $('#fullpage').fullpage({
                         sectionSelector: '.section',
                         slideSelector: '.leo-slide'
-                    });
-            jQuery("#layerslider").layerSlider({
-                    responsive: false,
-                    showCircleTimer: false,
-                    skin: 'noskin',
-                    hoverPrevNext: false,
-                    skinsPath: 'resources/css/'
-                });
+            });
+            $('#layerslider').layerSlider({
+                responsive: false,
+                autoStart: true,
+                responsiveUnder: 1280,
+                layersContainer: 1280,
+                skin: 'fullwidth',
+                hoverPrevNext: false,
+                skinsPath: 'resource/skins/'
+
+                // Please make sure that you didn't forget to add a comma to the line endings
+                // except the last line!
+            });
+            $('.loader').animate({
+                    'z-index' : '-1',
+                    'opacity' : 0
+                }, 200);
      },2000);
     
-});*/
+});
+
+
 
 </script>

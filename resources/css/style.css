@@ -253,38 +253,32 @@ OO. Loder
 /*===================================
              OO. Loder
 ===================================*/
-.loader{background:rgba(51, 62, 58, 1)}
+.loader{background:rgba(51, 62, 58, 1);display: none;}
 
 @-webkit-keyframes uil-rolling-anim {
   0% {
-    -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   50% {
-    -ms-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   }
   100% {
-    -ms-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
 @keyframes uil-rolling-anim {
   0% {
-    -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   50% {
-    -ms-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   }
   100% {
-    -ms-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -293,7 +287,6 @@ OO. Loder
     width: 200px;
     height: 200px;
     -webkit-transform:scale(0.37);
-        -ms-transform:scale(0.37);
             transform:scale(0.37);
 }
 .uil-rolling-css > div {
@@ -314,7 +307,6 @@ OO. Loder
   border-bottom-width: 0;
 }
 .uil-rolling-css > div div:nth-of-type(2) {
-  -ms-transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
   -webkit-transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
   transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
 }
@@ -340,7 +332,6 @@ OO. Loder
   border-bottom-width: 0;
 }
 .uil-rolling-css > div div:nth-of-type(2) {
-  -ms-transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
   -webkit-transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
   transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
 }
@@ -589,7 +580,6 @@ section .area{
     top: calc(28% + 85px);
     top: -ms-calc(28% + 85px);
     top: -o-calc(28% + 85px);
-    top: -webkit-calc(28% + 85px);
     top: -moz-calc(28% + 85px);
 }
 
@@ -693,14 +683,12 @@ section .area{
     top: calc(28% + 145px);
     top: -ms-calc(28% + 145px);
     top: -o-calc(28% + 145px);
-    top: -webkit-calc(28% + 145px);
     top: -moz-calc(28% + 145px);
     position: absolute;
     width: 100%;
     height: calc(100% - 145px);
     height: -ms-calc(100% - 145px);
     height: -o-calc(100% - 145px);
-    height: -webkit-calc(100% - 145px);
     height: -moz-calc(100% - 145px);
 }
 
@@ -751,7 +739,6 @@ section .area{
     height: calc(100% - 28% - 145px);
     height: -ms-calc(100% - 28% - 145px);
     height: -o-calc(100% - 28% - 145px);
-    height: -webkit-calc(100% - 28% - 145px);
     height: -moz-calc(100% - 28% - 145px);
     color: #BCBEC0;
 }
@@ -941,7 +928,6 @@ section .area{
     height: calc(100% - 75px);
     height: -o-calc(100% - 75px);
     height: -ms-calc(100% - 75px);
-    height: -webkit-calc(100% - 75px);
     height: -moz-calc(100% - 75px);
     overflow: hidden;
 }
@@ -950,8 +936,6 @@ section .area{
     width: 80%;
     float: left;
     margin-top: 50px;
-    height: -moz-calc(100% - 50px) !important;
-    height: -webkit-calc(100% - 50px) !important;
     height: -ms-calc(100% - 50px) !important;
     height: -o-calc(100% - 50px) !important;
     height: calc(100% - 50px) !important;
@@ -995,7 +979,7 @@ section .area{
   margin-left:0 !important;
 }
 
-.nav-pills li:nth-last-child(2){margin-top: 30px !important}
+.nav-pills li:nth-last-child(3){margin-top: 30px !important}
 .nav-pills .sub-btn:last-child{margin-top: 0 !important}
 
 .sub-btn a{
@@ -1085,8 +1069,6 @@ section .area{
     list-style: none;
     padding: 0;
     margin-left: calc(19% - 17px);
-    margin-left: -webkit-calc(19% - 17px);
-    margin-left: -moz-calc(19% - 17px);
     margin-left: -o-calc(19% - 17px);
     margin-left: -ms-calc(19% - 17px);
     margin-right: 0;
@@ -1233,6 +1215,12 @@ section .area{
 /*===================================
            06. Banner Slider
 ===================================*/
+#fullpage {
+    float: left;
+    height: 100%;
+    width: 100%;
+}
+
 .banner-slider-wrpr{
     width: 100%;
     height: 100%;
@@ -1319,6 +1307,36 @@ section .area{
   height: 100%;
 }
 
+.slick-text{
+	top: 45%;
+	left: 0;
+	right: 0;
+	margin: 0 auto !important;
+	width: auto;
+}
+/*Slider Pagination*/
+.ls-bottom-nav-wrapper{bottom: 60px}
+
+.ls-nav-start,
+.ls-nav-stop{display: none !important;}
+
+.ls-bottom-slidebuttons{
+	top: 0;
+}
+
+.ls-bottom-slidebuttons a{
+	display: block;
+	width: 20px !important;
+	height: 4px !important;
+	margin: 0 7px;
+	background-color: #c19e9f;
+	border-radius: 0;
+}
+
+.ls-nav-active{background-color: #fff !important}
+
+
+
 /*===================================
        08. Product List Page
 ===================================*/
@@ -1373,11 +1391,10 @@ section .area{
 .product-list-li-wpr{
     width: 91%;
     overflow: hidden;
-    height: calc(100% - 90px);  /*Dynamic height*/
-    height: -ms-calc(100% - 90px);
-    height: -o-calc(100% - 90px);
-    height: -webkit-calc(100% - 90px);
-    height: -moz-calc(100% - 90px);
+    height: calc(100% - 145px);  /*Dynamic height*/
+    height: -ms-calc(100% - 145px);
+    height: -o-calc(100% - 145px);
+    height: -moz-calc(100% - 145px);
     float: left;
     padding-right: 10px;
     position: relative;
@@ -1462,8 +1479,8 @@ section .area{
 .product-list-li-wpr span,
 .product-list-li-wpr li,
 .product-list-li-wpr p{
-    color:#A8ACAF;
-    font-size: 12px;
+    color:#414142;
+    font-size: 13px;
 }
 
 .detalis-text-wpr{
@@ -1809,7 +1826,6 @@ section .area{
     height: calc(100% - 170px);
     height: -ms-calc(100% - 170px);
     height: -o-calc(100% - 170px);
-    height: -webkit-calc(100% - 170px);
     height: -moz-calc(100% - 170px);
     margin-top: 55px;
     margin-left: 35px;
@@ -1822,7 +1838,6 @@ section .area{
 	height: calc(100% - 170px);
     height: -ms-calc(100% - 170px);
     height: -o-calc(100% - 170px);
-    height: -webkit-calc(100% - 170px);
     height: -moz-calc(100% - 170px);
     overflow: hidden;
     background-color: green;
@@ -1902,7 +1917,7 @@ section .area{
 /*======================================
           13. BootStrap Carousel
 ======================================*/
-#myCarousel{
+#myCarousel,#myCarousel2{
   position: absolute;
   top: 51%;
   left: 0;
@@ -2039,6 +2054,7 @@ section .area{
   height: 100%;
   background-size: cover;
   background-position: center;
+  z-index: 520;
 }
 
 .news-hook{float: left}
@@ -2272,11 +2288,11 @@ section .area{
 #scroll-btn{
   width: 40px;
   height: 70px;
-  border: solid 1px rgba(255, 255, 255, 0.3);
+  border: solid 1px rgba(255, 255, 255, 0.2);
   position: fixed;
-  bottom: 80px;
+  bottom: 40px;
   right: 6%;
-  z-index: 700;
+  z-index: 550;
 }
 
 #scroll-btn a{
@@ -2293,6 +2309,13 @@ section .area{
   line-height: 35px;
   font-weight: 700;
 }
+
+.detalis-text-wpr tr{
+  color: #414142;
+  font-size: 12px;
+}
+
+.mail-response{left: 75px;position: relative;}
 
 /*===================================================================================================
                                  Responsive Style Area
@@ -2387,15 +2410,10 @@ section .area{
     }
 }
 
-@media (max-height: 1350px){
-  .slick-text{margin-left:3% !important;width: auto;}
-}
-
 
 @media (max-height: 1220px){
-  .slick-text{margin-left:4% !important;}
 
-	#myCarousel{top:45%}
+	#myCarousel,#myCarousel2{top:45%}
 
 	.carousel-circle{
 		width: 120px;
@@ -2415,6 +2433,8 @@ section .area{
 
     .nav-icon-main,
     .menu-cross{top: 20px;right: 20px}
+
+    #scroll-btn{right: 20px}
 
     .fafa-bars,
     .spritesprite-close-red{width: 30px;height: 30px}
@@ -2446,6 +2466,8 @@ section .area{
 
     #sform{left: 20px;}
 
+    .mail-response{left:5px}
+
 }
 
 @media (max-width: 768px) {
@@ -2460,8 +2482,6 @@ section .area{
     .menu-item-view-area {
         padding-right: 3%;
         width: calc(100% - 130px);
-        width: -moz-calc(100% - 130px);
-        width: -webkit-calc(100% - 130px);
         width: -o-calc(100% - 130px);
         width: -ms-calc(100% - 130px);
         margin-top:20px;
@@ -2477,8 +2497,6 @@ section .area{
     .menu-list h4{
       margin: 0 0 0 9%;
       margin-left:calc(9% - 3px);
-      margin-left:-webkit-calc(9% - 3px);
-      margin-left:-moz-calc(9% - 3px);
       margin-left:-o-calc(9% - 3px);
       margin-left:-ms-calc(9% - 3px);
     }
@@ -2514,7 +2532,11 @@ section .area{
 
     .sub-menu-btn li{padding: 0}
 
-    
+    .product-list-li-wpr > div{width: 100%}
+
+    .logo img{width: 200px}
+
+    .img-thumbnail-box li:first-child{margin-right: 0}
 
 }
 
@@ -2545,7 +2567,7 @@ section .area{
 
 @media (max-width: 600px) {
 
-	.page-title-text h2{border-bottom: none;}
+	  .page-title-text h2{border-bottom: none;}
 
     .copy-right-box{padding-left: 40px;}
 
@@ -2588,7 +2610,7 @@ section .area{
         margin-top: 110px;
         right: 5% !important;
     }
-    .list-close{margin-top: 75px;left: 15px;}
+    .list-close{margin-top: 15px;left: 15px;}
 
     .breadcrumbs{padding-left: 5px;margin-top: -10px}
     /*End gallery*/
@@ -2597,11 +2619,6 @@ section .area{
     .page-title-border-btm,
     .product-list-li-wpr{width: 100%}
 
-    .product-banner,
-    .detail-banner,
-    .area-gview-1,
-    .menu-bottom{width: 40%;}
-
     .bottom-menu-mobile {display: block;text-align: center;}
 
     .copy-right-text div {padding-left: 0;}
@@ -2609,7 +2626,7 @@ section .area{
     .page-title-text h2 {font-size: 19px;}
     /** Carousel **/
 
-    #myCarousel {width: 90%;top: 47%;}
+    #myCarousel,#myCarousel2 {width: 90%;top: 47%;}
 
     .carousel-caption i {font-size: 16px;}
 
@@ -2646,10 +2663,10 @@ section .area{
     .copy-right-text{margin-left: 2%;font-size: 10px}
 
     section .area{height: 50%}
-
+    #leaders .area,
     #about-us .area,
     #testimonial .area,
-    #contact-us .area{height: 60%}
+    #contact-us .area{height: 100%}
 
     .page-title-text h2{display: none;}
 
@@ -2660,8 +2677,6 @@ section .area{
     #alliances .upper-btn,
     #sector .upper-btn{
     	top: calc(50% - 35px);
-    	top: -webkit-calc(50% - 35px);
-    	top: -moz-calc(50% - 35px);
     	top: -o-calc(50% - 35px);
     	top: -ms-calc(50% - 35px);
     }
@@ -2670,12 +2685,27 @@ section .area{
     #testimonial .upper-btn,
     #contact-us .upper-btn{top: 31%}
 
+    #about-us .area,
+    #testimonial .area,
+    #contact-us .area{height: 100%}
+
     .product-view-result-ul,
     .detalis-text-wpr{padding-left: 0}
 
     #enquiry{margin-bottom: 0}
 
     .logo img {width: 150px}
+
+    .menu-bottom{display: none;}
+
+
+    .product-banner,
+    .detail-banner,
+    .area-gview-1{width:30%;} 
+
+    .product-view-area{width: 70%;padding-top: 0;}
+
+    .logo img {width: 115px !important}
 }
 
 
@@ -2689,8 +2719,6 @@ section .area{
     .spritesprite-close-red,
     .fafa-bars {width: 35px}
 
-    .logo img {width: 115px !important}
-
     .upper-btn {
         width: 315px;
         font-weight: 400;
@@ -2698,8 +2726,6 @@ section .area{
         height: 55px !important;
         line-height: 55px !important;
         top: calc(50% - 27.5px);
-        top: -webkit-calc(50% - 27.5px);
-        top: -moz-calc(50% - 27.5px);
         top: -o-calc(50% - 27.5px);
         top: -ms-calc(50% - 27.5px);
     }
@@ -2709,12 +2735,11 @@ section .area{
     #alliances .upper-btn,
     #sector .upper-btn{
     	top: calc(50% - 27.5px);
-        top: -webkit-calc(50% - 27.5px);
-        top: -moz-calc(50% - 27.5px);
         top: -o-calc(50% - 27.5px);
         top: -ms-calc(50% - 27.5px);
     }
 
+    #leaders .upper-btn,
     #about-us .upper-btn,
     #testimonial .upper-btn,
     #contact-us .upper-btn{

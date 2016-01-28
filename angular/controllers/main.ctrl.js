@@ -262,6 +262,7 @@ app.controller('menuController', function($scope, JsonService, $routeParams, $lo
         setTimeout(function(){
             $('.nav-pills').tab();
             $('.nav-pills a:last').tab('show');
+            $('.nav-pills a:first').tab('show');
         },100);
     });
     
@@ -376,5 +377,19 @@ app.controller('newsroomController', function($scope, JsonService, $routeParams,
             $scope.company = '404 PAGE NOT FOUND';
             $scope.subTitle = '';
         }
+    });
+});
+
+// Testimonial Controller
+app.controller('testimonialController', function($scope, JsonService, $routeParams, $location) {
+    JsonService.get(function(pages){
+        $scope.data = pages['about'].child_pages['about-base-technologies'].child_pages['testimonial'].child_pages;
+    });
+});
+
+// Leader Controller
+app.controller('leaderController', function($scope, JsonService, $routeParams, $location) {
+    JsonService.get(function(pages){
+        $scope.data = pages['about'].child_pages['about-base-technologies'].child_pages['testimonial'].child_pages;
     });
 });

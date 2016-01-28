@@ -1,14 +1,14 @@
-<div class="row height-full" ng-controller="testimonialController">
+<div class="row height-full" ng-controller="leaderController">
     <div class="upper-btn">
-        TESTIMONIAL
+        LEADERS
     </div>
-    <div class="col-xs-12 area" style="background-image: url(resources/img/TESTIMONIAL.jpg)">
+    <div class="col-xs-12 area" style="background-image: url(resources/img/leaders.jpg)">
 
         <!--------------------------------
         --------BootStrap Carousel--------
         --------------------------------->
 
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div id="myCarousel2" class="carousel slide" data-ride="carousel">
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
 
@@ -29,7 +29,7 @@
 
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{'active':$index==0}" ng-repeat="(key,p) in data"></li>
+                <li data-target="#myCarousel2" data-slide-to="{{$index}}" ng-class="{'active':$index==0}" ng-repeat="(key,p) in data"></li>
             </ol>
 
 

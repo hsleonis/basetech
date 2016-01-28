@@ -31,6 +31,13 @@
         <link rel="stylesheet" href="resources/css/style.css">
         <!--Modernizr JS-->
         <script src="resources/js/modernizr-2.8.3.min.js"></script>
+        <style type="text/css">
+            #fullpage {
+                float: left;
+                height: 100%;
+                width: 100%;
+            }
+        </style>
     </head>
 
     <body data-ng-app="basetech" data-ng-controller="appController">
@@ -39,11 +46,11 @@
         </div>
 	   
         <!--LOADER-->
-	    <!-- <div class="loader">
+	    <div class="loader">
             <div class="inner">
                  <div class='uil-rolling-css'><div><div></div><div></div></div></div>
             </div>
-        </div>	 -->
+        </div>	<!-- .loader -->
         
         <!--MAIN MENU-->
         <div id="main-menu" class="main-menu-wpr" data-ng-include="'templates/menu.html'"></div><!--#main-menu-->
@@ -57,18 +64,50 @@
         </div><!-- #scroll-btn -->
 
         <div id="fullpage">
-            <!--SLIDER-->
-            <section id="home-page" data-anchor="home" class="section">
-                <div class="container-fluid" data-ng-include="'templates/slider.html'"></div><!--.home-page-wrapper-->
+             <!--SLIDER-->
+            <section id="" class="section">
+                 <!-- <div class="container-fluid" data-ng-include="'templates/slider.html'"></div> --><!--.home-page-wrapper-->
+                 <div id="layerslider" style="width:100%;height:100%;overflow:hidden;">
+                    <div class="ls-slide">
+                        <img src="resources/img/banner/00.jpg" class="ls-bg"/>
+                    </div>
+                    <div class="ls-slide" data-ls="slidedelay:5000;transition2d:92;timeshift:-1000;">
+                        <img src="resources/img/banner/01.jpg" class="ls-bg"/>
+                        <div class="ls-l slick-text container" data-ls="offsetxin:0;durationin:3000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% top 50%;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">
+                            <span class="slide"><span class="first-letter">W</span>inning <span class="first-letter">w</span>ith <span class="first-letter">C</span>lients</span>
+                        </div>
+                    </div>
+                    <div class="ls-slide" data-ls="slidedelay:4500;transition2d:105,106;">
+                        <img src="resources/img/banner/02.jpg" class="ls-bg"/>
+                        <div class="ls-l slick-text container" data-ls="offsetxin:0;durationin:3000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% top 50%;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">
+                            <span class="slide"><span class="first-letter">O</span>ne <span class="first-letter">T</span>eam, <span class="first-letter">D</span>ue <span class="first-letter">R</span>espect</span>
+                        </div>
+                    </div>
+                    <div class="ls-slide" data-ls="slidedelay:8000;transition2d:21,105;timeshift:-1000;">
+                        <img src="resources/img/banner/03.jpg" class="ls-bg"/>
+                        <div class="ls-l slick-text container" data-ls="offsetxin:0;durationin:3000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% top 50%;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">
+                            <span class="slide"><span class="first-letter">C</span>ommitted <span class="first-letter">t</span>o <span class="first-letter">D</span>eliver</span>
+                        </div>
+                    </div>
+                    <div class="ls-slide" data-ls="slidedelay:8000;transition2d:21,105;timeshift:-1000;">
+                        <img src="resources/img/banner/04.jpg" class="ls-bg"/>
+                        <div class="ls-l slick-text container" data-ls="offsetxin:0;durationin:3000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% top 50%;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">
+                            <span class="slide"><span class="first-letter">U</span>nparalleled <span class="first-letter">I</span>ntegrity</span>
+                        </div>
+                    </div>
+                </div>  
             </section><!--#home-page-->
 
+            <!--LEADERS-->
+            <section id="leaders" data-anchor="customers" class="section">
+                <div  class="testimonial-page-wrapper container-fluid" data-ng-include="'templates/leaders.html'"></div><!--.testimonial-wrapper-->
+            </section><!--#testimonial-->
 
             <!--SOLUTIONS-->
-            <section id="category-home-page" data-anchor="solution" class="section">
+            <section id="category-home-page" class="section">
                 <div class="category-home-page-wrapper container-fluid" data-ng-include="'templates/solutions.html'">
                 </div><!--.second-home-page-wrapper-->
             </section><!--#category-home-page-->
-
 
             <!--SERVICE FOCUS-->
             <section id="service-focuse" data-anchor="service" class="section">
@@ -108,13 +147,16 @@
                 <div class="contact-us-home-page-wrapper container-fluid" data-ng-include="'templates/contact.html'">
                 </div><!--.contact-us-home-page-wrapper-->
             </section><!--#contact-us-->
+
+            
         </div><!--#fullpage-->
+
         
-        <div id="main-view">
+         <div id="main-view">
             <div class="container-fluid product-home-page-wrapper">
                 <div class="row product-list-row" ng-view></div>
             </div>
-        </div><!--#Main View-->
+        </div> --><!--#Main View
 
         <!--JavaScript-->
         <script src="resources/js/jquery-2.1.4.min.js"></script>
@@ -148,6 +190,5 @@
         <script src="angular/controllers/main.ctrl.js"></script>
 
         <script src="resources/js/main.js"></script>
-
 </body>
 </html>
