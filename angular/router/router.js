@@ -38,10 +38,10 @@ app.config(function($routeProvider,$locationProvider) {
         templateUrl : 'templates/newsroom.html',
         controller  : 'newsroomController'
     })
-    .when('/achievement/projects/:detail', {
+/*    .when('/achievement/projects/:detail', {
         templateUrl : 'templates/newsroom.html',
         controller  : 'projectController'
-    })
+    })*/
     .when('/projects/:subpage/:detail', {
         templateUrl : 'templates/project.html',
         controller  : 'projectController'

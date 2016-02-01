@@ -217,6 +217,7 @@ public function actionApply_online(){
 		$message->setTo('shahriar@dcastalia.com');
 		$message->setSubject('Base technology Apply Online');
 		$message->setHtmlBody($body);
+        
 		if($model->cv != ''){
         		$message->attach($model->cv);		
 		}

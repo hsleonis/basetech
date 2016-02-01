@@ -9,12 +9,13 @@
 */
 
 app.controller('appController', function($http, $scope, $location, $window) {
-    $scope.homeURL = 'http://dcastalia.com/projects/web/base/';
+    $scope.homeURL = location.origin+'/projects/web/base/';
     
     $scope.homepage = function(){
         closeView();
         if(typeof $.fn.fullpage.setAllowScrolling !== 'undefined'){
             $.fn.fullpage.setAllowScrolling(false);
+            $.fn.fullpage.setKeyboardScrolling(false);
         }
         setTimeout(function(){
             $scope.$apply(function (){
@@ -46,8 +47,10 @@ app.controller('appController', function($http, $scope, $location, $window) {
 });
 
 function openView() {
-    if(typeof $.fn.fullpage.setAllowScrolling!=='undefined')
+    if(typeof $.fn.fullpage.setAllowScrolling!=='undefined'){
         $.fn.fullpage.setAllowScrolling(false);
+        $.fn.fullpage.setKeyboardScrolling(false);
+    }
 
     $('#main-view').addClass('sub-paged');
     $('.main-menu-content').css({'background-color':'#333E3A'});
@@ -63,9 +66,11 @@ function openView() {
 };
 
 function closeView() {
-    if(typeof $.fn.fullpage.setAllowScrolling !== 'undefined'){
+    if(typeof $.fn.fullpage.setAllowScrolling!=='undefined'){
         $.fn.fullpage.setAllowScrolling(true);
+        $.fn.fullpage.setKeyboardScrolling(true);
     }
+    
     $('#main-view').removeClass('sub-paged');
     $('.main-menu-content').css({'background-color':''});
     setTimeout(function(){
@@ -289,6 +294,7 @@ app.controller('menuController', function($scope, JsonService, $routeParams, $lo
 // Gallery Controller
 app.controller('galleryController', function($scope, JsonService, $routeParams) {
     openView();
+    $scope.limit = 0;
     
     JsonService.get(function(pages){
         $scope.pages = pages;
@@ -331,6 +337,16 @@ app.controller('galleryController', function($scope, JsonService, $routeParams) 
             $scope.subTitle = '';
         }
     });
+    
+    $scope.nxtPage = function(a,b){
+        $scope.limit+=($scope.limit+5<b)?a:0;
+        console.log($scope.limit);
+    };
+    
+    $scope.prvPage = function(a){
+        $scope.limit-=($scope.limit>=a)?a:0;
+        console.log($scope.limit);
+    };
 });
 
 // News Room Controller
@@ -390,6 +406,6 @@ app.controller('testimonialController', function($scope, JsonService, $routePara
 // Leader Controller
 app.controller('leaderController', function($scope, JsonService, $routeParams, $location) {
     JsonService.get(function(pages){
-        $scope.data = pages['about'].child_pages['about-base-technologies'].child_pages['testimonial'].child_pages;
+        $scope.data = pages['about'].child_pages['about-base-technologies'].child_pages['messege-from-leaders'].child_pages;
     });
 });

@@ -39,6 +39,24 @@ $(document).ready(function(){
     $('#fullpage').fullpage({
         sectionSelector: '.section',
         slideSelector: '.leo-slide',
+        afterLoad: function(anchorLink, index){
+            if(index == 1){
+                $('.section-up').css({'display':'none'});
+            }
+        },
+        onLeave: function(index, nextIndex, direction){
+
+            if(nextIndex == 9 && direction =='down'){
+                $('.section-down').css({'display':'none'});
+            }
+            else if(nextIndex == 1 && direction =='up'){
+                $('.section-up').css({'display':'none'});
+            }
+            else{
+                $('.section-up').css({'display':'block'});
+                $('.section-down').css({'display':'block'});
+            }
+        }
     });
     setTimeout(function(){
         $('#layerslider').layerSlider({
@@ -70,3 +88,16 @@ var closeMenu = function(){
     $(".nav-icon").toggleClass("barg-o-one");
     $('.nav-icon').css('opacity', '1');
 }
+
+// upload file
+/*$(function () {
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                //$('<p/>').text(file.name).appendTo(document.body);
+                $('#cvupload').val(file.url).trigger('input');
+            });
+        }
+    });
+});*/

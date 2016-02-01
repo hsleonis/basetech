@@ -137,7 +137,7 @@ class Page extends \yii\db\ActiveRecord
 
     public static function get_child_pages($parent, $options){
         $datas = [];
-        $child_pages = self::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>$parent])->all();
+        $child_pages = self::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>$parent])->andWhere(['is_archive'=>0])->all();
 
         if(!empty($child_pages)){
 
@@ -179,7 +179,7 @@ class Page extends \yii\db\ActiveRecord
         $dot = '';
         $datas = [];
 
-        $parent_pages = self::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>0])->all();
+        $parent_pages = self::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>0])->andWhere(['is_archive'=>0])->all();
         
         if(!empty($parent_pages)){
 		
@@ -214,7 +214,7 @@ class Page extends \yii\db\ActiveRecord
     public static function get_child_pages_menu($parent){
         $datas = [];
 	$options = [];
-        $child_pages = self::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>$parent])->all();
+        $child_pages = self::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>$parent])->andWhere(['is_archive'=>0])->all();
 
         if(!empty($child_pages)){
 		$x=0;
@@ -232,7 +232,7 @@ class Page extends \yii\db\ActiveRecord
 
     public static function get_child_pages_One_page($parent, $options){
         $datas = [];
-        $child_pages = self::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>$parent])->orderBy('sort_order asc')->all();
+        $child_pages = self::find()->joinWith('page_rel')->where(['page_self_rels.parent_page_id'=>$parent])->andWhere(['is_archive'=>0])->orderBy('sort_order asc')->all();
         $i = 0;
         if(!empty($child_pages)){
 			
@@ -288,7 +288,7 @@ class Page extends \yii\db\ActiveRecord
         $options = [];
         $datas = [];
 
-        $parent_pages = self::find()->joinWith('page_rel')->where(['page.page_slug'=>$slug])->all();
+        $parent_pages = self::find()->joinWith('page_rel')->where(['page.page_slug'=>$slug])->andWhere(['is_archive'=>0])->all();
         
         if(!empty($parent_pages)){
             foreach ($parent_pages as $key => $value) {

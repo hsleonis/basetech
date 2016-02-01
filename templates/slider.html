@@ -30,8 +30,19 @@
 $(document).ready(function(){
     setTimeout(function(){
             $('#fullpage').fullpage({
-                        sectionSelector: '.section',
-                        slideSelector: '.leo-slide'
+                sectionSelector: '.section',
+                slideSelector: '.leo-slide',
+                onLeave: function(index, nextIndex, direction){
+                    var leavingSection = $(this);
+                    console.log(nextIndex);
+
+                    if(index == 9){
+                        $('.section-down').css({'display':'none'});
+                    }
+                    else{
+                        $('.section-down').css({'display':'block'});
+                    }
+                }
             });
             $('#layerslider').layerSlider({
                 responsive: false,
