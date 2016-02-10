@@ -1,23 +1,24 @@
-<div class="col-33 col-xs-6 area detail-banner" style="background-image: url({{detPage.page_banner}});">
+<div class="col-33 col-xs-6 area detail-banner" style="background-image: url({{fvPage.page_banner}});">
     <div class="page-title-text">
-        <h2>{{detTitle}}</h2>
-        <span>{{subTitle}}</span>
-        <div class="page-title-btn" data-ng-if="page.child_pages.length!=0">
-            <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{prvProject}}"><i class="fa fa-angle-left"></i></a>
-            <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{nxtProject}}"><i class="fa fa-angle-right"></i></a>
+        <h2>{{fvTitle}}</h2>
+        <span>{{detTitle}}</span>
+        <div class="page-title-btn" data-ng-if="detPage.child_pages.length!=0">
+            <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/detPage{{prvProject}}"><i class="fa fa-angle-left"></i></a>
+            <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/detPage{{nxtProject}}"><i class="fa fa-angle-right"></i></a>
         </div>
     </div><!--.page-title-text-->
 </div>
 
 <div class="col-66 col-xs-6 area product-view-area">
-    <a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">
+    <a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">
         <div class="list-close"><i class="sprite sprite-close-green"></i></div>
     </a>
     <ul class="breadcrumbs">
         <li data-ng-show="company"><a ng-click="homepage()">HOME</a></li>
         <li data-ng-if="cur.child_pages.menu.length>1">{{company}}</li>
         <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{subTitle}}</a></li>
-        <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">{{detTitle}}</a></li>
+        <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{detTitle}}</a></li>
+        <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}/{{fvPage.page_data.page_slug}}">{{fvTitle}}</a></li>
     </ul>
 
     <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll="">
@@ -30,8 +31,8 @@
                     </div>--><!--.news-img-box-->
                     <div class="img-thumbnail-box">
                         <ul>
-                            <li style="background-image:url('{{img.image}}')" lightgallery data-ng-repeat="img in detPage.page_images" data-src="{{img.short_title}}">
-                                <a href="#"><!-- <img src="{{img.image}}" data-ng-image-load-animation="" alt="" class="img-responsive"/> --></a>
+                            <li style="background-image:url('{{img.image}}')" lightgallery data-ng-repeat="img in fvPage.page_images" data-src="{{img.short_title}}">
+                                <a href="#"><img src="{{img.image}}" data-ng-image-load-animation="" alt="" class="img-responsive"/></a>
                             </li>
                         </ul>
                     </div><!--.img-thumbnail-box-->
@@ -40,8 +41,8 @@
                 <div class="col-xs-6 news-border">
 
                     <div class="new-view-board-wpr">
-                        <h3>{{detTitle}}</h3>
-                        <span data-ng-bind-html="detPage.page_data.page_desc"></span>
+                        <h3>{{fvTitle}}</h3>
+                        <span data-ng-bind-html="fvPage.page_data.page_desc"></span>
                     </div><!--.new-view-board-wpr-->
 
                 </div>

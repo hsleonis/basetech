@@ -4,9 +4,9 @@
     </div>
     <div class="col-xs-12 area" style="background-image: url(resources/img/TESTIMONIAL.jpg)">
 
-        <!--------------------------------
-        --------BootStrap Carousel--------
-        --------------------------------->
+        <!-- ------------------------------
+        -------- BootStrap Carousel -------
+        ------------------------------- -->
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Wrapper for slides -->
@@ -15,7 +15,7 @@
                 <div class="item" ng-class="{'active':$index==0}" ng-repeat="(key,p) in data|orderObjectBy:'sort_order':false">
 
                     <div class="carousel-circle">
-                        <img src="{{p.page_banner}}" alt="" class="img-responsive"> 
+                        <img src="{{p.page_thumb}}" alt="" class="img-responsive"> 
                     </div><!-- .carousel-circle -->
 
                     <div class="carousel-caption">

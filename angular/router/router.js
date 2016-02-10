@@ -34,7 +34,7 @@ app.config(function($routeProvider,$locationProvider) {
         templateUrl : 'templates/gallery.html',
         controller  : 'galleryController'
     })
-    .when('/media/news-room/:detail', {
+    .when('/media/news-room/:detail/:fvpage', {
         templateUrl : 'templates/newsroom.html',
         controller  : 'newsroomController'
     })

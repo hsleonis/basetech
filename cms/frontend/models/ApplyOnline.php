@@ -22,7 +22,7 @@ class ApplyOnline extends Model
     public function rules()
     {
         return [
-            [['name', 'address', 'email', 'department', 'qualification', 'job', 'message'], 'required'],
+            [['name', 'email'], 'required'],
             ['email', 'email'],
 	    [['name', 'qualification'],'string']
         ];

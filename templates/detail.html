@@ -1,4 +1,4 @@
-<div class="col-xs-6 area detail-banner" style="background-image: url({{detPage.page_banner}});">
+<div class="col-xs-6 area detail-banner" style="background-image: url({{detPage.page_banner}});" ng-class="{'list-banner':detPage.child_pages.length!=0}">
     <div class="page-title-text">
         <h2>{{detTitle}}</h2>
         <span>{{subTitle}}</span>
@@ -26,7 +26,7 @@
     </div>
 </div>
 
-<div class="col-xs-6 area product-view-area" data-ng-if="detPage.child_pages.length!=0">
+<div class="col-xs-6 area product-view-area product-view-area-list" data-ng-if="detPage.child_pages.length!=0">
     <a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">
         <div class="list-close"><i class="sprite sprite-close-green"></i></div>
     </a>
@@ -39,9 +39,9 @@
 
     <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll>
         <ul class="product-view-result-ul">
-            <li data-ng-repeat="(key, subpage) in detPage.child_pages" data-ng-hide="key=='menu'">
+            <li data-ng-repeat="(key, subpage) in detPage.child_pages|orderObjectBy:'sort_order':false" data-ng-hide="key=='menu'">
                 <a href="{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}/{{subpage.page_data.page_slug}}">
-                    <div class="product-img-box">
+                    <div class="product-img-box" ng-if="subpage.page_thumb.length>1">
                         <img src="{{subpage.page_thumb}}" alt=""/>
                     </div><!--.product-img-box-->
                     <div class="list-result-text">

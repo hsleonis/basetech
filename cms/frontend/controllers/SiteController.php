@@ -16,6 +16,7 @@ use frontend\models\Menu;
 use frontend\models\MenuPageRels;
 use frontend\models\Page;
 use frontend\models\Enquiry;
+use frontend\models\ApplyOnline;
 
 //somrat added
 use frontend\models\ProductSpecification;
@@ -166,7 +167,7 @@ public function actionEnquiry(){
 		$message = Yii::$app->mailer->compose();
 
 		$message->setFrom('shimul@dcastalia.com');
-		$message->setTo('shahriar@dcastalia.com');
+		$message->setTo('info@base-technologies.net');
 		$message->setSubject('Base technology Inquiry');
 		$message->setHtmlBody($model->message);
 		if($message->send()){
@@ -178,7 +179,7 @@ public function actionEnquiry(){
 		}
 	}else{
 		$response['result'] = 0;
-		$response['msg'] = $model->getErrors()	;
+		$response['msg'] = Html::errorSummary($model);
 	}
 	
 
@@ -214,10 +215,10 @@ public function actionApply_online(){
 		$body .= 'message: '.$data->message.'<br/>';
 
 		$message->setFrom('shimul@dcastalia.com');
-		$message->setTo('shahriar@dcastalia.com');
-		$message->setSubject('Base technology Apply Online');
+		$message->setTo('hr@base-technologies.net
+');
+		$message->setSubject('Base technology Online Application');
 		$message->setHtmlBody($body);
-        
 		if($model->cv != ''){
         		$message->attach($model->cv);		
 		}
@@ -230,7 +231,7 @@ public function actionApply_online(){
 		}
 	}else{
 		$response['result'] = 0;
-		$response['msg'] = $model->getErrors()	;
+		$response['msg'] = Html::errorSummary($model);
 	}
 	
 

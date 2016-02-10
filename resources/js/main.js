@@ -89,6 +89,19 @@ var closeMenu = function(){
     $('.nav-icon').css('opacity', '1');
 }
 
+var fileUpload = function(){
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                $('#cvupload').val(file.url).attr('ng-value',file.url).trigger('input');
+                angular.element('#apply-form').scope().career.cv = file.url;
+                $('label[for="cvupload"]').text($('label[for="cvupload"]').text()+' : '+file.name);
+            });
+        }
+    });
+};
+
 // upload file
 /*$(function () {
     $('#fileupload').fileupload({

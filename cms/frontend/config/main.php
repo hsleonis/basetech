@@ -11,10 +11,10 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
-    'homeUrl' => '/base/cms',
+    'homeUrl' => '/demo/cms',
     'components' => [
         'request' => [
-            'baseUrl' => '/base/cms',
+            'baseUrl' => '/demo/cms',
             'enableCsrfValidation' => false,
         ],
         'user' => [
@@ -53,15 +53,12 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName'  => false,
             'rules' => array(
-                'page/<slug1:(\w|\-)+>/<slug2:(\w|\-)+>' => 'page/view',
-                'page/<slug1:(\w|\-)+>' => 'page/viewfull',
-                'page/<slug2:(\w|\-)+>' => 'page/view',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ],
         'urlManagerBackEnd' => [
             'class' => 'yii\web\urlManager',
-            'baseUrl' => '/base/cms/backend/web',
+            'baseUrl' => '/projects/web/base/cms/backend/web',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],

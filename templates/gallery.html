@@ -33,7 +33,7 @@
 
             <h4>{{detPage.page_data.short_desc}}</h4>
             <div class="image-gallery">
-                <div lightgallery class="g-thumbnail col-xs-4" data-ng-repeat="item in data=(detPage.page_images)" data-src="{{item.image}}" data-sub-html="<h4>{{item.short_title}}</h4><p>{{item.short_desc}}</p>" ng-show="limit<=$index && $index<limit+5">
+                <div lightgallery class="g-thumbnail col-xs-4" data-ng-repeat="item in data=(detPage.page_images)" data-src="{{item.image}}" data-sub-html="<h4>{{item.short_title}}</h4><p>{{item.short_desc}}</p>" ng-show="limit<=$index && $index<limit+6">
                     <div class="gallery-image" style="background-image:url({{item.image}})"></div>
                 </div><!--.g-thumbnail-->
             </div>
@@ -41,8 +41,8 @@
         </div><!--.product-list-li-wpr-->
 
         <div class="gallery-btn page-title-btn">
-            <a ng-click="prvPage(5)" ng-hide="limit==0"><i class="fa fa-angle-left"></i></a>
-            <a ng-click="nxtPage(5, data.length)" ng-hide="limit+5>=data.length"><i class="fa fa-angle-right"></i></a>
+            <a ng-click="prvPage(6)" ng-hide="limit==0"><i class="fa fa-angle-left"></i></a>
+            <a ng-click="nxtPage(6, data.length)" ng-hide="limit+6>=data.length"><i class="fa fa-angle-right"></i></a>
         </div><!--.gallery-btn-->
     </div><!--.product-view-area-->
 </div>

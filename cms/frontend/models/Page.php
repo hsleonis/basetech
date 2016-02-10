@@ -157,6 +157,9 @@ class Page extends \yii\db\ActiveRecord
                         $options[$value->page_slug]['page_banner'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$image->image;
                         $options[$value->page_slug]['page_thumb'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/thumb/'.$image->image;
                     }
+                    if($image->is_gallery){
+                        $options[$value->page_slug]['page_thumb'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$image->image;
+                    }
                     $image->image = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$image->image;
                 }
 
@@ -265,6 +268,9 @@ class Page extends \yii\db\ActiveRecord
                         $options[$value->page_slug]['page_banner'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$image->image;
                         $options[$value->page_slug]['page_thumb'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/thumb/'.$image->image;
                     }
+                    if($image->is_gallery){
+                            $options[$value->page_slug]['page_thumb'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/s'.$image->image;
+                    }
                         $image->image = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$image->image;
                 }
                 
@@ -321,6 +327,9 @@ class Page extends \yii\db\ActiveRecord
                         if($key->is_banner){
                             $options['page_banner'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$key->image;
                             $options['page_thumb'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/thumb/'.$key->image;
+                        }
+                        if($key->is_gallery){
+                            $options['page_thumb'] = Yii::$app->urlManager->createAbsoluteUrl('/').'uploads/'.$key->image;
                         }
                         
                         $x++;

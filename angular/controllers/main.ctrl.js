@@ -9,7 +9,8 @@
 */
 
 app.controller('appController', function($http, $scope, $location, $window) {
-    $scope.homeURL = location.origin+'/projects/web/base/';
+    $scope.homeURL = location.origin+'/demo/';
+    $scope.career = {};
     
     $scope.homepage = function(){
         closeView();
@@ -21,6 +22,7 @@ app.controller('appController', function($http, $scope, $location, $window) {
             $scope.$apply(function (){
                 $location.url('/');
                 if(typeof $.fn.fullpage.setAllowScrolling !== 'undefined'){
+                    $.fn.fullpage.moveTo(1);
                     $.fn.fullpage.setAllowScrolling(true);
                 }
             });
@@ -28,19 +30,25 @@ app.controller('appController', function($http, $scope, $location, $window) {
     };
     
     $scope.sendmail = function(a,b,c){
-        $http.post("http://dcastalia.com/projects/web/base/cms/site/enquiry", {name:a,email:b,message:c})
+        alert("Please click Ok to send mail.");
+        $http.post(location.origin+"/demo/cms/site/enquiry", {name:a,email:b,message:c})
         .success(function (response) {
             if(typeof response.result!=='undefined'){
-                $scope.mailresponse = (response.result)?response.msg:'Please check inputs';
+                //$scope.mailresponse = (response.result)?response.msg:'Please check inputs';
+                var s = response.msg.replace(/(<\/div>|<div>|<\/p>|<p>|<\/ul>)/g, "").replace(/(<br\/>|<\/li>|<ul>)/g, "\n").replace(/<li>/g, "• ");
+                alert(s);
             }
         });
     };
     
     $scope.sendapply = function(a){
-        $http.post("http://dcastalia.com/projects/web/base/cms/site/apply_online", a)
+        alert("Please click Ok to send mail.");
+        $http.post(location.origin+"/demo/cms/site/apply_online", a)
         .success(function (response) {
             if(typeof response.result!=='undefined'){
-                $scope.applyresponse = (response.result)?response.msg:'Please check inputs';
+                //$scope.applyresponse = (response.result)?response.msg:'Please check inputs';
+                var s = response.msg.replace(/(<\/div>|<div>|<\/p>|<p>|<\/ul>)/g, "").replace(/(<br\/>|<\/li>|<ul>)/g, "\n").replace(/<li>/g, "• ");
+                alert(s);
             }
         });
     };
@@ -83,6 +91,18 @@ function closeView() {
     },200);
 };
 
+function orderObjectBy(items, field, reverse) {
+    var filtered = [];
+    angular.forEach(items, function(item) {
+      filtered.push(item);
+    });
+    filtered.sort(function (a, b) {
+      return (a[field] > b[field] ? 1 : -1);
+    });
+    if(reverse) filtered.reverse();
+    return filtered;
+};
+
 function changeTitle(title) {
     document.title = title.toUpperCase() + " | BASE Technologies";
 };
@@ -119,7 +139,7 @@ app.controller('listController', function($scope, JsonService, $routeParams) {
                     $scope.detPage = $scope.page.child_pages[detail];
                     changeTitle($scope.detTitle);
                     
-                    var menuList = $scope.page.menu;
+                    var menuList = orderObjectBy($scope.page.menu,'sort_order',true);
                     var index = menuList.map(function(x) {
                         return x.page_slug; 
                     }).indexOf($scope.detPage.page_data.page_slug);
@@ -133,7 +153,7 @@ app.controller('listController', function($scope, JsonService, $routeParams) {
                         $scope.fvPage = $scope.detPage.child_pages[fv];
                         changeTitle($scope.fvTitle);
                         
-                        var menuList = $scope.detPage.menu;
+                        var menuList = orderObjectBy($scope.detPage.menu,'sort_order',true);
                         var index = menuList.map(function(x) {
                             return x.page_slug; 
                         }).indexOf($scope.fvPage.page_data.page_slug);
@@ -314,7 +334,7 @@ app.controller('galleryController', function($scope, JsonService, $routeParams) 
                     $scope.detPage = $scope.page.child_pages[detail];
                     changeTitle($scope.detTitle);
                     
-                    var menuList = $scope.page.menu;
+                    var menuList = orderObjectBy($scope.page.menu,'sort_order',true);
                     var index = menuList.map(function(x) {
                         return x.page_slug; 
                     }).indexOf($scope.detPage.page_data.page_slug);
@@ -339,13 +359,11 @@ app.controller('galleryController', function($scope, JsonService, $routeParams) 
     });
     
     $scope.nxtPage = function(a,b){
-        $scope.limit+=($scope.limit+5<b)?a:0;
-        console.log($scope.limit);
+        $scope.limit+=($scope.limit+a<b)?a:0;
     };
     
     $scope.prvPage = function(a){
         $scope.limit-=($scope.limit>=a)?a:0;
-        console.log($scope.limit);
     };
 });
 
@@ -358,6 +376,7 @@ app.controller('newsroomController', function($scope, JsonService, $routeParams,
         var currentPage = 'media';
         var sub = 'news-room';
         var detail = $routeParams.detail;
+        var fv = $routeParams.fvpage;
         
         if(typeof pages[currentPage]!=='undefined'){
             $scope.cur = pages[currentPage];
@@ -380,6 +399,25 @@ app.controller('newsroomController', function($scope, JsonService, $routeParams,
                     var nxt = (index<menuList.length-1)?(index+1):0;
                     $scope.prvProject = menuList[prv].page_slug;
                     $scope.nxtProject = menuList[nxt].page_slug;
+                    
+                    if(typeof fv!=='undefined' && typeof $scope.detPage.child_pages[fv]!=='undefined') {
+                        $scope.fvTitle = $scope.detPage.child_pages[fv].page_data.page_title;
+                        $scope.fvPage = $scope.detPage.child_pages[fv];
+                        changeTitle($scope.fvTitle);
+                        
+                        var menuList = $scope.detPage.menu;
+                        var index = menuList.map(function(x) {
+                            return x.page_slug; 
+                        }).indexOf($scope.fvPage.page_data.page_slug);
+
+                        var prv = (index>0)?(index-1):(menuList.length-1);
+                        var nxt = (index<menuList.length-1)?(index+1):0;
+                        $scope.prvProject = menuList[prv].page_slug;
+                        $scope.nxtProject = menuList[nxt].page_slug;
+                    }
+                    else {
+                        $scope.fvTitle = '404 PAGE NOT FOUND';
+                    }
                 }
                 else {
                     $scope.detTitle = '404 PAGE NOT FOUND';
