@@ -11,6 +11,7 @@
 app.controller('appController', function($http, $scope, $location, $window) {
     $scope.homeURL = location.origin+'/demo/';
     $scope.career = {};
+    $scope.career.sub = 'career';
     
     $scope.homepage = function(){
         closeView();
@@ -31,25 +32,22 @@ app.controller('appController', function($http, $scope, $location, $window) {
     
     $scope.sendmail = function(a,b,c){
         alert("Please click Ok to send mail.");
-        $http.post(location.origin+"/demo/cms/site/enquiry", {name:a,email:b,message:c})
+        $http.post(location.origin+"/demo/server/mail.php", {sub:'contact',name:a,email:b,message:c})
         .success(function (response) {
-            if(typeof response.result!=='undefined'){
-                //$scope.mailresponse = (response.result)?response.msg:'Please check inputs';
-                var s = response.msg.replace(/(<\/div>|<div>|<\/p>|<p>|<\/ul>)/g, "").replace(/(<br\/>|<\/li>|<ul>)/g, "\n").replace(/<li>/g, "• ");
-                alert(s);
-            }
+            $scope.name = $scope.email = $scope.message = '';
+            var s = response.replace(/(<\/div>|<div>|<\/p>|<p>|<\/ul>)/g, "").replace(/(<br\/>|<\/li>|<ul>)/g, "\n").replace(/<li>/g, "• ");
+            alert(s);
         });
     };
     
     $scope.sendapply = function(a){
         alert("Please click Ok to send mail.");
-        $http.post(location.origin+"/demo/cms/site/apply_online", a)
+        $http.post(location.origin+"/demo/server/mail.php", a)
         .success(function (response) {
-            if(typeof response.result!=='undefined'){
-                //$scope.applyresponse = (response.result)?response.msg:'Please check inputs';
-                var s = response.msg.replace(/(<\/div>|<div>|<\/p>|<p>|<\/ul>)/g, "").replace(/(<br\/>|<\/li>|<ul>)/g, "\n").replace(/<li>/g, "• ");
-                alert(s);
-            }
+            $scope.career = {};
+            $scope.career.sub = 'career';
+            var s = response.replace(/(<\/div>|<div>|<\/p>|<p>|<\/ul>)/g, "").replace(/(<br\/>|<\/li>|<ul>)/g, "\n").replace(/<li>/g, "• ");
+            alert(s);
         });
     };
 });
@@ -139,7 +137,7 @@ app.controller('listController', function($scope, JsonService, $routeParams) {
                     $scope.detPage = $scope.page.child_pages[detail];
                     changeTitle($scope.detTitle);
                     
-                    var menuList = orderObjectBy($scope.page.menu,'sort_order',true);
+                    var menuList = orderObjectBy($scope.page.menu,'sort_order',false);
                     var index = menuList.map(function(x) {
                         return x.page_slug; 
                     }).indexOf($scope.detPage.page_data.page_slug);
@@ -153,7 +151,7 @@ app.controller('listController', function($scope, JsonService, $routeParams) {
                         $scope.fvPage = $scope.detPage.child_pages[fv];
                         changeTitle($scope.fvTitle);
                         
-                        var menuList = orderObjectBy($scope.detPage.menu,'sort_order',true);
+                        var menuList = orderObjectBy($scope.detPage.menu,'sort_order',false);
                         var index = menuList.map(function(x) {
                             return x.page_slug; 
                         }).indexOf($scope.fvPage.page_data.page_slug);
@@ -189,7 +187,7 @@ app.controller('searchController', function($scope, $http, JsonService, $routePa
     $scope.company = 'SEARCH';
     $scope.subTitle = $routeParams.term;
     
-    $http.post("http://dcastalia.com/projects/web/base/cms/site/search_data", {'term':$routeParams.term})
+    $http.post(location.origin+"/demo/cms/site/search_data", {'term':$routeParams.term})
     .success(function (response) {
         $scope.results = response;
     });
@@ -255,7 +253,7 @@ app.controller('projectController', function($scope, JsonService, $routeParams) 
                     $scope.detPage = $scope.page.child_pages[detail];
                     changeTitle($scope.detTitle);
                     
-                    var menuList = $scope.page.menu;
+                    var menuList = orderObjectBy($scope.page.menu,'sort_order',false);
                     var index = menuList.map(function(x) {
                         return x.page_slug; 
                     }).indexOf($scope.detPage.page_data.page_slug);
@@ -334,7 +332,7 @@ app.controller('galleryController', function($scope, JsonService, $routeParams) 
                     $scope.detPage = $scope.page.child_pages[detail];
                     changeTitle($scope.detTitle);
                     
-                    var menuList = orderObjectBy($scope.page.menu,'sort_order',true);
+                    var menuList = orderObjectBy($scope.page.menu,'sort_order',false);
                     var index = menuList.map(function(x) {
                         return x.page_slug; 
                     }).indexOf($scope.detPage.page_data.page_slug);
@@ -390,7 +388,7 @@ app.controller('newsroomController', function($scope, JsonService, $routeParams,
                     $scope.detPage = $scope.page.child_pages[detail];
                     changeTitle($scope.detTitle);
                     
-                    var menuList = $scope.page.menu;
+                    var menuList = orderObjectBy($scope.page.menu,'sort_order',false);
                     var index = menuList.map(function(x) {
                         return x.page_slug; 
                     }).indexOf($scope.detPage.page_data.page_slug);
@@ -405,7 +403,7 @@ app.controller('newsroomController', function($scope, JsonService, $routeParams,
                         $scope.fvPage = $scope.detPage.child_pages[fv];
                         changeTitle($scope.fvTitle);
                         
-                        var menuList = $scope.detPage.menu;
+                        var menuList = orderObjectBy($scope.detPage.menu,'sort_order',false);
                         var index = menuList.map(function(x) {
                             return x.page_slug; 
                         }).indexOf($scope.fvPage.page_data.page_slug);

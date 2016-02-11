@@ -2,9 +2,9 @@
     <div class="page-title-text">
         <h2>{{fvTitle}}</h2>
         <span>{{detTitle}}</span>
-        <div class="page-title-btn" data-ng-if="detPage.child_pages.length!=0">
-            <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/detPage{{prvProject}}"><i class="fa fa-angle-left"></i></a>
-            <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/detPage{{nxtProject}}"><i class="fa fa-angle-right"></i></a>
+        <div class="page-title-btn" ng-if="detPage.menu.length>1">
+            <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}/{{prvProject}}"><i class="fa fa-angle-left"></i></a>
+            <a href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}/{{nxtProject}}"><i class="fa fa-angle-right"></i></a>
         </div>
     </div><!--.page-title-text-->
 </div>
@@ -17,7 +17,7 @@
         <li data-ng-show="company"><a ng-click="homepage()">HOME</a></li>
         <li data-ng-if="cur.child_pages.menu.length>1">{{company}}</li>
         <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{subTitle}}</a></li>
-        <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}">{{detTitle}}</a></li>
+        <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">{{detTitle}}</a></li>
         <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}/{{fvPage.page_data.page_slug}}">{{fvTitle}}</a></li>
     </ul>
 

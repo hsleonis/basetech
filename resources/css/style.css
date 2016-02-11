@@ -1362,6 +1362,10 @@ section .area{
     padding-right: 17%; 
 }
 
+.breadcrumbs li:last-child{
+
+}
+
 .breadcrumbs li{
     float: left;
     padding: 0 10px;
@@ -2396,6 +2400,9 @@ section .area{
 
 .detalis-text-wpr .mail-response{left: 0;padding-left: 0}
 
+.carousel-indicators li,
+.carousel-indicators .active{height: 5px}
+
 /*Close button fixing*/
 .product-view-area .list-close{left: 50px}
 
@@ -2733,6 +2740,23 @@ section .area{
 
     .product-list-row .product-view-area .product-list-li-wpr p{font-size: 12px}
 
+    /*.breadcrumbs li{
+        width: auto;
+        max-width: 95px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+*/
+    .breadcrumbs li{width: auto;}
+    .breadcrumbs li a{
+        width: auto;
+        max-width: 95px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        float: left;
+    }
 }
 
 
@@ -2894,8 +2918,9 @@ section .area{
     
     .share-area li:first-child{display: none;}
 
+    .jubair-linkedin{width: 78px}
     .jubair-linkedin li{margin:0;}
-    .jubair-linkedin li:first-child{display: block;width: 80px !important}
+    .jubair-linkedin li:first-child{display: block;width: auto !important;margin-left: 5px}
 
 
     .menu-list h4{min-height:auto;height:auto;width: 100%}
@@ -3283,12 +3308,19 @@ section .area{
         height: -ms-calc(100% - 25px);
     }
 
+    .upper-btn{
+        height: 50px;
+        line-height: 50px;
+        font-size: 28px;
+    }
+
     #leaders .upper-btn,
     #about-us .upper-btn,
     #testimonial .upper-btn{
         top: 18%;
         height: 50px;
         line-height: 50px;
+        font-size: 28px;
     }
 
     #contact-us .upper-btn{
@@ -3309,6 +3341,10 @@ section .area{
     .page-title-text-contact{
         top: 33%;
     }
+
+    .page-title-text h2{font-size: 18px}
+    .page-title-text span{font-size: 14px}
+
     .page-title-text-contact h2{font-size: 23px;}
     .page-title-border-btm{width: 480px}
 
@@ -3330,5 +3366,5 @@ section .area{
 
 @media (max-height: 440px){
 
-    .page-title-text{top: 33%}
+    .page-title-text{top: 45%}
 }
