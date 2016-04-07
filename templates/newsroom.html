@@ -1,4 +1,4 @@
-<div class="col-33 col-xs-6 area detail-banner" style="background-image: url({{fvPage.page_banner}});">
+<div class="col-33 col-xs-6 area detail-banner page-{{fvPage.page_data.page_slug}} detail-newsroom" style="background-image: url({{fvPage.page_banner}});">
     <div class="page-title-text">
         <h2>{{fvTitle}}</h2>
         <span>{{detTitle}}</span>
@@ -20,15 +20,13 @@
         <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}">{{detTitle}}</a></li>
         <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}/{{fvPage.page_data.page_slug}}">{{fvTitle}}</a></li>
     </ul>
-
-    <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll="">
-        <!-- <div class="detalis-text-wpr" bind-unsafe-html="detPage.page_data.page_desc">
-        </div> --><!--.detalis-text-wpr-->
+    
+    <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll="" ng-if="fvPage.page_type=='page'">
+        <div class="detalis-text-wpr" bind-unsafe-html="fvPage.page_data.page_desc">
+        </div><!--.detalis-text-wpr-->
+    </div>
+    <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll="" ng-if="fvPage.page_type!='page'">
         <div class="col-xs-6">
-                    <!--<div class="row">-->
-                    <!--<div class="news-img-box">
-                        <img src="{{detPage.page_banner}}" data-ng-image-load-animation="" alt="{{detTitle}}" class="img-responsive"/>
-                    </div>--><!--.news-img-box-->
                     <div class="img-thumbnail-box">
                         <ul>
                             <li style="background-image:url('{{img.image}}')" lightgallery data-ng-repeat="img in fvPage.page_images" data-src="{{img.short_title}}">
@@ -36,7 +34,6 @@
                             </li>
                         </ul>
                     </div><!--.img-thumbnail-box-->
-                    <!--</div>-->
                 </div>
                 <div class="col-xs-6 news-border">
 

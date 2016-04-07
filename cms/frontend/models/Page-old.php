@@ -4,7 +4,6 @@ namespace frontend\models;
 
 use Yii;
 use yii\helpers\Url;
-use backend\models\PageTypeRel;
 
 /**
  * This is the model class for table "page".
@@ -43,7 +42,7 @@ class Page extends \yii\db\ActiveRecord
     {
         return [
             [['page_title', 'page_slug', 'short_desc', 'meta_key', 'meta_desc', 'date', 'page_desc', 'status', 'created_at', 'created_by', 'updated_by', 'is_archive'], 'required'],
-            [['date', 'created_at', 'updated_at', 'ext_url','is_video'], 'safe'],
+            [['date', 'created_at', 'updated_at', 'ext_url'], 'safe'],
             [['page_desc'], 'string'],
             [['created_by', 'updated_by', 'is_archive'], 'integer'],
             [['page_title', 'page_slug', 'short_desc', 'meta_key', 'meta_desc'], 'string', 'max' => 255],
@@ -149,14 +148,8 @@ class Page extends \yii\db\ActiveRecord
                 $options[$value->page_slug]['page_tags'] = $value->tags;
                 $options[$value->page_slug]['page_images'] = $value->images;
                 $options[$value->page_slug]['sort_order'] = $value->sort_order;
-                $options[$value->page_slug]['show_video_icon'] = $value->is_video;
                 $options[$value->page_slug]['page_banner']='';
                 $options[$value->page_slug]['page_thumb']='';
-
-                $get_page_rels = PageTypeRel::find()->where(['page_id' => $value->id])->one();
-                if(!empty($get_page_rels)){
-                  $options[$value->page_slug]['page_type'] = $get_page_rels->page_type;
-                }
                 
                 if(!empty($value->images))
                 foreach ($value->images as $image) {
@@ -199,7 +192,7 @@ class Page extends \yii\db\ActiveRecord
                 $options[$value->page_title]['page_data']['page_slug'] = $value->page_slug;
                 $options[$value->page_title]['page_data']['short_desc'] = $value->short_desc;
                 $options[$value->page_title]['page_data']['page_desc'] = $value->page_desc;
-                $options[$value->page_title]['page_data']['show_video_icon'] = $value->is_video;
+                /*$options[$value->page_title]['page_data']['sort_order'] = $value->sort_order;*/
 				
 				
                 $options[$value->page_title]['page_types'] = $value->types;
@@ -260,12 +253,7 @@ class Page extends \yii\db\ActiveRecord
                 $options[$value->page_slug]['page_data']['page_slug'] = $value->page_slug;
                 $options[$value->page_slug]['page_data']['short_desc'] = $value->short_desc;
                 $options[$value->page_slug]['page_data']['page_desc'] = $value->page_desc;
-
-                $get_page_rels = PageTypeRel::find()->where(['page_id' => $value->id])->one();
-                if(!empty($get_page_rels)){
-                  $options[$value->page_slug]['page_data']['page_type'] = $get_page_rels->page_type;
-                }
-                $options[$value->page_slug]['page_data']['show_video_icon'] = $value->is_video;
+                //$options[$value->page_slug]['page_data']['sort_order'] = $value->sort_order;
 				
                 //$options[$value->page_slug]['page_types'] = $value->types;
                 //$options[$value->page_slug]['page_tags'] = $value->tags;
@@ -317,12 +305,6 @@ class Page extends \yii\db\ActiveRecord
                 $options['page_data']['page_desc'] = $value->page_desc;
                 $options['page_data']['sort_order'] = $value->sort_order;
                 $options['sort_order'] = $value->sort_order;
-                $options['show_video_icon'] = $value->is_video;
-                
-		$get_page_rels = PageTypeRel::find()->where(['page_id' => $value->id])->one();
-                if(!empty($get_page_rels)){
-                  $options['page_type'] = $get_page_rels->page_type;
-                }
 													   
                 //$options['page_types'] = $value->types;
                 //$options['page_tags'] = $value->tags;

@@ -21,8 +21,27 @@
         <li><a data-ng-href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}/{{fvPage.page_data.page_slug}}">{{fvTitle}}</a></li>
     </ul>
 
-    <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll="">
+    <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll="" ng-if="fvPage.page_type!='media'">
         <div class="detalis-text-wpr" bind-unsafe-html="fvPage.page_data.page_desc">
         </div><!--.detalis-text-wpr-->
+    </div>
+    <div id="product-list-li-wpr" class="product-list-li-wpr" data-ng-scroll="" ng-if="fvPage.page_type=='media'">
+        <div class="col-xs-6">
+            <div class="img-thumbnail-box">
+                <ul>
+                    <li style="background-image:url('{{img.image}}')" lightgallery data-ng-repeat="img in fvPage.page_images" data-src="{{img.short_title}}">
+                        <a href="#"><img src="{{img.image}}" data-ng-image-load-animation="" alt="" class="img-responsive"/></a>
+                    </li>
+                </ul>
+            </div><!--.img-thumbnail-box-->
+        </div>
+        <div class="col-xs-6 news-border">
+
+            <div class="new-view-board-wpr">
+                <h3>{{fvTitle}}</h3>
+                <span data-ng-bind-html="fvPage.page_data.page_desc"></span>
+            </div><!--.new-view-board-wpr-->
+
+        </div>
     </div>
 </div>
