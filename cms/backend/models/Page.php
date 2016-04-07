@@ -65,7 +65,7 @@ class Page extends \yii\db\ActiveRecord
     {
         return [
             [['page_title', 'page_slug', 'status'], 'required'],
-            [['date', 'created_at', 'updated_at','sort_order', 'ext_url'], 'safe'],
+            [['date', 'created_at', 'updated_at','sort_order', 'ext_url','is_video'], 'safe'],
             [['page_desc'], 'string'],
             [['is_archive'],'integer'],
             [['page_title', 'page_slug', 'short_desc', 'meta_key', 'meta_desc'], 'string', 'max' => 255],
@@ -92,6 +92,7 @@ class Page extends \yii\db\ActiveRecord
             'page_desc' => 'Page Desc',
             'status' => 'Status',
             'created_by' => 'Created By',
+            'is_video' => 'Show video icon',
             'updated_by' => 'Updated By',
             'createUserName' => Yii::t('app', 'Created By'),
             'updateUserName' => Yii::t('app', 'Updated By'),

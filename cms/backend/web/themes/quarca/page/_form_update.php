@@ -76,6 +76,11 @@ use kartik\checkbox\CheckboxX;
                                                             array ('active'=>'Active', 'archive'=>'Archive') 
                                                         ); ?>
 
+				 <?= $form->field($model, 'is_video')
+                                                            ->dropDownList(
+                                                                array ('0'=>'No', '1'=>'Yes') 
+                                                            ); ?>
+
 
                         </div>
 
@@ -116,16 +121,11 @@ use kartik\checkbox\CheckboxX;
 
                         <div class="col-md-3">
                                 <?php
-                                    $data = array ('Home'=>'Home', 
-                                                       'Resume'=>'Resume', 
-                                                       'About'=>'About', 
-                                                       'Skills'=>'Skills', 
-                                                       'Works'=>'Works', 
-                                                       'Contact'=>'Contact',
-                                                       'Service'=>'Service', 
-                                                       'Project'=>'Project', 
+                                   $data = array ('page'=>'Page', 
+                                                       'media'=>'Media',
                                                         )
                                 ?>
+
 
                                 <label>Page Types</label>
                                 <?= Select2::widget([

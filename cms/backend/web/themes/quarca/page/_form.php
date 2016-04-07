@@ -70,18 +70,15 @@ use kartik\select2\Select2;
                                     
 
                                     <?php
-                                        $data = array ('Home'=>'Home', 
-                                                       'Resume'=>'Resume', 
-                                                       'About'=>'About', 
-                                                       'Skills'=>'Skills', 
-                                                       'Works'=>'Works', 
-                                                       'Contact'=>'Contact',
-                                                       'Service'=>'Service', 
-                                                       'Project'=>'Project', 
+                                        $data = array ('page'=>'Page', 
+                                                       'media'=>'Media',
                                                         )
                                     ?>
 
-
+                                    <?= $form->field($model, 'is_video')
+                                                            ->dropDownList(
+                                                                array ('0'=>'No', '1'=>'Yes') 
+                                                            ); ?>
 
 
                             </div>
