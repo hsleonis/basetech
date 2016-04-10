@@ -19,7 +19,7 @@
         <ul class="product-view-result-ul">
             <li data-ng-repeat="(key, subpage) in page.child_pages|orderObjectBy:'sort_order':false" data-ng-hide="key=='menu'">
                 <a ng-if="subpage.page_data.ext_url.length>1" href="{{subpage.page_data.ext_url}}" target="_blank">
-                    <div class="product-img-box">
+                    <div class="product-img-box" ng-class="{'vidicon':subpage.show_video_icon}">
                         <img src="{{subpage.page_thumb}}" alt=""/>
                     </div><!--.product-img-box-->
                     <div class="list-result-text">
@@ -31,7 +31,7 @@
                     </div>
                 </a>
                 <a ng-if="subpage.page_data.ext_url.length<1" href="{{homeURL}}{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{subpage.page_data.page_slug}}">
-                    <div class="product-img-box">
+                    <div class="product-img-box" ng-class="{'vidicon':subpage.show_video_icon}">
                         <img src="{{subpage.page_thumb}}" alt=""/>
                     </div><!--.product-img-box-->
                     <div class="list-result-text">

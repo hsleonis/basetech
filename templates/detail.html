@@ -61,7 +61,7 @@
         <ul class="product-view-result-ul">
             <li data-ng-repeat="(key, subpage) in detPage.child_pages|orderObjectBy:'sort_order':false" data-ng-hide="key=='menu'">
                 <a href="{{cur.page_data.page_slug}}/{{page.page_data.page_slug}}/{{detPage.page_data.page_slug}}/{{subpage.page_data.page_slug}}">
-                    <div class="product-img-box" ng-if="subpage.page_thumb.length>1">
+                    <div class="product-img-box" ng-if="subpage.page_thumb.length>1" ng-class="{'vidicon':subpage.show_video_icon}">
                         <img src="{{subpage.page_thumb}}" alt=""/>
                     </div><!--.product-img-box-->
                     <div class="list-result-text">
