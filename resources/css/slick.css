@@ -237,3 +237,29 @@
     vertical-align: middle;
     line-height: 75px;
 }
+
+#newsticker {
+    position: absolute;
+    bottom: 0;
+    height: 120px;
+    width: 320px;
+    left: 90px;
+    font-weight: 300 !important;
+}
+
+#newsticker .carousel-caption {
+    background-color: #0F171F;
+    margin: 0;
+    padding: 15px;
+}
+
+#newsticker .carousel-caption h3 {
+    font-size: 18px !important;
+    text-shadow: 0 0 0 !important;
+}
+
+#newsticker .carousel-caption p {
+    padding: 0 7%;
+    height: 40px;
+    text-shadow: 0 0 0 !important;
+}

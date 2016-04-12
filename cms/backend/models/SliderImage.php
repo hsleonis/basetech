@@ -31,7 +31,8 @@ class SliderImage extends \yii\db\ActiveRecord
         return [
             [['slider_id', 'image'], 'required'],
             [['slider_id'], 'integer'],
-            [['image', 'short_title', 'short_desc'], 'string', 'max' => 255]
+            [['url'],'url'],
+            [['image', 'short_title', 'short_desc','url'], 'string', 'max' => 255]
         ];
     }
 
@@ -46,6 +47,7 @@ class SliderImage extends \yii\db\ActiveRecord
             'image' => 'Image',
             'short_title' => 'Short Title',
             'short_desc' => 'Short Desc',
+            'url' => 'Url'
         ];
     }
 }

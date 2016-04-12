@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use yii\helpers\Url;
 use frontend\models\SliderImage;
 
 /**
@@ -61,6 +62,35 @@ class Slider extends \yii\db\ActiveRecord
     public static function get_slider_1($slider_id){
         $data = Slider::find()->where(['id'=>$slider_id])->one();
         
-        return $data->slider_rel;
+        $options = [];
+        $datas = [];
+
+        $slider_images = SliderImage::find()->where(['slider_id' => $data->id])->all();
+        
+            
+        
+        if(!empty($slider_images)){
+            $i=0;
+            foreach ($slider_images as $key => $value) {
+				$options[$i]['id'] = $value->id;
+                $options[$i]['page_title'] = $value->image;
+                $options[$i]['page_slug'] = $value->short_title;
+                $options[$i]['short_desc'] = $value->short_desc;
+                
+                if(!empty($value->url)){
+                    $options[$i]['url'] = $value->url;
+                }else{
+                    $options[$i]['url'] = Yii::$app->urlManager->createAbsoluteUrl('/').'slider_images/'.$value->image;
+                }
+                
+                $options[$i]['sort_order'] = $value->sort_order;
+                
+                $i++;
+            }
+        }
+        
+
+        return $options;
+        
     }
 }

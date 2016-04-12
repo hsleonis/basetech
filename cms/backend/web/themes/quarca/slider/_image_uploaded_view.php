@@ -12,6 +12,8 @@
 			<input type="text" name="short_title" class="image_info_title<?php echo $id; ?>">
 			<label>Short Description</label>
 			<input type="text" name="short_desc" class="image_info_desc<?php echo $id; ?>">
+            <label>Link</label>
+			<input type="text" name="url" class="image_url<?php echo $id; ?>">
 
 
 			<div class="image_upload_cont_btn_panel">

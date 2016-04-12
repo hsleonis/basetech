@@ -61,4 +61,31 @@ class News extends \yii\db\ActiveRecord
         ];
     }
     
+    public static function get_news_1(){
+                
+        $options = [];
+        $datas = [];
+
+        $news_data_r = News::find()->where(['status' => 1])->all();
+        
+            
+        
+        if(!empty($news_data_r)){
+            $i=0;
+            foreach ($news_data_r as $key => $value) {
+				$options[$i]['id'] = $value->id;
+                $options[$i]['title'] = $value->title;
+                $options[$i]['slug'] = $value->slug;
+                $options[$i]['desc'] = $value->desc;
+                $options[$i]['ext_url'] = $value->ext_url;
+                
+                $i++;
+            }
+        }
+        
+
+        return $options;
+        
+    }
+    
 }

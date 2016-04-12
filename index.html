@@ -86,8 +86,7 @@
         <div id="fullpage">
              <!-- SLIDER -->
             <section id="" class="section">
-                 <!--  <div class="container-fluid" data-ng-include="'templates/slider.html'"></div>  --><!-- .home-page-wrapper -->
-                 <div id="layerslider" style="width:100%;height:100%;overflow:hidden;">
+                <div id="layerslider" style="width:100%;height:100%;overflow:hidden;">
                     <div class="ls-slide">
                         <img src="resources/img/banner/00.jpg" class="ls-bg"/>
                     </div>
@@ -118,7 +117,26 @@
                             <span class="slide"><span class="first-letter">U</span>nparalleled <span class="first-letter">I</span>ntegrity</span>
                         </div>
                     </div>
-                </div>  
+                </div>
+                <div id="newsticker" ng-controller="newstickerController" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for news -->
+                    <div class="carousel-inner" role="listbox">
+
+                        <div class="item" ng-class="{'active':$index==0}" ng-repeat="(key,p) in newsticker|orderObjectBy:'sort_order':false">
+                            <div class="carousel-caption">
+                                <a href="{{p.ext_url}}"><h3>{{p.title}}</h3>
+                                <p ng-bind-html="p.desc"></p>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div><!-- .carousel-inner -->
+
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#newsticker" data-slide-to="{{$index}}" ng-class="{'active':$index==0}" ng-repeat="(key,p) in newsticker"></li>
+                    </ol>
+                </div>
             </section><!-- #home-page -->
 
             <!-- LEADERS -->
@@ -170,7 +188,6 @@
                 <div class="contact-us-home-page-wrapper container-fluid" data-ng-include="'templates/contact.html'">
                 </div><!-- .contact-us-home-page-wrapper -->
             </section><!-- #contact-us -->
-transformoriginout
             
         </div><!-- #fullpage -->
 
@@ -212,13 +229,7 @@ transformoriginout
         <script src="angular/directives/main.dic.js"></script>
         <script src="angular/services/main.ser.js"></script>
         <script src="angular/controllers/main.ctrl.js"></script>
-        <script src="angular/controllers/jquery.browser.js"></script>
 
         <script src="resources/js/main.js"></script>
-        <script type="text/javascript">
-            if($.browser.msie && parseFloat($.browser.version)&lt;8){
-                alert("IE Verson 10");
-        }
-        </script>
 </body>
 </html>

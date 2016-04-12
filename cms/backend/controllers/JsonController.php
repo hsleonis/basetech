@@ -6,6 +6,7 @@ use yii\helpers\Html;
 use frontend\models\Page;
 use frontend\models\Slider;
 use frontend\models\Product;
+use frontend\models\News;
 
 
 use yii\base\InvalidParamException;
@@ -71,7 +72,7 @@ class JsonController extends Controller
                 'cors' => [
                     // restrict access to
                     'Origin' => ['http://192.168.1.55:8080'],
-                    'Access-Control-Request-Method' => ['GET'],
+                    'Access-Control-ReactionGet_landing_sliderquest-Method' => ['GET'],
                     // Allow only POST and PUT methods
                     'Access-Control-Request-Headers' => ['X-Wsse'],
                     // Allow only headers 'X-Wsse'
@@ -116,10 +117,43 @@ class JsonController extends Controller
             return $response;
         }
 
-        return $this->render('index'/*,['menu'=>$menu]*/);
+        return $this->render('index'/*,['menu'=>$menu]backend\controllers\News*/);
+    }
+    
+    
+    public function actionGet_news(){
+
+           // \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            $response = [];        
+
+            // return $response;
+            $news_data = News::get_news_1();
+            $response['home-news'] = $news_data;
+
+
+            $fp = fopen('json/news.json', 'w');
+            fwrite($fp, \yii\helpers\Json::encode($response));
+            fclose($fp);
+
+            return $this->redirect(['/']);
     }
 
+    public function actionGet_landing_slider(){
 
+           // \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            $response = [];        
+
+            // return $response;
+            $slider_data = Slider::get_slider_1(1);
+            $response['home-slider'] = $slider_data;
+
+
+            $fp = fopen('json/slider.json', 'w');
+            fwrite($fp, \yii\helpers\Json::encode($response));
+            fclose($fp);
+
+            return $this->redirect(['/']);
+    }
 
     public function actionGet_landing_section(){
 
@@ -174,7 +208,7 @@ class JsonController extends Controller
 
         foreach($project_list_r as $project_list ){
             $response = [];
-
+get_slider_1
             $fp = fopen('json/project_list.json', 'w');
             fwrite($fp, \yii\helpers\Json::encode($response));
             fclose($fp);  

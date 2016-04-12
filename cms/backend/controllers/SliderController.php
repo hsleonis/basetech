@@ -161,6 +161,7 @@ class SliderController extends Controller
             if(!empty($SliderImage_model)){
                 $SliderImage_model->short_title = $_POST['title'];
                 $SliderImage_model->short_desc = $_POST['desc']; 
+                $SliderImage_model->url = $_POST['url']; 
 
                 if($SliderImage_model->save()){
                     $response['files'] = ['msg'=> 'Data saved successfully'];

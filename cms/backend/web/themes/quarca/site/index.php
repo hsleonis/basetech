@@ -25,13 +25,13 @@ use yii\helpers\Url;
             <a class="btn btn-sm btn-primary" style="width:100%;" href="<?= Url::toRoute(['json/create_json_page']); ?>">Create Json</a>
         </div>
 
-        <!--<div class="col-md-3">
-            <a class="btn btn-sm btn-primary" style="width:100%;" href="<?php // Url::toRoute(['json/create_product_list']); ?>">Create project List Json</a>
-        </div>-->
+        <div class="col-md-3">
+            <a class="btn btn-sm btn-primary" style="width:100%;" href="<?php Url::toRoute(['json/get_news']); ?>">Create News Json</a>
+        </div>
 
-        <!--<div class="col-md-3">
-            <a class="btn btn-sm btn-primary" style="width:100%;" href="<?php // Url::toRoute(['json/create_all_project_detail']); ?>">Create project detail Json</a>
-        </div>-->
+        <div class="col-md-3">
+            <a class="btn btn-sm btn-primary" style="width:100%;" href="<?php Url::toRoute(['json/get_landing_slider']); ?>">Create Home Slider Json</a>
+        </div>
 
     </div>
 </div>

@@ -1,6 +1,6 @@
 /*
  CONTROLLERS v1.0.1
- BASE TECHNOLOGIES. v3.1
+ BASE TECHNOLOGIES. v4.1
  (c) 2015 DCASTALIA, http://dcastalia.com
  License: GPLv-3
  Author: MD. Hasan Shahriar
@@ -66,8 +66,6 @@ app.controller('appController', function($http, $scope, $location, $window) {
         alert("Please click Ok to send mail.");
         $http.post(location.origin+"/server/mail.php", a)
         .success(function (response) {
-            //$scope.career = {};
-            //$scope.career.sub = 'career';
             var s = response.replace(/(<\/div>|<div>|<\/p>|<p>|<\/ul>)/g, "").replace(/(<br\/>|<\/li>|<ul>)/g, "\n").replace(/<li>/g, "• ");
             if(response=='Mail successfully sent') {
 		      s = "Thank you for showing your interest to be a BASE Citizen. We will get back to you, if you're shortlisted for a position.";
@@ -473,6 +471,13 @@ app.controller('newsroomController', function($scope, JsonService, $routeParams,
             $scope.company = '404 PAGE NOT FOUND';
             $scope.subTitle = '';
         }
+    });
+});
+
+// Home News Controller
+app.controller('newstickerController', function($scope, $http, $routeParams, $filter) {
+    $http.get(location.origin+'/projects/web/base/cms/administrator/json/news.json',{}).success(function(data){
+        $scope.newsticker = data["home-news"];
     });
 });
 

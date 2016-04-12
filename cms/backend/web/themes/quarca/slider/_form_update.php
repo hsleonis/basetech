@@ -88,6 +88,8 @@ $this->registerJsFile(Url::base()."/files/html.sortable.js", ['depends' => [\yii
                             <input type="text" name="short_title" value="<?= $key->short_title; ?>" class="image_info_title<?php echo $key->id; ?>">
                             <label>Short Description</label>
                             <input type="text" name="short_desc" value="<?= $key->short_desc; ?>" class="image_info_desc<?php echo $key->id; ?>">
+                            <label>Url</label>
+                            <input type="text" name="url" value="<?= $key->url; ?>" class="image_url<?php echo $key->id; ?>">
 
 
                             <div class="image_upload_cont_btn_panel">
@@ -159,13 +161,14 @@ $this->registerJsFile(Url::base()."/files/html.sortable.js", ['depends' => [\yii
                         var id = $(this).attr('data_id');
                         var title = $('.image_info_title'+id).val();
                         var desc = $('.image_info_desc'+id).val();
+                        var url = $('.image_url'+id).val();
 
 
                         $.ajax({
                             type : 'POST',
                             dataType : 'json',
                             url : '".Url::toRoute('slider/save_image_info')."',
-                            data: {id:id,title:title,desc:desc},
+                            data: {id:id,title:title,desc:desc,url:url},
                             beforeSend : function( request ){
                                 $('.image_'+id+' .loader_img').show();
                             },

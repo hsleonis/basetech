@@ -10,6 +10,7 @@ use backend\models\PageImageRel;
 use backend\models\PageTypeRel;
 use backend\models\MenuPageRels;
 use backend\models\PageTagsRel;
+use backend\models\ProductFiles;
 use backend\models\Post;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -143,7 +144,18 @@ class PageController extends Controller
             
         }
     }
-
+    
+    
+    public function actionCompanyprofile(){
+        
+        $file_modal = new ProductFiles();
+        return $this->render('companyprofile',[
+                'file_modal' => $file_modal
+                
+            ]);
+    }
+    
+    
     public function actionRestore_page($id){
         if (Yii::$app->request->isAjax) {
 
@@ -365,6 +377,31 @@ class PageController extends Controller
 
         }
     }
+    
+    
+    
+    
+    public function actionUpload_companyprofile(){
+        if( Yii::$app->request->isAjax ){
+            $model = new Page();
+            $rel_model = new ProductFiles();
+            
+            $uploaded_image = UploadedFile::getInstance($rel_model, 'file_name');
+          
+
+            $uploaded_completed = $uploaded_image->saveAs('company_profile/companyprofile.' . $uploaded_image->extension);
+            
+            
+            if($uploaded_completed){
+                
+                return $this->redirect('companyprofile');
+            }else{
+                echo 'Something wrong';
+            }
+    }
+            
+    }
+           
 
     /*public function actionDelete_uploaded_file(){
         if (Yii::$app->request->isAjax) {

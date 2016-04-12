@@ -223,19 +223,37 @@ AppAsset::register($this);
                               </li>
                               
                                 
-                              <!--
+                            
                               
-                              <li class="<?php //echo (Yii::$app->controller->id=='slider')?'active':''; ?>">
+                              <li class="<?php echo (Yii::$app->controller->id=='slider')?'active':''; ?>">
                                   <a href="#">
                                     <i class="fa fa-picture-o fa-fw fa-lg"></i> Slider Module
                                   </a>
                                   <ul class="collapse">
-                                    <li><a href="<?php //echo Url::toRoute(['/slider/index']); ?>">Manage Slider</a></li>
-                                    <li><a href="<?php //echo Url::toRoute(['/slider/create']); ?>">Create Slider</a></li>
+                                    <li><a href="<?php echo Url::toRoute(['/slider/index']); ?>">Manage Slider</a></li>
+                                    <li><a href="<?php echo Url::toRoute(['/slider/create']); ?>">Create Slider</a></li>
                                   </ul>
-                              </li>-->
+                              </li>
                               
-
+                                
+                            <li class="<?php echo (Yii::$app->controller->id=='news')?'active':''; ?>">
+                                  <a href="#">
+                                    <i class="fa fa-newspaper-o fa-fw fa-lg"></i> News Module
+                                  </a>
+                                  <ul class="collapse">
+                                    <li><a href="<?php echo Url::toRoute(['/news/index']); ?>">Manage News</a></li>
+                                    <li><a href="<?php echo Url::toRoute(['/news/create']); ?>">Create News</a></li>
+                                  </ul>
+                              </li>
+                                
+                                <li class="<?php echo (Yii::$app->controller->id=='news')?'active':''; ?>">
+                                  <a href="#">
+                                    <i class="fa fa-file-o fa-fw fa-lg"></i> File Module
+                                  </a>
+                                  <ul class="collapse">
+                                    <li><a href="<?php echo Url::toRoute(['/page/companyprofile']); ?>">Company Profile</a></li>
+                                  </ul>
+                              </li>
                           
                           
                             </ul><!-- sidebar-nav -->
